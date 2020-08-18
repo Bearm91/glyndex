@@ -12,7 +12,6 @@ import java.util.List;
 public class CategoryRepository {
 
     private CategoryDao categoryDao;
-    private Category category;
     private List<Category> categoryList;
     private int categoryId;
 

@@ -1,4 +1,4 @@
-package com.bearm.glyndex;
+package com.bearm.glyndex.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bearm.glyndex.R;
 import com.bearm.glyndex.models.Category;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private Context context;
 
     // data is passed into the constructor
-    CategoryAdapter(Context context, List<Category> data) {
+    public CategoryAdapter(Context context, List<Category> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
