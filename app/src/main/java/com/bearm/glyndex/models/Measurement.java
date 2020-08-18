@@ -1,27 +1,31 @@
 package com.bearm.glyndex.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="Measurements", foreignKeys = @ForeignKey(entity = Measurement.class,
+@Entity(tableName="Measurements", foreignKeys = @ForeignKey(entity = Food.class,
         parentColumns = ("id"),
         childColumns = ("foodId"),
         onDelete = ForeignKey.CASCADE))
 
 public class Measurement {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name="name")
     private String name;
-    private long chrationPerMeasurement;
+    @ColumnInfo(name="chRationPerMeasurement")
+    private float chRationPerMeasurement;
+    @ColumnInfo(name="foodId")
     private int foodId;
 
 
 
     // Getter Methods
 
-    public long getChrationPerMeasurement() {
-        return chrationPerMeasurement;
+    public float getChRationPerMeasurement() {
+        return chRationPerMeasurement;
     }
 
     public int getFoodId() {
@@ -38,8 +42,8 @@ public class Measurement {
 
     // Setter Methods
 
-    public void setChrationPerMeasurement(long chrationPerMeasurement) {
-        this.chrationPerMeasurement = chrationPerMeasurement;
+    public void setChRationPerMeasurement(float chRationPerMeasurement) {
+        this.chRationPerMeasurement = chRationPerMeasurement;
     }
 
     public void setFoodId(int food) {
@@ -59,7 +63,7 @@ public class Measurement {
 
     public String toString() {
         return "Measurement{" +
-                "chrationPerMeasurement=" + chrationPerMeasurement +
+                "chrationPerMeasurement=" + chRationPerMeasurement +
                 ", food=" + foodId +
                 ", id=" + id +
                 ", name='" + name + '\'' +

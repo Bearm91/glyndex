@@ -1,5 +1,6 @@
 package com.bearm.glyndex.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -12,9 +13,13 @@ import androidx.room.PrimaryKey;
 public class Food {
     @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name="name")
     private String name;
+    @ColumnInfo(name="categoryId")
     private int categoryId;
+    @ColumnInfo(name="gI")
     private int gI;
+    @ColumnInfo(name = "gramsPerChRation")
     private long gramsPerChRation;
 
 

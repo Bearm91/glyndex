@@ -1,5 +1,6 @@
 package com.bearm.glyndex.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,7 +9,9 @@ public class Category {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name="name")
     private String name;
+    @ColumnInfo(name="iconName")
     private String iconName;
 
     public Category() {
