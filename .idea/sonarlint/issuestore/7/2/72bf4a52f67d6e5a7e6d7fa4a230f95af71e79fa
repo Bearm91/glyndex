@@ -1,0 +1,7 @@
+
+H
+java:S1172-"+Remove this unused method parameter "food".(Ãí´›8àÑ‡å¿.
+†
+java:S4165."dRemove this useless assignment; "foodId" already holds the assigned value along all execution paths.(¢å­ıÿÿÿÿ8àÑ‡å¿.
+
+java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹èå8ŞÒæÊ¿.
