@@ -20,9 +20,14 @@ public class FoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+
         Bundle bundle = getIntent().getExtras();
         int categoryId = bundle.getInt("CategoryId");
+        String categoryName = bundle.getString("CategoryName");
         loadFoodList(categoryId);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(categoryName);
     }
 
     private void loadFoodList(int catId) {
