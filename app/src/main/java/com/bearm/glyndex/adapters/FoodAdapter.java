@@ -1,7 +1,6 @@
 package com.bearm.glyndex.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.TransitionManager;
 
 import com.bearm.glyndex.R;
-import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 
 import java.util.List;
@@ -26,10 +24,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private Context context;
 
     // data is passed into the constructor
-    public FoodAdapter(Context context, List<Food> data) {
+    public FoodAdapter(Context context, List<Food> data, ItemClickListener mClickListener) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
+        this.mClickListener = mClickListener;
     }
 
     // inflates the cell layout from xml when needed
@@ -44,12 +43,39 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Food currentFood = mData.get(position);
-        Log.e("FOODITEM", currentFood.toString());
+        //Log.e("FOODITEM", currentFood.toString());
+
+        //Food name
         holder.myNameView.setText(currentFood.getName());
 
-        int currentFoodGI = currentFood.getGI();
-        holder.myIGView.setText(String.valueOf(currentFoodGI));
+        //Glycemic index
+        Integer currentFoodGI = currentFood.getGI();
+        if (currentFoodGI == null) {
+            holder.myIGView.setText("-");
+        } else {
+            holder.myIGView.setText(String.valueOf(currentFoodGI));
+        }
 
+        //Glycemic index icon
+        String icon = "ic_up_yellow_arrow";
+        //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorYellow));
+
+        if (currentFoodGI == null) {
+            icon = "ic_up_blue_arrow";
+            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorGray));
+
+        } else if (currentFoodGI <= 55) {
+            icon = "ic_up_green_arrow";
+            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorGreen));
+        } else if (currentFoodGI >= 70) {
+            icon = "ic_up_red_arrow";
+            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorRed));
+        }
+
+        int resourceIdImage = context.getResources().getIdentifier(icon, "drawable",
+                context.getPackageName());
+        //use this id to set the image anywhere
+        holder.myImageView.setImageResource(resourceIdImage);
     }
 
     // total number of cells
@@ -60,33 +86,32 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myNameView;
         TextView myIGView;
+        ImageView myImageView;
+        CardView myCardView;
 
         ViewHolder(View itemView) {
             super(itemView);
             myNameView = itemView.findViewById(R.id.tv_food_name);
             myIGView = itemView.findViewById(R.id.tv_food_ig);
-
-            itemView.setOnClickListener(this);
+            myImageView = itemView.findViewById(R.id.iv_food_ig);
+            myCardView = itemView.findViewById(R.id.cv_food_item);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
+                }
+            });
 
         }
 
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-        }
     }
 
     // convenience method for getting data at click position
     Food getItem(int id) {
         return mData.get(id);
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
     }
 
     // parent activity will implement this method to respond to click events
