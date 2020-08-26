@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="6dp"
@@ -28,11 +29,7 @@
                 android:id="@+id/tv_cat_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                style="@style/CategoryListName"
                 tool:text="cereales y harinas" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
