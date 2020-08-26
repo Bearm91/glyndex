@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_size_food_list_item_name">20sp</dimen>
+    <dimen name="text_size_food_list_item_ig">25sp</dimen>
+
+    <dimen name="text_size_category_list_item_name">20sp</dimen>
+    <dimen name="layout_margin_category_list_item_name">6dp</dimen>
+</resources>
