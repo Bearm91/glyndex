@@ -2,25 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_food_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            tool:text="Garbanzos" />
+            android:orientation="horizontal"
+            android:padding="12dp">
 
+            <TextView
+                android:id="@+id/tv_food_name"
+                style="@style/FoodListName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tool:text="Garbanzos"/>
 
+            <ImageView
+                android:id="@+id/iv_food_ig"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_up_green_arrow" />
 
+            <TextView
+                android:id="@+id/tv_food_ig"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="0.2"
+                tool:text="60"
+                style="@style/FoodListIG"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

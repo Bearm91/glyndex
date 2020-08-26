@@ -18,7 +18,7 @@ public class Food {
     @ColumnInfo(name="categoryId")
     private int categoryId;
     @ColumnInfo(name="gI")
-    private int gI;
+    private Integer gI;
     @ColumnInfo(name = "gramsPerChRation")
     private long gramsPerChRation;
 
@@ -32,7 +32,7 @@ public class Food {
         return categoryId;
     }
 
-    public int getGI() {
+    public Integer getGI() {
         return gI;
     }
 
@@ -54,7 +54,7 @@ public class Food {
         this.categoryId = category_id;
     }
 
-    public void setGI(int gI) {
+    public void setGI(Integer gI) {
         this.gI = gI;
     }
 
