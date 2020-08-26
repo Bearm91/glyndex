@@ -1,0 +1,10 @@
+
+.gradle/
+
+.idea/
+
+app/build/outputs/
+
+app/build/intermediates/
+
+app/build/generated/
