@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_food"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FoodActivity"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:parentActivityName=".activities.FoodActivity"
+
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".activities.FoodActivity"
             android:parentActivityName=".MainActivity"
