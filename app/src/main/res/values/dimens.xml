@@ -5,4 +5,9 @@
 
     <dimen name="text_size_category_list_item_name">20sp</dimen>
     <dimen name="layout_margin_category_list_item_name">6dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="text_size_measurement_list_item">18sp</dimen>
+    <dimen name="text_size_measurement_list_header">20sp</dimen>
 </resources>
