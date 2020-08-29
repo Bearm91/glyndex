@@ -12,4 +12,7 @@ public interface CategoryDao {
     @Query("SELECT * FROM categories ORDER BY name ASC")
     List<Category> findAll();
 
+    @Query("SELECT iconName FROM categories WHERE name = :categoryName")
+    String findIconNameByCatName(String categoryName);
+
 }

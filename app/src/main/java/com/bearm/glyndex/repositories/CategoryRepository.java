@@ -27,5 +27,9 @@ public class CategoryRepository {
     public List<Category> getCategoryList() {
         return categoryList;
     }
+
+    public String getIconNameByCategoryName(String categoryName){
+        return categoryDao.findIconNameByCatName(categoryName);
+    }
 }
 
