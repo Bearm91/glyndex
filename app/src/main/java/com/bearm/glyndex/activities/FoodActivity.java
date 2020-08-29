@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.FoodAdapter;
-import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.repositories.FoodRepository;
 
@@ -21,18 +21,24 @@ public class FoodActivity extends AppCompatActivity {
 
     List<Food> foodList;
 
+    String categoryName;
+    int categoryId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
         Bundle bundle = getIntent().getExtras();
-        int categoryId = bundle.getInt("CategoryId");
-        String categoryName = bundle.getString("CategoryName");
-        loadFoodList(categoryId);
+        if (bundle != null) {
+            categoryId = bundle.getInt("CategoryId");
+            categoryName = bundle.getString("CategoryName");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        loadFoodList(categoryId);
         getSupportActionBar().setTitle(categoryName);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void loadFoodList(int catId) {
@@ -60,9 +66,21 @@ public class FoodActivity extends AppCompatActivity {
     private void goToFoodDetailsScreen(int position) {
         Food food = foodList.get(position);
         Log.e("Food", String.valueOf(food.toString()));
-        /*Intent foodDetailsIntent = new Intent(this, DetailsActivity.class);
+        Intent foodDetailsIntent = new Intent(this, DetailsActivity.class);
+        foodDetailsIntent.putExtra("CategoryId", categoryId);
+        foodDetailsIntent.putExtra("CategoryName", categoryName);
         foodDetailsIntent.putExtra("FoodId", food.getId());
-        foodDetailsIntent.putExtra("FoodName", food.getName());
-        startActivity(foodDetailsIntent);*/
+        startActivityForResult(foodDetailsIntent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == 1) {
+                categoryId = data.getIntExtra("CategoryId", 0);
+                categoryName = data.getStringExtra("CategoryName");
+            }
+        }
     }
 }

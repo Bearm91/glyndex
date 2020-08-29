@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bearm.glyndex.DetailsHelper;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.models.Food;
 
@@ -57,20 +58,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         }
 
         //Glycemic index icon
-        String icon = "ic_up_yellow_arrow";
-        //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorYellow));
-
-        if (currentFoodGI == null) {
-            icon = "ic_up_blue_arrow";
-            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorGray));
-
-        } else if (currentFoodGI <= 55) {
-            icon = "ic_up_green_arrow";
-            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorGreen));
-        } else if (currentFoodGI >= 70) {
-            icon = "ic_up_red_arrow";
-            //holder.myIGView.setTextColor(ContextCompat.getColor(context, R.color.colorRed));
-        }
+        String icon = DetailsHelper.getIGIconName(currentFoodGI);
 
         int resourceIdImage = context.getResources().getIdentifier(icon, "drawable",
                 context.getPackageName());

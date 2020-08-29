@@ -15,4 +15,7 @@ public interface FoodDao {
 
     @Query("SELECT * FROM foods WHERE categoryId = :catId")
     List<Food> findFoodByCategory(Integer catId);
+
+    @Query("SELECT * FROM foods WHERE id = :foodId")
+    Food findById(Integer foodId);
 }
