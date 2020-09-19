@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+import androidx.appcompat.widget.SearchView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +15,7 @@ import com.bearm.glyndex.adapters.FoodAdapter;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.repositories.FoodRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodActivity extends AppCompatActivity {
@@ -23,6 +24,9 @@ public class FoodActivity extends AppCompatActivity {
 
     String categoryName;
     int categoryId;
+    boolean search;
+    RecyclerView rv;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +37,40 @@ public class FoodActivity extends AppCompatActivity {
         if (bundle != null) {
             categoryId = bundle.getInt("CategoryId");
             categoryName = bundle.getString("CategoryName");
-
+            search = bundle.getBoolean("IsSearch");
         }
-        loadFoodList(categoryId);
+
+        SearchView searchView = findViewById(R.id.sv_food);
+        if(search) {
+            searchView.setVisibility(View.VISIBLE);
+            searchView.setQueryHint("Search in all categories");
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    loadFoodList(categoryId, newText);
+                    return false;
+                }
+            });
+        } else {
+            searchView.setVisibility(View.GONE);
+        }
+
+        layoutManager = new LinearLayoutManager(this);
+        loadFoodList(categoryId, null);
         getSupportActionBar().setTitle(categoryName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
-    private void loadFoodList(int catId) {
-        RecyclerView rv = findViewById(R.id.rv);
+    private void loadFoodList(int catId, String filter) {
+        rv = findViewById(R.id.rv);
 
-        foodList = getFoodList(catId);
+        foodList = getFoodList(catId, filter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         FoodAdapter adapter = new FoodAdapter(this, foodList, new FoodAdapter.ItemClickListener() {
             @Override
@@ -56,9 +82,15 @@ public class FoodActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
     }
 
-    private List<Food> getFoodList(int categoryId) {
+    private List<Food> getFoodList(int categoryId, String filter) {
         FoodRepository foodRepository = new FoodRepository(getApplication());
-        List<Food> foodList = foodRepository.getFoodByCategory(categoryId);
+        List<Food> foodList = new ArrayList<Food>();
+        if (filter != null){
+            foodList = foodRepository.getFoodByName('%'+filter+'%');
+
+        } else {
+            foodList = foodRepository.getFoodByCategory(categoryId);
+        }
         Log.e("FOODLIST", String.valueOf(foodList.size()));
         return foodList;
     }

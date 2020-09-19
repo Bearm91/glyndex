@@ -16,6 +16,7 @@ import com.bearm.glyndex.activities.FoodActivity;
 import com.bearm.glyndex.adapters.CategoryAdapter;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.repositories.CategoryRepository;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -35,25 +36,29 @@ public class MainActivity extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.rv);
         loadCategoryList();
 
+        FloatingActionButton fabSearch = findViewById(R.id.fab_search);
+        fabSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFoodScreen(0, true);
+            }
+        });
 
     }
 
     private void loadCategoryList() {
-
-
         categoryList = getCategoryList();
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         adapter = new CategoryAdapter(this, categoryList, new CategoryAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                goToFoodScreen(position);
+                goToFoodScreen(position, false);
             }
         });
 
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
-
     }
 
     private List<Category> getCategoryList() {
@@ -76,20 +81,24 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
+       /*if (id == R.id.action_search) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
 
 
-    private void goToFoodScreen(int position) {
+
+    private void goToFoodScreen(int position, boolean search) {
         Category cat = categoryList.get(position);
         Log.e("Cat", String.valueOf(cat.toString()));
         Intent foodIntent = new Intent(this, FoodActivity.class);
         foodIntent.putExtra("CategoryId", cat.getId());
         foodIntent.putExtra("CategoryName", cat.getName());
+        foodIntent.putExtra("IsSearch", search);
         startActivity(foodIntent);
     }
+
+
 }

@@ -7,6 +7,11 @@
     tools:context=".activities.FoodActivity"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv_food"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
