@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +26,7 @@ import java.util.List;
 public class DetailsActivity extends AppCompatActivity {
 
     List<Measurement> measurementList;
-    LinearLayout measurementTable;
+    CardView measurementTable;
     int categoryId;
     String categoryName;
 
@@ -49,7 +49,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void loadFoodDetails(int foodId) {
-        measurementTable = findViewById(R.id.ll_measr_table);
+        measurementTable = findViewById(R.id.cv_measr_table);
 
         RecyclerView rv = findViewById(R.id.rv);
 

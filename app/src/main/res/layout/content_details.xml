@@ -34,7 +34,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_margin="0dp">
 
                 <LinearLayout
                     android:id="@+id/ly_categoryName"
@@ -53,10 +54,8 @@
                         style="DetailsInfoLayout"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="2dp"
                         android:layout_weight="1"
                         android:orientation="horizontal"
-
                         >
 
                         <TextView
@@ -68,9 +67,10 @@
 
                         <ImageView
                             android:id="@+id/iv_cat_icon"
-                            android:layout_width="50dp"
+                            android:layout_width="40dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_watermelon" />
+                            android:src="@drawable/ic_watermelon"
+                            android:layout_marginLeft="2dp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -91,7 +91,6 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="2dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical">
 
@@ -127,7 +126,6 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
                         android:layout_weight="1">
 
                         <TextView
@@ -143,6 +141,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_measr_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp">
@@ -153,7 +152,6 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/ll_measr_table"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">

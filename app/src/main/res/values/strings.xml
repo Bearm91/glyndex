@@ -26,8 +26,8 @@
     <string name="product_name_example">Garbanzos cocidos</string>
     <plurals name="ch_ration_quantity">
         <item quantity="one">%1d ración (%2d g CH)</item>
-        <item quantity="other">%1d raciones (%2d g CH)</item>
+        <item quantity="other">%1d raciones (%2d g)</item>
     </plurals>
 
-    <string name="ch_ration">%1s ración (%2s g CH)</string>
+    <string name="ch_ration">%1s ración (%2s g)</string>
 </resources>
