@@ -28,16 +28,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:padding="12dp"
-        android:text="Categorías"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:text="@string/menu_category"
         app:layout_constraintTop_toTopOf="@+id/appBarLayout"
-        tools:layout_editor_absoluteX="36dp" />
+        tools:layout_editor_absoluteX="36dp"
+        style="@style/category_list_title"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -46,6 +40,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:spanCount="2" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
