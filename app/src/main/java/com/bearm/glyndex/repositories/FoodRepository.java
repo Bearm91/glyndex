@@ -36,5 +36,8 @@ public class FoodRepository {
         return foodDao.findById(foodId);
     }
 
+    public List<Food> getFoodByName(String filter) {
+        return foodDao.findByName(filter);
+    }
 }
 

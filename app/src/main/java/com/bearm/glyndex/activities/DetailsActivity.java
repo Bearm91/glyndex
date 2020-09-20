@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bearm.glyndex.DetailsHelper;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.DetailsAdapter;
+import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.models.Measurement;
 import com.bearm.glyndex.repositories.CategoryRepository;
@@ -37,15 +38,20 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.content_details);
 
         Bundle bundle = getIntent().getExtras();
-        categoryName = bundle.getString("CategoryName");
+        //categoryName = bundle.getString("CategoryName");
         int foodId = bundle.getInt("FoodId");
-        categoryId = bundle.getInt("CategoryId");
+        //categoryId = bundle.getInt("CategoryId");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        loadDetailsInfo(categoryName, foodId);
+        loadDetailsInfo(getFoodInfo(foodId));
         loadFoodDetails(foodId);
 
+    }
+
+    private Food getFoodInfo(int foodId) {
+        FoodRepository foodRepository = new FoodRepository(getApplication());
+        return foodRepository.getFoodById(foodId);
     }
 
     private void loadFoodDetails(int foodId) {
@@ -74,12 +80,9 @@ public class DetailsActivity extends AppCompatActivity {
         return measurementList;
     }
 
-    private void loadDetailsInfo(String categoryName, int foodId) {
-
-        FoodRepository foodRepository = new FoodRepository(getApplication());
-        Food food = foodRepository.getFoodById(foodId);
+    private void loadDetailsInfo(Food food) {
         loadFoodName(food.getName());
-        loadCategory(categoryName);
+        loadCategory(food.getCategory());
         loadIG(food.getGI());
         loadCHRationG(food.getGramsPerChRation());
 
@@ -107,13 +110,13 @@ public class DetailsActivity extends AppCompatActivity {
         ivIGIcon.setImageResource(resourceIdImage);
     }
 
-    private void loadCategory(String categoryName) {
+    private void loadCategory(Category category) {
         TextView tvCategoryName = findViewById(R.id.tv_category_name);
-        tvCategoryName.setText(categoryName);
+        tvCategoryName.setText(category.getName());
 
         ImageView categoryIcon = findViewById(R.id.iv_cat_icon);
         CategoryRepository categoryRepository = new CategoryRepository(getApplication());
-        String iconName = categoryRepository.getIconNameByCategoryName(categoryName);
+        String iconName = category.getIconName();
         if (iconName != null) {
             int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
                     getPackageName());

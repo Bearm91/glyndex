@@ -16,7 +16,7 @@ public class Food {
     @ColumnInfo(name="name")
     private String name;
     @ColumnInfo(name="categoryId")
-    private int categoryId;
+    private Category category;
     @ColumnInfo(name="gI")
     private Integer gI;
     @ColumnInfo(name = "gramsPerChRation")
@@ -28,8 +28,8 @@ public class Food {
 
     // Getter Methods
 
-    public int getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
     public Integer getGI() {
@@ -50,8 +50,8 @@ public class Food {
 
     // Setter Methods
 
-    public void setCategoryId(int category_id) {
-        this.categoryId = category_id;
+    public void setCategory(Category category_id) {
+        this.category = category_id;
     }
 
     public void setGI(Integer gI) {
@@ -73,7 +73,7 @@ public class Food {
     @Override
     public String toString() {
         return "Food{" +
-                "categoryId='" + categoryId + '\'' +
+                "categoryId='" + category.getName() + '\'' +
                 ", GI='" + gI + '\'' +
                 ", gramsPerChRation='" + gramsPerChRation + '\'' +
                 ", id='" + id + '\'' +
