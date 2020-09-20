@@ -2,9 +2,14 @@ package com.bearm.glyndex.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="Categories")
+@Entity(tableName="Categories",
+        indices = {
+                @Index(value="id",unique = true)
+        })
 public class Category {
 
     @PrimaryKey(autoGenerate = true)

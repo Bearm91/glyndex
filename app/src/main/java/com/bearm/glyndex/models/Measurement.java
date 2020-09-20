@@ -3,23 +3,27 @@ package com.bearm.glyndex.models;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="Measurements", foreignKeys = @ForeignKey(entity = Food.class,
+@Entity(tableName = "Measurements", foreignKeys = @ForeignKey(entity = Food.class,
         parentColumns = ("id"),
         childColumns = ("foodId"),
-        onDelete = ForeignKey.CASCADE))
+        onDelete = ForeignKey.CASCADE),
+        indices = {
+                @Index(value = "foodId"),
+                @Index(value = "id", unique = true)
+        })
 
 public class Measurement {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    @ColumnInfo(name="name")
+    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name="chRationPerMeasurement")
+    @ColumnInfo(name = "chRationPerMeasurement")
     private float chRationPerMeasurement;
-    @ColumnInfo(name="foodId")
+    @ColumnInfo(name = "foodId")
     private int foodId;
-
 
 
     // Getter Methods

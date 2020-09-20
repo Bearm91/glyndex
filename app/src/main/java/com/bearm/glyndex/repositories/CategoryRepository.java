@@ -31,5 +31,9 @@ public class CategoryRepository {
     public String getIconNameByCategoryName(String categoryName){
         return categoryDao.findIconNameByCatName(categoryName);
     }
+
+    public Category getById(int id) {
+        return categoryDao.findById(id);
+    }
 }
 

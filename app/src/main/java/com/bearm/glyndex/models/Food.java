@@ -3,21 +3,27 @@ package com.bearm.glyndex.models;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Foods", foreignKeys = @ForeignKey(entity = Category.class,
         parentColumns = ("id"),
         childColumns = ("categoryId"),
-        onDelete = ForeignKey.CASCADE))
+        onDelete = ForeignKey.CASCADE),
+        indices = {
+                @Index(value = "id", unique = true),
+                @Index(value = "categoryId"),
+                @Index(value = "name", unique = true)
+        })
 
 public class Food {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    @ColumnInfo(name="name")
+    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name="categoryId")
-    private Category category;
-    @ColumnInfo(name="gI")
+    @ColumnInfo(name = "categoryId")
+    private int category;
+    @ColumnInfo(name = "gI")
     private Integer gI;
     @ColumnInfo(name = "gramsPerChRation")
     private long gramsPerChRation;
@@ -28,7 +34,7 @@ public class Food {
 
     // Getter Methods
 
-    public Category getCategory() {
+    public int getCategory() {
         return category;
     }
 
@@ -50,7 +56,7 @@ public class Food {
 
     // Setter Methods
 
-    public void setCategory(Category category_id) {
+    public void setCategory(int category_id) {
         this.category = category_id;
     }
 
@@ -73,7 +79,7 @@ public class Food {
     @Override
     public String toString() {
         return "Food{" +
-                "categoryId='" + category.getName() + '\'' +
+                "categoryId='" + category + '\'' +
                 ", GI='" + gI + '\'' +
                 ", gramsPerChRation='" + gramsPerChRation + '\'' +
                 ", id='" + id + '\'' +

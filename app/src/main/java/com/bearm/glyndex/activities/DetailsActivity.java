@@ -82,10 +82,15 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadDetailsInfo(Food food) {
         loadFoodName(food.getName());
-        loadCategory(food.getCategory());
+        loadCategory(getCategoryInfo(food.getId()));
         loadIG(food.getGI());
         loadCHRationG(food.getGramsPerChRation());
 
+    }
+
+    private Category getCategoryInfo(int id) {
+        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
+        return categoryRepository.getById(id);
     }
 
     private void loadCHRationG(long gramsPerChRation) {

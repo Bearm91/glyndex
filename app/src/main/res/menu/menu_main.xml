@@ -5,7 +5,6 @@
     <item
         android:id="@+id/action_search"
         android:orderInCategory="100"
-        android:title="action_search"
         app:showAsAction="always"
         android:icon="@drawable/ic_about"
         android:title="About Glyndex" />
