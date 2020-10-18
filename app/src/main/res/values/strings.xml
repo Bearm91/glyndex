@@ -22,4 +22,5 @@
 
     <string name="ch_ration">%1s R (%2s g)</string>
     <string name="menu_category">Categorías</string>
+    <string name="searchView_hint">Busca en todas las categorías</string>
 </resources>

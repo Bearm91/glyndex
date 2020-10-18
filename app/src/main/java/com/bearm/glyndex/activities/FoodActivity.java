@@ -42,8 +42,9 @@ public class FoodActivity extends AppCompatActivity {
 
         SearchView searchView = findViewById(R.id.sv_food);
         if(search) {
+            getSupportActionBar().setTitle("Buscar");
             searchView.setVisibility(View.VISIBLE);
-            searchView.setQueryHint("Search in all categories");
+            searchView.setQueryHint(getString(R.string.searchView_hint));
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
@@ -57,12 +58,12 @@ public class FoodActivity extends AppCompatActivity {
                 }
             });
         } else {
+            getSupportActionBar().setTitle(categoryName);
             searchView.setVisibility(View.GONE);
         }
 
         layoutManager = new LinearLayoutManager(this);
         loadFoodList(categoryId, null);
-        getSupportActionBar().setTitle(categoryName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }

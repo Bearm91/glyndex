@@ -15,6 +15,6 @@ public interface CategoryDao {
     @Query("SELECT iconName FROM categories WHERE name = :categoryName")
     String findIconNameByCatName(String categoryName);
 
-    @Query("SELECT * FROM categories WHERE id = :id")
-    Category findById(int id);
+    @Query("SELECT * FROM categories WHERE id in (SELECT categoryId FROM foods where id = :foodId)")
+    Category findByFoodId(int foodId);
 }

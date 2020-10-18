@@ -33,7 +33,7 @@ public class CategoryRepository {
     }
 
     public Category getById(int id) {
-        return categoryDao.findById(id);
+        return categoryDao.findByFoodId(id);
     }
 }
 
