@@ -1,5 +1,6 @@
 package com.bearm.glyndex;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,12 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bearm.glyndex.activities.FoodActivity;
+import com.bearm.glyndex.activities.InfoActivity;
 import com.bearm.glyndex.adapters.CategoryAdapter;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.repositories.CategoryRepository;
@@ -80,14 +83,37 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-       /*if (id == R.id.action_search) {
+        if (id == R.id.action_about) {
+            showAboutDialog();
             return true;
-        }*/
+        }
+
+        if (id == R.id.action_GI) {
+            goToInfoScreen();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
+    //Shows a dialog with info about the app
+
+    private void showAboutDialog() {
+        View view = getLayoutInflater().inflate(R.layout.about_layout, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(view);
+        builder.setTitle(R.string.about_title)
+                .setIcon(R.mipmap.ic_launcher_pyramid_round)
+                .setCancelable(true)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        builder.show();
+    }
 
 
         private void goToFoodScreen ( int position, boolean search){
@@ -99,7 +125,11 @@ public class MainActivity extends AppCompatActivity {
             foodIntent.putExtra("IsSearch", search);
             startActivity(foodIntent);
         }
-        private void goToFoodScreen ( int position, boolean search){
+
+        private void goToInfoScreen(){
+            Intent infoIntent = new Intent(this, InfoActivity.class);
+            startActivity(infoIntent);
+        }
 
 
-}
+    }

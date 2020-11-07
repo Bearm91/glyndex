@@ -23,4 +23,43 @@
     <string name="ch_ration">%1s R (%2s g)</string>
     <string name="menu_category">Categorías</string>
     <string name="searchView_hint">Busca en todas las categorías</string>
+
+    <!-- About screen-->
+    <string name="about_title">Acerca de Glyndex</string>
+    <string name="about_current_version">Versión actual: 1.0</string>
+    <string name="about_info_developer">Desarrolladora: @Bearm91 en Github.</string>
+    <string name="about_info_contact">Email de contato: bearm91@gmail.com</string>
+    <string name="about_info">Glyndex es una aplicación para Android en desarrollo desde 2020.</string>
+
+    <string name="about_info_icons">Iconos:</string>
+    <string name="about_info_icons_1">Baianat - www.flaticon.com</string>
+    <string name="about_info_icons_2">Freepik - www.flaticon.com</string>
+
+    <string name="info_screen_title">Índice Glucémico</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="info_ig_1">A nivel nutricional, el índice glucémico (IG) es una característica más que posee cada uno de los alimentos que incluimos en nuestra dieta. Se trata de una medida sencilla para entender con qué rapidez se transforman los hidratos de carbono que ingerimos (azúcares) en glucosa en sangre. Es un concepto importante, tan como señala la Fundación para la Diabetes (FD), porque este índice puede hacer que unos alimentos sean recomendables en determinadas circunstancias y en cambio resulten desaconsejables en otras.</string>
+    <string name="info_ig_2">Hay que recordar que uno de los macronutrientes que contienen los alimentos son los hidratos de carbono (azúcares), que pueden ser de absorción rápida (carbohidratos simples) o algo más lenta (carbohidratos compuestos). Esa cantidad de azúcares y la rapidez con la que nuestro organismo la absorbe es el índice glucémico. En una tabla imaginaria, el IG máximo tendría un valor de 100 y correspondería a la propia glucosa, es decir, al azúcar. Luego tenemos tres segmentos en los que se pueden incluir los distintos alimentos según su composición:</string>
+    <string name="info_ig_3">IG alto: 70 o más</string>
+    <string name="info_ig_4">IG medio o moderado: 55 - 69</string>
+    <string name="info_ig_5">IG bajo: 54 o menos</string>
+
+    <string name="info_source_gi_link">aquí</string>
+    <string name="info_source_gi">Leer más sobre IG en la web oficial</string>
+
+    <string name="info_source_main">Fuente original:</string>
+    <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
+
+    <string name="info_source_digital">contenido en la web oficial</string>
+    <string name="info_source_digital_link">Visitar</string>
+
+    <string name="info_source_pdf">contenido en PDF desde la web oficial</string>
+    <string name="info_source_pdf_link">Descargar</string>
+    <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
+    <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
+    <string name="info_gi_references_title">Referencias:</string>
+    <string name="and">y</string>
+    <string name="info_source_main_about">Fuente oficial del contenido de Glyndex:</string>
+    <string name="info_ig_6">IG desconocido: -</string>
+
+
 </resources>

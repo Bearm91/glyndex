@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/gi_title"
+            style="@style/GIInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_subtitle_1" />
+
+        <TextView
+            android:id="@+id/gi_info"
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_1" />
+
+        <TextView
+            android:id="@+id/gi_title_2"
+            style="@style/GIInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_subtitle_2" />
+
+        <TextView
+            android:id="@+id/gi_info_2"
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_2" />
+
+        <TextView
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_3"
+            android:paddingTop="6dp"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_4"
+            android:textColor="@color/colorYellow"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_5"
+            android:paddingBottom="6dp"
+            android:textColor="@color/colorGreen"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_6"
+            android:paddingBottom="6dp"
+            android:textColor="@color/colorGray"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/gi_source_title"
+            style="@style/GIInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_references_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gi_source"
+                style="@style/GIInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_source_main"
+                android:paddingRight="4dp"/>
+
+            <TextView
+                android:id="@+id/gi_source_link"
+                style="@style/GIInfoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_source_link" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gi_source_gi"
+                style="@style/GIInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_source_gi"
+                android:paddingRight="2dp"/>
+
+            <TextView
+                android:id="@+id/gi_source_gi_link_1"
+                style="@style/GIInfoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_source_gi_link"
+                android:paddingRight="2dp"
+                android:paddingLeft="2dp"/>
+
+            <TextView
+                style="@style/GIInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="2dp"
+                android:paddingLeft="2dp"
+                android:text="@string/and" />
+
+            <TextView
+                android:id="@+id/gi_source_gi_link_2"
+                style="@style/GIInfoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_source_gi_link"
+                android:paddingLeft="2dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gi_source_digital_link"
+                style="@style/GIInfoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="2dp"
+                android:text="@string/info_source_digital_link" />
+
+            <TextView
+                android:id="@+id/gi_source_digital"
+                style="@style/GIInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:text="@string/info_source_digital" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gi_source_pdf_link"
+                style="@style/GIInfoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="2dp"
+                android:text="@string/info_source_pdf_link" />
+
+            <TextView
+                android:id="@+id/gi_source_pdf"
+                style="@style/GIInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:text="@string/info_source_pdf" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

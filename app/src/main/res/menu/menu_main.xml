@@ -2,8 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.bearm.glyndex.MainActivity">
+
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_GI"
+        app:showAsAction="ifRoom"
+        android:title="Indice Glucémico"/>
+    <item
+        android:id="@+id/action_about"
         android:orderInCategory="100"
         app:showAsAction="always"
         android:icon="@drawable/ic_about"

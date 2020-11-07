@@ -70,7 +70,7 @@
 
     <style name="DetailsTitles" parent="DetailsMainTitle">
         <item name="android:textColor">@android:color/secondary_text_light</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:gravity">left|center</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:layout_margin">14dp</item>
@@ -100,7 +100,35 @@
         <item name="android:textAlignment">center</item>
         <item name="android:padding">12dp</item>
         <item name="android:layout_marginTop">64dp</item>
+    </style>
+
+    <style name="myAboutInfo" parent= "Theme.MaterialComponents.Light.Dialog">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="GIInfoTitle" parent="GIInfo">
+        <item name="android:textSize">22sp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
 
 
+    </style>
+
+    <style name="GIInfo" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="GIInfoText" parent="GIInfo">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="GIInfoLink" parent="GIInfo">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorLightBlue</item>
     </style>
 </resources>
