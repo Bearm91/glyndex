@@ -7,10 +7,5 @@
         android:id="@+id/action_GI"
         app:showAsAction="ifRoom"
         android:title="@string/indice_gluc_menu_item"/>
-    <item
-        android:id="@+id/action_about"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_about"
-        android:title="@string/about_glyndex_menu_item" />
+
 </menu>

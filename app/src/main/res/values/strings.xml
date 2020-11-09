@@ -60,6 +60,8 @@
     <string name="and">y</string>
     <string name="info_source_main_about">Fuente oficial del contenido de Glyndex:</string>
     <string name="info_ig_6">IG desconocido: -</string>
+    <string name="indice_gluc_menu_item">Indice Glucémico</string>
+    <string name="about_glyndex_menu_item">Acerca de Glyndex</string>
 
 
 </resources>
