@@ -26,8 +26,8 @@
 
     <!-- About screen-->
     <string name="about_title">Acerca de Glyndex</string>
-    <string name="about_current_version">Versión actual: 1.0</string>
-    <string name="about_info_developer">Desarrolladora: @Bearm91 en Github.</string>
+    <string name="about_current_version">Versión: 1.0</string>
+    <string name="about_info_developer">Autor: @Bearm91 en Github.</string>
     <string name="about_info_contact">Email de contato: bearm91@gmail.com</string>
     <string name="about_info">Glyndex es una aplicación para Android en desarrollo desde 2020.</string>
 
@@ -58,7 +58,7 @@
     <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
     <string name="info_gi_references_title">Referencias:</string>
     <string name="and">y</string>
-    <string name="info_source_main_about">Fuente oficial del contenido de Glyndex:</string>
+    <string name="info_source_main_about">Fuente original del contenido en Glyndex:</string>
     <string name="info_ig_6">IG desconocido: -</string>
     <string name="indice_gluc_menu_item">Indice Glucémico</string>
     <string name="about_glyndex_menu_item">Acerca de Glyndex</string>
