@@ -24,7 +24,7 @@ public class FoodRepository {
 
     }
 
-    public List<Food> getFoodList() {
+    public List<Food> getAllFoodList() {
         return foodList;
     }
 

@@ -15,7 +15,6 @@ import com.bearm.glyndex.adapters.FoodAdapter;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.repositories.FoodRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FoodActivity extends AppCompatActivity {
@@ -32,6 +31,7 @@ public class FoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -40,11 +40,14 @@ public class FoodActivity extends AppCompatActivity {
             search = bundle.getBoolean("IsSearch");
         }
 
+        layoutManager = new LinearLayoutManager(this);
+
         SearchView searchView = findViewById(R.id.sv_food);
         if(search) {
             getSupportActionBar().setTitle("Buscar");
             searchView.setVisibility(View.VISIBLE);
             searchView.setQueryHint(getString(R.string.searchView_hint));
+            categoryId = 0;
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
@@ -62,10 +65,7 @@ public class FoodActivity extends AppCompatActivity {
             searchView.setVisibility(View.GONE);
         }
 
-        layoutManager = new LinearLayoutManager(this);
         loadFoodList(categoryId, null);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     private void loadFoodList(int catId, String filter) {
@@ -85,12 +85,15 @@ public class FoodActivity extends AppCompatActivity {
 
     private List<Food> getFoodList(int categoryId, String filter) {
         FoodRepository foodRepository = new FoodRepository(getApplication());
-        List<Food> foodList = new ArrayList<Food>();
-        if (filter != null){
+        List<Food> foodList;
+        if ((filter != null) && (!filter.equals(""))){
             foodList = foodRepository.getFoodByName('%'+filter+'%');
-
         } else {
-            foodList = foodRepository.getFoodByCategory(categoryId);
+            if (categoryId > 0) {
+                foodList = foodRepository.getFoodByCategory(categoryId);
+            } else {
+                foodList = foodRepository.getAllFoodList();
+            }
         }
         Log.e("FOODLIST", String.valueOf(foodList.size()));
         return foodList;
