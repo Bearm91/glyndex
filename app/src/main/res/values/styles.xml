@@ -73,11 +73,11 @@
         <item name="android:textSize">22sp</item>
         <item name="android:gravity">left|center</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:layout_margin">14dp</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
     <style name="DetailsInfo">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:padding">8dp</item>
         <item name="android:gravity">left|center</item>
 

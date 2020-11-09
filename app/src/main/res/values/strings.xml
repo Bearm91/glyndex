@@ -10,8 +10,8 @@
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
     <string name="category_title">Categoría:</string>
     <string name="ig_title">Índice glucémico:</string>
-    <string name="chrations_title">1 Ración HC:</string>
-    <string name="details_1chrations_example">200g</string>
+    <string name="chrations_title">Ración HC:</string>
+    <string name="details_1chrations_example">200g (10g HC)</string>
     <string name="ig_example">20</string>
     <string name="category_example">Frutas</string>
     <string name="product_name_example">Garbanzos cocidos</string>

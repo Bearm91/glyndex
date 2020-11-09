@@ -98,7 +98,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadCHRationG(long gramsPerChRation) {
         TextView tvFoodIg = findViewById(R.id.tv_carbs_g);
-        tvFoodIg.setText(String.valueOf(gramsPerChRation) + "g");
+        tvFoodIg.setText(String.valueOf(gramsPerChRation) + "g" + " " +"(10g HC)");
     }
 
     private void loadIG(Integer gi) {
