@@ -23,7 +23,6 @@ public class InfoActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        getSupportActionBar().setTitle(R.string.info_screen_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mainSource = findViewById(R.id.gi_source_link);

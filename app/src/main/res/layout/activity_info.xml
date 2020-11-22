@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp">
 
@@ -91,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_main"
-                android:paddingRight="4dp"/>
+                android:paddingEnd="4dp"/>
 
             <TextView
                 android:id="@+id/gi_source_link"
@@ -109,7 +110,7 @@
 
             <TextView
                 android:id="@+id/gi_source_gi"
-                style="@style/GIInfoText"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_gi"
@@ -125,7 +126,7 @@
                 android:paddingLeft="2dp"/>
 
             <TextView
-                style="@style/GIInfoText"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="2dp"
@@ -138,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_gi_link"
-                android:paddingLeft="2dp"/>
+                android:paddingStart="2dp"/>
 
         </LinearLayout>
 
@@ -152,15 +153,15 @@
                 style="@style/GIInfoLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="2dp"
+                android:paddingEnd="2dp"
                 android:text="@string/info_source_digital_link" />
 
             <TextView
                 android:id="@+id/gi_source_digital"
-                style="@style/GIInfoText"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="2dp"
+                android:paddingStart="2dp"
                 android:text="@string/info_source_digital" />
 
         </LinearLayout>
@@ -175,15 +176,16 @@
                 style="@style/GIInfoLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="2dp"
-                android:text="@string/info_source_pdf_link" />
+                android:paddingEnd="2dp"
+                android:text="@string/info_source_pdf_link"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:id="@+id/gi_source_pdf"
-                style="@style/GIInfoText"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="2dp"
+                android:paddingStart="2dp"
                 android:text="@string/info_source_pdf" />
 
         </LinearLayout>

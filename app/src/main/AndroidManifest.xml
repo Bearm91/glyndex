@@ -14,7 +14,7 @@
             android:label="@string/title_activity_details"
             android:parentActivityName=".activities.FoodActivity"
 
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".activities.FoodActivity"
             android:parentActivityName=".MainActivity"
@@ -22,6 +22,7 @@
         <activity
             android:name=".activities.InfoActivity"
             android:parentActivityName=".MainActivity"
+            android:label="@string/info_screen_title"
             android:theme="@style/AppTheme">
         </activity>
         <activity
