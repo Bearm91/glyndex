@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         private void goToFoodScreen ( int position, boolean search){
             Category cat = categoryList.get(position);
-            Log.e("Cat", String.valueOf(cat.toString()));
+            //Log.e("Cat", String.valueOf(cat));
             Intent foodIntent = new Intent(this, FoodActivity.class);
             foodIntent.putExtra("CategoryId", cat.getId());
             foodIntent.putExtra("CategoryName", cat.getName());

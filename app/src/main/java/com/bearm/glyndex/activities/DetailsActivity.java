@@ -78,7 +78,6 @@ public class DetailsActivity extends AppCompatActivity {
     private List<Measurement> getMeasurementList(int foodId) {
         MeasurementRepository measurementRepository = new MeasurementRepository(getApplication());
         List<Measurement> measurementList = measurementRepository.getMeasurementByFood(foodId);
-        Log.e("MEASUREMENTLIST", String.valueOf(measurementList.size()));
         return measurementList;
     }
 

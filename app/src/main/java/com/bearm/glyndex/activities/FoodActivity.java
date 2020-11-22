@@ -95,13 +95,12 @@ public class FoodActivity extends AppCompatActivity {
                 foodList = foodRepository.getAllFoodList();
             }
         }
-        Log.e("FOODLIST", String.valueOf(foodList.size()));
         return foodList;
     }
 
     private void goToFoodDetailsScreen(int position) {
         Food food = foodList.get(position);
-        Log.e("Food", String.valueOf(food.toString()));
+        Log.e("Food", String.valueOf(food));
         Intent foodDetailsIntent = new Intent(this, DetailsActivity.class);
         foodDetailsIntent.putExtra("CategoryId", categoryId);
         foodDetailsIntent.putExtra("CategoryName", categoryName);
