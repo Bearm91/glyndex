@@ -49,8 +49,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         holder.myCarbsView.setText(context.getString(
                 R.string.ch_ration,
                 String.valueOf(currentMeasurement.getChRationPerMeasurement()),
-                String.valueOf(currentMeasurement.getChRationPerMeasurement() * new Integer(10))));
-
+                String.valueOf(currentMeasurement.getChRationPerMeasurement() * 10)));
     }
 
     // total number of cells

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".activities.FoodActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/cardview_shadow_end_color">
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"

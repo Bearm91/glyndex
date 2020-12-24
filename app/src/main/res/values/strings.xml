@@ -4,17 +4,17 @@
     <string name="title_activity_details">Detalles</string>
 
     <string name="action_settings">Settings</string>
-    <string name="measurement_name_example">Un vaso</string>
-    <string name="measurement_ch_example">2 Raciones (20g)</string>
+    <string name="measurement_name_example">Puñado,con la mano cerrada (20g)</string>
+    <string name="measurement_ch_example">2.0 R (20g)</string>
     <string name="details_measurement_table_title">Medidas comunes</string>
     <string name="details_measurement_table_header_quantity">Cantidad</string>
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
     <string name="category_title">Categoría:</string>
-    <string name="ig_title">Índice glucémico:</string>
+    <string name="ig_title">IG:</string>
     <string name="chrations_title">Ración HC:</string>
-    <string name="details_1chrations_example">200g (10g HC)</string>
+    <string name="details_1chrations_example">1R = 200g</string>
     <string name="ig_example">20</string>
-    <string name="category_example">Frutas</string>
+    <string name="category_example">Verduras y hortalizas</string>
     <string name="product_name_example">Garbanzos cocidos</string>
     <plurals name="ch_ration_quantity">
         <item quantity="one">%1d ración (%2d g CH)</item>
