@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp">
 
@@ -23,26 +23,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_app_info"
-                style="@style/myAboutInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/about_info" />
-
-            <TextView
                 android:id="@+id/tv_app_version"
                 style="@style/myAboutInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_current_version" />
-
-            <TextView
-                android:id="@+id/tv_app_developer"
-                style="@style/myAboutInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about_info_developer"
-                 />
 
         </LinearLayout>
 
@@ -59,11 +44,10 @@
             android:paddingBottom="6dp">
 
             <TextView
-                style="@style/GIInfo"
+                style="@style/myAboutInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_support" />
-                android:drawableStart="@drawable/ic_right_arrow"/>
 
             <TextView
                 style="@style/myAboutInfoLink"
@@ -87,11 +71,11 @@
 
             <TextView
                 android:id="@+id/gi_source"
-                style="@style/GIInfo"
+                style="@style/myAboutInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_main_about"
-                android:drawableStart="@drawable/ic_right_arrow"/>
+                />
 
             <TextView
                 android:id="@+id/gi_source_link"
@@ -101,7 +85,6 @@
                 android:text="@string/info_source_link" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
