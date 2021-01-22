@@ -13,6 +13,6 @@ public interface MeasurementDao {
     @Query("SELECT * FROM measurements")
     List<Measurement> findAll();
 
-    @Query("SELECT * FROM measurements WHERE foodId = :foodId")
+    @Query("SELECT * FROM measurements WHERE foodId = :foodId ORDER BY chRationPerMeasurement")
     List<Measurement> findByFoodId(Integer foodId);
 }
