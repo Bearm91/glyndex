@@ -13,5 +13,5 @@ public class Constants {
     public static final String BLUE_ARROW = "ic_up_blue_arrow";
 
     public static final Integer RESULT_CODE_OK = 1;
-
+    public static final Integer REQUEST_CODE_OK = 1;
 }

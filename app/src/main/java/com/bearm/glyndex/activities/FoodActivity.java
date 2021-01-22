@@ -115,7 +115,7 @@ public class FoodActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == 1) {
+        if (requestCode == Constants.REQUEST_CODE_OK && resultCode == Constants.RESULT_CODE_OK) {
             categoryId = data.getIntExtra(Constants.CATEGORY_ID_FIELD, 0);
             categoryName = data.getStringExtra(Constants.CATEGORY_NAME_FIELD);
         }
