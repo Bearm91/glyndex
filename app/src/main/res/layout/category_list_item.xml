@@ -24,13 +24,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 tool:src="@drawable/ic_milk"
+                android:contentDescription="@string/cat_icon_content_description"/>
 
             <TextView
                 android:id="@+id/tv_cat_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CategoryListName"
-                tool:text="cereales y harinas" />
+                tool:text="Cereales y Harinas" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bearm.glyndex.activities.FoodActivity;
 import com.bearm.glyndex.activities.InfoActivity;
 import com.bearm.glyndex.adapters.CategoryAdapter;
+import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.repositories.CategoryRepository;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(R.string.about_title)
                 .setIcon(R.mipmap.ic_launcher_pyramid_round)
                 .setCancelable(true)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Close dialog.
@@ -120,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
     private void goToFoodScreen(int position, boolean search) {
         Category cat = categoryList.get(position);
         Intent foodIntent = new Intent(this, FoodActivity.class);
-            foodIntent.putExtra("CategoryId", cat.getId());
-            foodIntent.putExtra("CategoryName", cat.getName());
-            foodIntent.putExtra("IsSearch", search);
-            startActivity(foodIntent);
-        }
+        foodIntent.putExtra(Constants.CATEGORY_ID_FIELD, cat.getId());
+        foodIntent.putExtra(Constants.CATEGORY_NAME_FIELD, cat.getName());
+        foodIntent.putExtra(Constants.SEARCH_BOOLEAN, search);
+        startActivity(foodIntent);
+    }
 
     /** Opens info screen with info about the glycemic index */
     private void goToInfoScreen() {

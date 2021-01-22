@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Desarrollo"
+            android:text="@string/development"
             style="@style/myAboutTitle"/>
 
         <LinearLayout
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Soporte"
+            android:text="@string/support"
             style="@style/myAboutTitle"/>
 
         <LinearLayout
@@ -62,7 +62,7 @@
                 style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/about_info_support"
+                android:text="@string/about_info_support" />
                 android:drawableStart="@drawable/ic_right_arrow"/>
 
             <TextView
@@ -76,7 +76,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recursos"
+            android:text="@string/resources"
             style="@style/myAboutTitle"/>
 
         <LinearLayout

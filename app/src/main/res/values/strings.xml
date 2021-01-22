@@ -3,7 +3,6 @@
     <string name="app_name_2">Glyndex - Índice Glucémico</string>
     <string name="title_activity_details">Detalles</string>
 
-    <string name="action_settings">Settings</string>
     <string name="measurement_name_example">Puñado,con la mano cerrada (20g)</string>
     <string name="measurement_ch_example">2.0 R (20g)</string>
     <string name="details_measurement_table_title">Medidas comunes</string>
@@ -28,9 +27,6 @@
     <!-- About screen-->
     <string name="about_title">Acerca de Glyndex</string>
     <string name="about_current_version">Versión: 1.0</string>
-    <string name="about_info_developer">Autor: @Bearm91 en Github.</string>
-    <string name="about_info_contact">Email de contato: bearm91@gmail.com</string>
-    <string name="about_info">Glyndex es una aplicación para Android en desarrollo desde 2020.</string>
 
     <string name="about_info_icons">Iconos:</string>
     <string name="about_info_icons_1">Baianat - www.flaticon.com</string>
@@ -52,23 +48,32 @@
     <string name="info_source_gi_link">aquí</string>
     <string name="info_source_gi">Leer más sobre IG </string>
 
-    <string name="info_source_main">Fuente original:</string>
+    <string name="info_source_main">Fuente:</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
-    <string name="info_source_digital">contenido de la aplicación en el navegador</string>
+    <string name="info_source_digital">datos en un navegador.</string>
     <string name="info_source_digital_link">Ver</string>
 
-    <string name="info_source_pdf">contenido de la aplicación en PDF</string>
+    <string name="info_source_pdf">datos en PDF.</string>
     <string name="info_source_pdf_link">Descargar</string>
     <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
     <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
     <string name="info_gi_references_title">Referencias:</string>
     <string name="and">y</string>
-    <string name="info_source_main_about">Fuente original del contenido usado para Glyndex:</string>
+    <string name="info_source_main_about">Fuente de datos:</string>
     <string name="info_ig_6">IG desconocido: -</string>
     <string name="indice_gluc_menu_item">Indice Glucémico</string>
 
-    <string name="info_about_support_contact">bea@mail.com</string>
+    <string name="info_about_support_contact">bearm.codes@gmail.com</string>
+    <string name="development">Desarrollo</string>
+    <string name="support">Soporte</string>
+    <string name="cat_icon_content_description">Icono de la categoría</string>
+    <string name="ig_icon_content_description">Icono índice glucémico del alimento</string>
+    <string name="resources">Recursos</string>
+    <string name="close">Cerrar</string>
+    <string name="search_title">Buscar</string>
+    <string name="dash_symbol">-</string>
+    <string name="grams">g</string>
 
 
 </resources>

@@ -72,8 +72,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private List<Measurement> getMeasurementList(int foodId) {
         MeasurementRepository measurementRepository = new MeasurementRepository(getApplication());
-        List<Measurement> measurementList = measurementRepository.getMeasurementByFood(foodId);
-        return measurementList;
+        return measurementRepository.getMeasurementByFood(foodId);
     }
 
     private void loadDetailsInfo(Food food) {
@@ -92,7 +91,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadCHRationG(long gramsPerChRation) {
         TextView tvFoodIg = findViewById(R.id.tv_carbs_g);
-        String grams = gramsPerChRation + "g";
+        String grams = gramsPerChRation + getString(R.string.grams);
         tvFoodIg.setText(grams);
     }
 
@@ -101,7 +100,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (gi != null) {
             tvFoodIg.setText(String.valueOf(gi));
         } else {
-            tvFoodIg.setText("-");
+            tvFoodIg.setText(R.string.dash_symbol);
         }
 
         ImageView ivIGIcon = findViewById(R.id.iv_ig_icon);
@@ -136,9 +135,9 @@ public class DetailsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("CategoryId", categoryId);
-        intent.putExtra("CategoryName", categoryName);
-        setResult(1, intent);
+        intent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        intent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
+        setResult(Constants.RESULT_CODE_OK, intent);
         finish();
     }
 
