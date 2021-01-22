@@ -5,15 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".activities.FoodActivity"
-    android:orientation="vertical"
-    android:background="@color/cardview_shadow_end_color">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/sv_food"
         app:iconifiedByDefault="false"
-        android:focusedByDefault="true"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="2dp"/>
 

@@ -51,7 +51,7 @@ public class Measurement {
     }
 
     public void setFoodId(int food) {
-        this.foodId = foodId;
+        this.foodId = food;
     }
 
     public void setId(int id) {

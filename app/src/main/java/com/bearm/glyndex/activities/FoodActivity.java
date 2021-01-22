@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import androidx.appcompat.widget.SearchView;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +25,9 @@ public class FoodActivity extends AppCompatActivity {
     boolean search;
     RecyclerView rv;
     RecyclerView.LayoutManager layoutManager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,30 +74,30 @@ public class FoodActivity extends AppCompatActivity {
         rv = findViewById(R.id.rv);
 
         foodList = getFoodList(catId, filter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
         FoodAdapter adapter = new FoodAdapter(this, foodList, new FoodAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 goToFoodDetailsScreen(position);
             }
         });
-        rv.setLayoutManager(layoutManager);
+        rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
     }
 
     private List<Food> getFoodList(int categoryId, String filter) {
         FoodRepository foodRepository = new FoodRepository(getApplication());
-        List<Food> foodList;
-        if ((filter != null) && (!filter.equals(""))){
-            foodList = foodRepository.getFoodByName('%'+filter+'%');
+        List<Food> newFoodList;
+        if ((filter != null) && (!filter.equals(""))) {
+            newFoodList = foodRepository.getFoodByName('%' + filter + '%');
         } else {
             if (categoryId > 0) {
-                foodList = foodRepository.getFoodByCategory(categoryId);
+                newFoodList = foodRepository.getFoodByCategory(categoryId);
             } else {
-                foodList = foodRepository.getAllFoodList();
+                newFoodList = foodRepository.getAllFoodList();
             }
         }
-        return foodList;
+        return newFoodList;
     }
 
     private void goToFoodDetailsScreen(int position) {
@@ -109,7 +111,7 @@ public class FoodActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == 1) {

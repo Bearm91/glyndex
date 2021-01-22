@@ -3,12 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_shadow_end_color">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true">
+    android:background="@color/background">
 
         <LinearLayout
             android:id="@+id/ll_title"
@@ -74,7 +69,7 @@
                                 android:layout_width="45dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="2dp"
-                                android:src="@drawable/ic_watermelon" />
+                                android:src="@drawable/ic_watermelon"
                         </LinearLayout>
                     </LinearLayout>
 
@@ -108,7 +103,7 @@
                                 android:id="@+id/iv_ig_icon"
                                 android:layout_width="45dp"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/ic_up_green_arrow" />
+                                android:src="@drawable/ic_up_green_arrow"
                         </LinearLayout>
                     </LinearLayout>
 
@@ -195,5 +190,4 @@
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
 </LinearLayout>

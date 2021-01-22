@@ -2,7 +2,6 @@ package com.bearm.glyndex.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,15 +13,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bearm.glyndex.DetailsHelper;
+import com.bearm.glyndex.helpers.*;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.DetailsAdapter;
-import com.bearm.glyndex.models.Category;
-import com.bearm.glyndex.models.Food;
-import com.bearm.glyndex.models.Measurement;
-import com.bearm.glyndex.repositories.CategoryRepository;
-import com.bearm.glyndex.repositories.FoodRepository;
-import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.bearm.glyndex.models.*;
+import com.bearm.glyndex.repositories.*;
 
 import java.util.List;
 
@@ -40,10 +35,10 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.content_details);
 
         Bundle bundle = getIntent().getExtras();
-        //categoryName = bundle.getString("CategoryName");
-        int foodId = bundle.getInt("FoodId");
-        //categoryId = bundle.getInt("CategoryId");
-
+        int foodId = 0;
+        if (bundle != null) {
+            foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
+        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         loadDetailsInfo(getFoodInfo(foodId));
@@ -123,7 +118,6 @@ public class DetailsActivity extends AppCompatActivity {
         tvCategoryName.setText(category.getName());
 
         ImageView categoryIcon = findViewById(R.id.iv_cat_icon);
-        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
         String iconName = category.getIconName();
         if (iconName != null) {
             int resourceIdImage = getResources().getIdentifier(iconName, "drawable",

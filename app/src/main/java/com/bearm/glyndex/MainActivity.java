@@ -3,7 +3,6 @@ package com.bearm.glyndex;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Adds category items to the main list
     private void loadCategoryList() {
         categoryList = getCategoryList();
 
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
     }
 
+    //Gets all category items from database
     private List<Category> getCategoryList() {
         CategoryRepository categoryRepository = new CategoryRepository(getApplication());
         return categoryRepository.getCategoryList();
@@ -71,23 +72,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        //Info about the app
         if (id == R.id.action_about) {
             showAboutDialog();
             return true;
         }
 
+        //Info about glycemic index
         if (id == R.id.action_GI) {
             goToInfoScreen();
             return true;
@@ -96,8 +95,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Shows a dialog with info about the app
-
+    /** Shows a dialog with info about the app */
     private void showAboutDialog() {
         View view = getLayoutInflater().inflate(R.layout.about_layout, null);
 
@@ -109,27 +107,30 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        //Close dialog.
                     }
                 });
         builder.show();
     }
 
-
-        private void goToFoodScreen ( int position, boolean search){
-            Category cat = categoryList.get(position);
-            //Log.e("Cat", String.valueOf(cat));
-            Intent foodIntent = new Intent(this, FoodActivity.class);
+    /**
+     * Opens food screen with list of food in selected category.
+     * Sends categoryId, category name and boolean indicating whether screen was opened from search button
+     */
+    private void goToFoodScreen(int position, boolean search) {
+        Category cat = categoryList.get(position);
+        Intent foodIntent = new Intent(this, FoodActivity.class);
             foodIntent.putExtra("CategoryId", cat.getId());
             foodIntent.putExtra("CategoryName", cat.getName());
             foodIntent.putExtra("IsSearch", search);
             startActivity(foodIntent);
         }
 
-        private void goToInfoScreen(){
-            Intent infoIntent = new Intent(this, InfoActivity.class);
-            startActivity(infoIntent);
-        }
-
-
+    /** Opens info screen with info about the glycemic index */
+    private void goToInfoScreen() {
+        Intent infoIntent = new Intent(this, InfoActivity.class);
+        startActivity(infoIntent);
     }
+
+
+}

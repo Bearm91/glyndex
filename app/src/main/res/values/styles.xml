@@ -106,10 +106,11 @@
         <item name="android:drawableStart">@drawable/ic_right_arrow</item>
     </style>
 
-    <style name="myAboutInfoLink" parent= "GIInfo">
+    <style name="myAboutInfoLink">
         <item name="android:textSize">16sp</item>
         <item name="android:paddingLeft">18sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingRight">10dp</item>
         <item name="android:textColor">@color/colorLightBlue</item>
     </style>
 
@@ -126,8 +127,6 @@
         <item name="android:padding">6dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
-
-
     </style>
 
     <style name="GIInfo" parent="Theme.MaterialComponents.Light.Dialog">
@@ -136,11 +135,11 @@
         <item name="android:paddingLeft">10dp</item>
     </style>
 
-    <style name="GIInfoLink" parent="GIInfo">
+    <style name="GIInfoLink">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
         <item name="android:textColor">@color/colorLightBlue</item>
-
-
     </style>
 </resources>
