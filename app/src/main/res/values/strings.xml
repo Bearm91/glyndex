@@ -27,6 +27,7 @@
     <!-- About screen-->
     <string name="about_title">Acerca de Glyndex</string>
     <string name="about_current_version">Versión: 1.0</string>
+    <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Iconos:</string>
     <string name="about_info_icons_1">Baianat - www.flaticon.com</string>
@@ -45,21 +46,14 @@
     <string name="info_ig_4">IG medio o moderado: 55 - 69</string>
     <string name="info_ig_5">IG bajo: 54 o menos</string>
 
-    <string name="info_source_gi_link">aquí</string>
-    <string name="info_source_gi">Leer más sobre IG </string>
+    <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación Diabetes</b></a>]]></string>
+    <string name="info_source_gi_links"><![CDATA[Leer más sobre IG <a href=\"https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a> y <a href=\"https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a>.]]></string>
+    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> datos de alimentos en un navegador.]]></string>
+    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> datos de alimentos en PDF.]]></string>
 
-    <string name="info_source_main">Fuente:</string>
-    <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
-
-    <string name="info_source_digital">datos en un navegador.</string>
-    <string name="info_source_digital_link">Ver</string>
-
-    <string name="info_source_pdf">datos en PDF.</string>
-    <string name="info_source_pdf_link">Descargar</string>
     <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
     <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
     <string name="info_gi_references_title">Referencias:</string>
-    <string name="and">y</string>
     <string name="info_source_main_about">Fuente de datos:</string>
     <string name="info_ig_6">IG desconocido: -</string>
     <string name="indice_gluc_menu_item">Indice Glucémico</string>
@@ -74,6 +68,5 @@
     <string name="search_title">Buscar</string>
     <string name="dash_symbol">-</string>
     <string name="grams">g</string>
-
 
 </resources>
