@@ -51,7 +51,8 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_search" />
+        app:srcCompat="@drawable/ic_search"
+        android:contentDescription="@string/search_button_content_description"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
