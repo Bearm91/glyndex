@@ -9,11 +9,12 @@
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/search_view_height"
+        android:layout_height="@dimen/search_view_height_large"
         android:id="@+id/sv_food"
         app:iconifiedByDefault="false"
         android:layout_marginTop="6dp"
-        android:layout_marginBottom="2dp"/>
+        android:layout_marginBottom="2dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"

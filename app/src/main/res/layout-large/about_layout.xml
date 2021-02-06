@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/development"
-            style="@style/myAboutTitle"/>
+            style="@style/myAboutTitleLarge"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
 
             <TextView
                 android:id="@+id/tv_app_version"
-                style="@style/myAboutInfo"
+                style="@style/myAboutInfoLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_current_version" />
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/support"
-            style="@style/myAboutTitle"/>
+            style="@style/myAboutTitleLarge"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,13 +44,13 @@
             android:paddingBottom="6dp">
 
             <TextView
-                style="@style/myAboutInfo"
+                style="@style/myAboutInfoLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_support" />
 
             <TextView
-                style="@style/myAboutInfoLink"
+                style="@style/myAboutInfoLinkLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_about_support_contact"/>
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/resources"
-            style="@style/myAboutTitle"/>
+            style="@style/myAboutTitleLarge"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/gi_source"
-                style="@style/myAboutInfo"
+                style="@style/myAboutInfoLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_main_about"
@@ -79,7 +79,7 @@
 
             <TextView
                 android:id="@+id/gi_source_link"
-                style="@style/myAboutInfoLink"
+                style="@style/myAboutInfoLinkLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_link" />
@@ -92,19 +92,19 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/myAboutInfo"
+                style="@style/myAboutInfoLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_icons" />
 
             <TextView
-                style="@style/myAboutInfoLink"
+                style="@style/myAboutInfoLinkLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_icons_1" />
 
             <TextView
-                style="@style/myAboutInfoLink"
+                style="@style/myAboutInfoLinkLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_icons_2" />

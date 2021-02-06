@@ -2,7 +2,6 @@ package com.bearm.glyndex.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,15 +13,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bearm.glyndex.DetailsHelper;
+import com.bearm.glyndex.helpers.*;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.DetailsAdapter;
-import com.bearm.glyndex.models.Category;
-import com.bearm.glyndex.models.Food;
-import com.bearm.glyndex.models.Measurement;
-import com.bearm.glyndex.repositories.CategoryRepository;
-import com.bearm.glyndex.repositories.FoodRepository;
-import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.bearm.glyndex.models.*;
+import com.bearm.glyndex.repositories.*;
 
 import java.util.List;
 
@@ -40,10 +35,10 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.content_details);
 
         Bundle bundle = getIntent().getExtras();
-        //categoryName = bundle.getString("CategoryName");
-        int foodId = bundle.getInt("FoodId");
-        //categoryId = bundle.getInt("CategoryId");
-
+        int foodId = 0;
+        if (bundle != null) {
+            foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
+        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         loadDetailsInfo(getFoodInfo(foodId));
@@ -77,8 +72,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private List<Measurement> getMeasurementList(int foodId) {
         MeasurementRepository measurementRepository = new MeasurementRepository(getApplication());
-        List<Measurement> measurementList = measurementRepository.getMeasurementByFood(foodId);
-        return measurementList;
+        return measurementRepository.getMeasurementByFood(foodId);
     }
 
     private void loadDetailsInfo(Food food) {
@@ -97,7 +91,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadCHRationG(long gramsPerChRation) {
         TextView tvFoodIg = findViewById(R.id.tv_carbs_g);
-        String grams = gramsPerChRation + "g";
+        String grams = gramsPerChRation + getString(R.string.grams);
         tvFoodIg.setText(grams);
     }
 
@@ -106,7 +100,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (gi != null) {
             tvFoodIg.setText(String.valueOf(gi));
         } else {
-            tvFoodIg.setText("-");
+            tvFoodIg.setText(R.string.dash_symbol);
         }
 
         ImageView ivIGIcon = findViewById(R.id.iv_ig_icon);
@@ -123,7 +117,6 @@ public class DetailsActivity extends AppCompatActivity {
         tvCategoryName.setText(category.getName());
 
         ImageView categoryIcon = findViewById(R.id.iv_cat_icon);
-        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
         String iconName = category.getIconName();
         if (iconName != null) {
             int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
@@ -142,9 +135,9 @@ public class DetailsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("CategoryId", categoryId);
-        intent.putExtra("CategoryName", categoryName);
-        setResult(1, intent);
+        intent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        intent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
+        setResult(Constants.RESULT_CODE_OK, intent);
         finish();
     }
 
@@ -152,32 +145,5 @@ public class DetailsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_details, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_GI) {
-            goToInfoScreen();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void goToInfoScreen(){
-        Intent infoIntent = new Intent(this, InfoActivity.class);
-        startActivity(infoIntent);
     }
 }

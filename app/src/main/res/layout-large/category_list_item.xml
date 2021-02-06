@@ -30,7 +30,7 @@
                 android:id="@+id/tv_cat_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/CategoryListName"
+                style="@style/CategoryListNameLarge"
                 tool:text="Cereales y Harinas" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

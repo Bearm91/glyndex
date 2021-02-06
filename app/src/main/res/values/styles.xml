@@ -16,6 +16,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Toolbar.TitleTextLarge" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">24sp</item>
+    </style>
+
     <style name="CategoryListName" parent="AppTheme">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_category_list_item_name</item>
@@ -24,10 +28,18 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="CategoryListNameLarge" parent="CategoryListName">
+        <item name="android:textSize">@dimen/text_size_category_list_item_name_large</item>
+    </style>
+
     <style name="FoodListName" parent="AppTheme">
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">@dimen/text_size_food_list_item_name</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="FoodListNameLarge" parent="FoodListName">
+        <item name="android:textSize">@dimen/text_size_food_list_item_name_large</item>
     </style>
 
     <style name="FoodListIG">
@@ -35,6 +47,10 @@
         <item name="android:textSize">@dimen/text_size_food_list_item_ig</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="FoodListIGLarge"  parent="FoodListIG">
+        <item name="android:textSize">@dimen/text_size_food_list_item_ig_large</item>
     </style>
 
     <style name="MeasurementList">
@@ -46,10 +62,17 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <style name="MeasurementListLarge" parent="MeasurementList">
+        <item name="android:textSize">@dimen/text_size_measurement_list_item_large</item>
+    </style>
+
     <style name="MeasurementListHeader" parent="MeasurementList">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_measurement_list_header</item>
+    </style>
 
+    <style name="MeasurementListHeaderLarge" parent="MeasurementListHeader">
+        <item name="android:textSize">@dimen/text_size_measurement_list_header_large</item>
     </style>
 
     <style name="DetailsInfoLayout">
@@ -68,6 +91,10 @@
         <item name="android:gravity">center_horizontal</item>
     </style>
 
+    <style name="DetailsMainTitleLarge" parent="DetailsMainTitle">
+        <item name="android:textSize">30sp</item>
+    </style>
+
     <style name="DetailsTitles">
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center|left</item>
@@ -75,12 +102,19 @@
         <item name="android:layout_margin">6dp</item>
     </style>
 
+    <style name="DetailsTitlesLarge" parent="DetailsTitles">
+        <item name="android:textSize">28sp</item>
+    </style>
+
     <style name="DetailsInfo">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:padding">2dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@android:color/secondary_text_light</item>
+    </style>
 
+    <style name="DetailsInfoLarge" parent="DetailsInfo">
+        <item name="android:textSize">28sp</item>
     </style>
 
     <style name="MeasurementTableTitle" parent="DetailsMainTitle">
@@ -92,25 +126,43 @@
         <item name="android:background">@color/colorPrimaryLight</item>
     </style>
 
+    <style name="MeasurementTableTitleLarge" parent="MeasurementTableTitle">
+        <item name="android:textSize">26sp</item>
+    </style>
+
     <style name="category_list_title">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textAlignment">center</item>
         <item name="android:padding">12dp</item>
         <item name="android:layout_marginTop">64dp</item>
     </style>
 
+    <style name="category_list_title_large" parent="category_list_title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
     <style name="myAboutInfo" parent= "GIInfo">
         <item name="android:drawableStart">@drawable/ic_right_arrow</item>
     </style>
 
-    <style name="myAboutInfoLink" parent= "GIInfo">
+    <style name="myAboutInfoLarge" parent= "GIInfoLarge">
+        <item name="android:drawableStart">@drawable/ic_right_arrow</item>
+    </style>
+
+    <style name="myAboutInfoLink">
         <item name="android:textSize">16sp</item>
         <item name="android:paddingLeft">18sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingRight">10dp</item>
         <item name="android:textColor">@color/colorLightBlue</item>
+    </style>
+
+    <style name="myAboutInfoLinkLarge" parent="myAboutInfoLink">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="myAboutTitle" parent= "AppTheme">
@@ -121,26 +173,32 @@
         <item name="android:layout_margin">8dp</item>
     </style>
 
+    <style name="myAboutTitleLarge" parent= "myAboutTitle">
+        <item name="android:textSize">22sp</item>
+    </style>
+
     <style name="GIInfoTitle" parent="GIInfo">
         <item name="android:textSize">22sp</item>
         <item name="android:padding">6dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
-
-
     </style>
 
     <style name="GIInfo" parent="Theme.MaterialComponents.Light.Dialog">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingLeft">10dp</item>
     </style>
+    
+    <style name="GIInfoLarge" parent="GIInfo">
+        <item name="android:textSize">22sp</item>
+    </style>
 
-    <style name="GIInfoLink" parent="GIInfo">
+    <style name="GIInfoLink">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
         <item name="android:textColor">@color/colorLightBlue</item>
-
-
     </style>
 </resources>

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bearm.glyndex.DetailsHelper;
+import com.bearm.glyndex.helpers.DetailsHelper;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.models.Food;
 

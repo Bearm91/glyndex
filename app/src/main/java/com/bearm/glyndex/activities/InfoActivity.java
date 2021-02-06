@@ -1,9 +1,8 @@
 package com.bearm.glyndex.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,6 @@ public class InfoActivity extends AppCompatActivity {
     TextView pdfSource;
     TextView mainSource;
     TextView giSource1;
-    TextView giSource2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,49 +23,21 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mainSource = findViewById(R.id.gi_source_link);
-        mainSource.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fundaciondiabetes.org"));
-                startActivity(browserIntent);
-            }
-        });
+        mainSource = findViewById(R.id.gi_source);
+        mainSource.setMovementMethod(LinkMovementMethod.getInstance());
+        mainSource.setText(Html.fromHtml(getString(R.string.info_source_main)));
 
-        giSource1 = findViewById(R.id.gi_source_gi_link_1);
-        giSource1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos"));
-                startActivity(browserIntent);
-            }
-        });
-
-        giSource2 = findViewById(R.id.gi_source_gi_link_2);
-        giSource2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos"));
-                startActivity(browserIntent);
-            }
-        });
+        giSource1 = findViewById(R.id.gi_source_gi);
+        giSource1.setMovementMethod(LinkMovementMethod.getInstance());
+        giSource1.setText(Html.fromHtml(getString(R.string.info_source_gi_links)));
 
         digitalSource = findViewById(R.id.gi_source_digital_link);
-        digitalSource.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono"));
-                startActivity(browserIntent);
-            }
-        });
+        digitalSource.setMovementMethod(LinkMovementMethod.getInstance());
+        digitalSource.setText(Html.fromHtml(getString(R.string.info_source_digital)));
 
-        pdfSource = findViewById(R.id.gi_source_pdf_link);
-        pdfSource.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf"));
-                startActivity(browserIntent);
-            }
-        });
+        pdfSource = findViewById(R.id.gi_source_pdf);
+        pdfSource.setMovementMethod(LinkMovementMethod.getInstance());
+        pdfSource.setText(Html.fromHtml(getString(R.string.info_source_pdf)));
+
     }
 }
