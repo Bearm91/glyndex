@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/gi_title"
+            style="@style/GIInfoTitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_subtitle_1" />
+
+        <TextView
+            android:id="@+id/gi_info"
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_1" />
+
+        <TextView
+            android:id="@+id/gi_title_2"
+            style="@style/GIInfoTitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_subtitle_2" />
+
+        <TextView
+            android:id="@+id/gi_info_2"
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_2" />
+
+        <TextView
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="@string/info_ig_3"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_4"
+            android:textColor="@color/colorYellow"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
+            android:text="@string/info_ig_5"
+            android:textColor="@color/colorGreen"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/GIInfoLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
+            android:text="@string/info_ig_6"
+            android:textColor="@color/colorGray"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gi_source_title"
+            style="@style/GIInfoTitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_gi_references_title" />
+
+        <TextView
+            android:id="@+id/gi_source"
+            style="@style/GIInfoLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorLink="@color/colorLightBlue"
+            tool:text="Ver en el navegador" />
+
+        <TextView
+            android:id="@+id/gi_source_gi"
+            style="@style/GIInfoLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorLink="@color/colorLightBlue"
+            tool:text="Leer más sobre GI aquí y aquí" />
+
+        <TextView
+            android:id="@+id/gi_source_digital_link"
+            style="@style/GIInfoLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorLink="@color/colorLightBlue"
+            tool:text="Ver datos de alimentos en un navegador" />
+
+        <TextView
+            android:id="@+id/gi_source_pdf"
+            style="@style/GIInfoLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descargar datos en PDF"
+            android:textColorLink="@color/colorLightBlue" />
+
+    </LinearLayout>
+</ScrollView>

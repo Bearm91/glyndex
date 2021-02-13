@@ -9,19 +9,17 @@
     <color name="colorRed">#e76f51</color>
     <color name="colorGray">#adb5bd</color>
     <color name="colorLightBlue">#358FAB</color>
+    <color name="colorItemBackground">#131313</color>
 
-    <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 
     <color name="colorToolbarText">@color/colorWhite</color>
     <color name="colorGrayText">#878282</color>
-    <color name="colorText">#000000</color>
-    <color name="colorItemBackground">@color/colorWhite</color>
-    <color name="colorAppBackground">@color/colorWhite</color>
-    <color name="colorIcon">@color/colorBlack</color>
-    <color name="colorTitle">@color/colorPrimary</color>
-    <color name="colorTextToolbar">@color/colorWhite</color>
-
+    <color name="colorText">@color/colorWhite</color>
+    <color name="colorAppBackground">#0B0B0B</color>
+    <color name="colorIcon">#222222</color>
+    <color name="colorTitle">@color/colorPrimaryLight</color>
 
 
 </resources>

@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,11 +10,19 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:actionMenuTextColor">@color/colorTextToolbar</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
+        <item name="android:textSize">12sp</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.AppBarOverlayLarge" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight">
+    </style>
 
     <style name="Toolbar.TitleTextLarge" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">24sp</item>
@@ -60,6 +68,8 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:padding">4dp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/colorText</item>
+
     </style>
 
     <style name="MeasurementListLarge" parent="MeasurementList">
@@ -84,7 +94,7 @@
 
     <style name="DetailsMainTitle">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">22sp</item>
         <item name="android:layout_margin">16dp</item>
@@ -110,7 +120,7 @@
         <item name="android:textSize">18sp</item>
         <item name="android:padding">2dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/secondary_text_light</item>
+        <item name="android:textColor">@color/colorText</item>
     </style>
 
     <style name="DetailsInfoLarge" parent="DetailsInfo">
@@ -118,7 +128,7 @@
     </style>
 
     <style name="MeasurementTableTitle" parent="DetailsMainTitle">
-        <item name="android:textColor">@android:color/secondary_text_light</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_margin">0dp</item>
@@ -131,9 +141,9 @@
     </style>
 
     <style name="category_list_title">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textAlignment">center</item>
         <item name="android:padding">12dp</item>
@@ -142,7 +152,7 @@
 
     <style name="category_list_title_large" parent="category_list_title">
         <item name="android:textSize">30sp</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">30dp</item>
     </style>
 
     <style name="myAboutInfo" parent= "GIInfo">
@@ -168,7 +178,7 @@
     <style name="myAboutTitle" parent= "AppTheme">
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">8dp</item>
     </style>
@@ -181,7 +191,11 @@
         <item name="android:textSize">22sp</item>
         <item name="android:padding">6dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTitle</item>
+    </style>
+
+    <style name="GIInfoTitleLarge" parent="GIInfoTitle">
+        <item name="android:textSize">26sp</item>
     </style>
 
     <style name="GIInfo" parent="Theme.MaterialComponents.Light.Dialog">

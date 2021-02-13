@@ -1,6 +1,7 @@
 package com.bearm.glyndex.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,6 +41,8 @@ public class DetailsActivity extends AppCompatActivity {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+
 
         loadDetailsInfo(getFoodInfo(foodId));
         loadFoodDetails(foodId);
