@@ -111,7 +111,9 @@ public class MainActivity extends AppCompatActivity {
                         //Close dialog.
                     }
                 });
-        builder.show();
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     /**

@@ -10,7 +10,8 @@
         android:id="@+id/cv_food_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:backgroundTint="@color/colorItemBackground">
 
         <LinearLayout
             android:layout_width="match_parent"

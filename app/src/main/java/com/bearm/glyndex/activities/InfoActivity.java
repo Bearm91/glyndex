@@ -1,5 +1,6 @@
 package com.bearm.glyndex.activities;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -22,6 +23,8 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+
 
         mainSource = findViewById(R.id.gi_source);
         mainSource.setMovementMethod(LinkMovementMethod.getInstance());

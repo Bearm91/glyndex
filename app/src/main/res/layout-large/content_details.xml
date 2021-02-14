@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/colorItemBackground">
 
         <LinearLayout
             android:id="@+id/ll_title"
@@ -15,7 +15,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp">
+                android:layout_margin="6dp"
+                android:backgroundTint="@color/colorItemBackground">
 
                 <TextView
                     android:id="@+id/tv_food_name"
@@ -29,7 +30,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_margin="4dp"                >
+                android:layout_margin="4dp"
+                android:backgroundTint="@color/colorItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -70,7 +72,7 @@
                                 android:id="@+id/iv_cat_icon"
                                 android:layout_width="@dimen/arrow_size_food_list_large"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="2dp"
+                                android:layout_marginStart="12dp"
                                 android:src="@drawable/ic_watermelon"
                                 android:contentDescription="@string/cat_icon_content_description"/>
                         </LinearLayout>
@@ -107,6 +109,7 @@
                                 android:layout_width="@dimen/arrow_size_food_list_large"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ic_up_green_arrow"
+                                android:layout_marginStart="12dp"
                                 android:contentDescription="@string/ig_icon_content_description"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -146,7 +149,8 @@
                 android:id="@+id/cv_measr_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp">
+                android:layout_margin="6dp"
+                android:backgroundTint="@color/colorItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"

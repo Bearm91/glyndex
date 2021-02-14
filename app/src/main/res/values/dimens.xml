@@ -2,10 +2,10 @@
     <dimen name="text_size_food_list_item_name">20sp</dimen>
     <dimen name="text_size_food_list_item_name_large">28sp</dimen>
 
-    <dimen name="text_size_food_list_item_ig">25sp</dimen>
+    <dimen name="text_size_food_list_item_ig">20sp</dimen>
     <dimen name="text_size_food_list_item_ig_large">30sp</dimen>
 
-    <dimen name="text_size_category_list_item_name">20sp</dimen>
+    <dimen name="text_size_category_list_item_name">18sp</dimen>
     <dimen name="text_size_category_list_item_name_large">28sp</dimen>
 
     <dimen name="layout_margin_category_list_item_name">6dp</dimen>
@@ -14,7 +14,7 @@
     <dimen name="text_size_measurement_list_item_large">30sp</dimen>
 
     <dimen name="text_size_measurement_list_header">20sp</dimen>
-    <dimen name="text_size_measurement_list_header_large">26sp</dimen>
+    <dimen name="text_size_measurement_list_header_large">28sp</dimen>
     <dimen name="arrow_size_food_list">45dp</dimen>
     <dimen name="arrow_size_food_list_large">55dp</dimen>
 
