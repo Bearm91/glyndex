@@ -8,7 +8,7 @@
     <color name="colorYellow">#e9c46a</color>
     <color name="colorRed">#e76f51</color>
     <color name="colorGray">#adb5bd</color>
-    <color name="colorLightBlue">#358FAB</color>
+    <color name="colorLightBlue">@color/colorAccent</color>
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
@@ -21,6 +21,11 @@
     <color name="colorIcon">@color/colorBlack</color>
     <color name="colorTitle">@color/colorPrimary</color>
     <color name="colorTextToolbar">@color/colorWhite</color>
+    <color  name="colorButtonDialog">@color/colorPrimary</color>
+    <color name="colorGreyArrow">#2D527C</color>
+    <color name="colorGreyArrow2">#CEE8FA</color>
+
+
 
 
 

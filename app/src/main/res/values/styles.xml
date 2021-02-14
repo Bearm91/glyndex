@@ -13,8 +13,9 @@
         <item name="android:actionMenuTextColor">@color/colorTextToolbar</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
+    <style name="AppTheme.AppBarOverlay" parent="AppTheme">
         <item name="android:textSize">12sp</item>
+        <item name="android:actionMenuTextColor">@color/colorTextToolbar</item>
     </style>
 
     <style name="AppTheme.AppBarOverlayLarge" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">

@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:titleTextColor="@color/colorWhite"
             android:theme="@style/AppTheme.AppBarOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -50,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_action_search_white"
-        android:contentDescription="@string/search_button_content_description"/>
-
+        android:contentDescription="@string/search_button_content_description"
+        android:backgroundTint="@color/colorAccent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

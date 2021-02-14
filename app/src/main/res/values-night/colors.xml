@@ -20,6 +20,7 @@
     <color name="colorAppBackground">#0B0B0B</color>
     <color name="colorIcon">#222222</color>
     <color name="colorTitle">@color/colorPrimaryLight</color>
-
-
+    <color  name="colorButtonDialog">@color/colorAccent</color>
+    <color name="colorGreyArrow">#96a8bd</color>
+    <color name="colorGreyArrow2">@color/colorWhite</color>
 </resources>
