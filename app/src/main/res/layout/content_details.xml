@@ -72,7 +72,7 @@
                                 android:id="@+id/iv_cat_icon"
                                 android:layout_width="@dimen/arrow_size_food_list"
                                 android:layout_height="match_parent"
-                                android:layout_marginStart="12dp"
+                                android:layout_marginStart="2dp"
                                 android:src="@drawable/ic_watermelon"
                                 android:contentDescription="@string/cat_icon_content_description"/>
                         </LinearLayout>
@@ -107,7 +107,7 @@
                             <ImageView
                                 android:id="@+id/iv_ig_icon"
                                 android:layout_width="@dimen/arrow_size_food_list"
-                                android:layout_marginStart="12dp"
+                                android:layout_marginStart="6dp"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ic_up_green_arrow"
                                 android:contentDescription="@string/ig_icon_content_description"/>
