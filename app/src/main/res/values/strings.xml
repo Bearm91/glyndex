@@ -26,7 +26,7 @@
 
     <!-- About screen-->
     <string name="about_title">Acerca de Glyndex</string>
-    <string name="about_current_version">Versión: 1.0</string>
+    <string name="about_current_version">Versión: 1.3</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Iconos:</string>
@@ -46,7 +46,7 @@
     <string name="info_ig_4">IG medio o moderado: 55 - 69</string>
     <string name="info_ig_5">IG bajo: 54 o menos</string>
 
-    <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación Diabetes</b></a>]]></string>
+    <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación para la Diabetes Novo Nordisk</b></a>]]></string>
     <string name="info_source_gi_links"><![CDATA[Leer más sobre IG <a href=\"https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a> y <a href=\"https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a>.]]></string>
     <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> datos de alimentos en un navegador.]]></string>
     <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> datos de alimentos en PDF.]]></string>

@@ -6,7 +6,8 @@
     <item
         android:id="@+id/action_GI"
         app:showAsAction="ifRoom"
-        android:title="@string/indice_gluc_menu_item"/>
+        android:title="@string/indice_gluc_menu_item"
+        android:icon="@drawable/ic_help_white"/>
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
