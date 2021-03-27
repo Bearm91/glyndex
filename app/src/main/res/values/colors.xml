@@ -24,9 +24,7 @@
     <color  name="colorButtonDialog">@color/colorPrimary</color>
     <color name="colorGreyArrow">#2D527C</color>
     <color name="colorGreyArrow2">#CEE8FA</color>
-
-
-
-
+    <color name="colorOnBoardingButtonBackground">@color/colorPrimary</color>
+    <color name="colorOnBoardingButtonText">@color/colorWhite</color>
 
 </resources>

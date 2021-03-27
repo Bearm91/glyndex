@@ -69,5 +69,7 @@
     <string name="dash_symbol">-</string>
     <string name="grams">g</string>
     <string name="search_button_content_description">Buscador de alimentos</string>
+    <string name="info_close_btn">Comenzar</string>
+    <string name="info_onboarding_title">Antes de empezar...</string>
 
 </resources>

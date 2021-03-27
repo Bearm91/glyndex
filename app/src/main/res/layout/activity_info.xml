@@ -12,11 +12,25 @@
         android:padding="12dp">
 
         <TextView
+            android:id="@+id/gi_title_onboarding"
+            style="@style/GIInfoTitleOnboarding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_onboarding_title" />
+
+        <TextView
             android:id="@+id/gi_title"
             style="@style/GIInfoTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/info_gi_subtitle_1" />
+
+        <TextView
+            android:id="@+id/gi_info_2"
+            style="@style/GIInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/info_ig_2" />
 
         <TextView
             android:id="@+id/gi_info"
@@ -31,13 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/info_gi_subtitle_2" />
-
-        <TextView
-            android:id="@+id/gi_info_2"
-            style="@style/GIInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/info_ig_2" />
 
         <TextView
             style="@style/GIInfo"
@@ -110,8 +117,22 @@
             style="@style/GIInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descargar datos en PDF"
+            tool:text="Descargar datos en PDF"
             android:textColorLink="@color/colorLightBlue" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp">
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/info_close_btn"
+                android:backgroundTint="@color/colorOnBoardingButtonBackground"
+                android:textColor="@color/colorOnBoardingButtonText"
+                tool:text="Comenzar"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

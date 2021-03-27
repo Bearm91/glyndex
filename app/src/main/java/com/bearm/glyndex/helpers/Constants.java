@@ -14,4 +14,7 @@ public class Constants {
 
     public static final Integer RESULT_CODE_OK = 1;
     public static final Integer REQUEST_CODE_OK = 1;
+
+    public static final String SHARED_PREFERENCES_ONBOARDING_KEY = "onBoarding";
+    public static final String SHARED_PREFERENCES_ONBOARDING_SHOWINFO = "showInfo";
 }
