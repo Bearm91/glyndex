@@ -103,14 +103,6 @@ public class DetailsActivity extends AppCompatActivity {
         } else {
             tvFoodIg.setText(R.string.dash_symbol);
         }
-
-        ImageView ivIGIcon = findViewById(R.id.iv_ig_icon);
-        String iconName = DetailsHelper.getIGIconName(gi);
-
-        int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
-                getPackageName());
-        //use this id to set the image anywhere
-        ivIGIcon.setImageResource(resourceIdImage);
     }
 
     private void loadCategory(Category category) {

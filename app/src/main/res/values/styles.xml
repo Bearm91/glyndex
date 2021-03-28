@@ -45,6 +45,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">@dimen/text_size_food_list_item_name</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:padding">10dp</item>
     </style>
 
     <style name="FoodListNameLarge" parent="FoodListName">
@@ -52,10 +53,15 @@
     </style>
 
     <style name="FoodListIG">
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">0.14</item>
         <item name="android:textSize">@dimen/text_size_food_list_item_ig</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:background">@color/colorGreen</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="FoodListIGLarge"  parent="FoodListIG">
