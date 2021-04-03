@@ -8,10 +8,10 @@
     <string name="details_measurement_table_title">Medidas comunes</string>
     <string name="details_measurement_table_header_quantity">Cantidad</string>
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
-    <string name="category_title">Categoría:</string>
+    <string name="category_title">Categoría</string>
     <string name="ig_title">IG:</string>
-    <string name="chrations_title">Ración HC:</string>
-    <string name="details_1chrations_example">1R = 200g</string>
+    <string name="chrations_title">Ración (10g) HC</string>
+    <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
     <string name="category_example">Verduras y hortalizas</string>
     <string name="product_name_example">Garbanzos cocidos</string>
@@ -20,7 +20,7 @@
         <item quantity="other">%1d raciones (%2d g)</item>
     </plurals>
 
-    <string name="ch_ration">%1s R (%2s g)</string>
+    <string name="ch_ration">%1$s R (%2$s g)</string>
     <string name="menu_category">Categorías</string>
     <string name="searchView_hint">Busca en todas las categorías</string>
 
@@ -67,7 +67,7 @@
     <string name="close">Cerrar</string>
     <string name="search_title">Buscar</string>
     <string name="dash_symbol">-</string>
-    <string name="grams">g</string>
+    <string name="grams">%1$s g</string>
     <string name="search_button_content_description">Buscador de alimentos</string>
 
 </resources>

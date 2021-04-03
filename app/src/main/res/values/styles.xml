@@ -84,7 +84,6 @@
     </style>
 
     <style name="MeasurementListHeader" parent="MeasurementList">
-        <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_measurement_list_header</item>
     </style>
 
@@ -113,10 +112,9 @@
     </style>
 
     <style name="DetailsTitles">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:gravity">center|left</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:layout_margin">6dp</item>
     </style>
 
     <style name="DetailsTitlesLarge" parent="DetailsTitles">
@@ -125,9 +123,10 @@
 
     <style name="DetailsInfo">
         <item name="android:textSize">18sp</item>
-        <item name="android:padding">2dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="DetailsInfoLarge" parent="DetailsInfo">
@@ -139,8 +138,7 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_margin">0dp</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:padding">10dp</item>
     </style>
 
     <style name="MeasurementTableTitleLarge" parent="MeasurementTableTitle">

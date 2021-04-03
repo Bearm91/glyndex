@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,17 +40,19 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Measurement currentMeasurement = mData.get(position);
-        //Log.e("FOODITEM", currentMeasurement.toString());
 
         //Measurement name
         holder.myNameView.setText(currentMeasurement.getName());
 
-        //TODO fix plural of "ration"
-        String rationQuantityString = context.getResources().getQuantityString(R.plurals.ch_ration_quantity, (int) currentMeasurement.getChRationPerMeasurement());
+        //Measurement quantity
         holder.myCarbsView.setText(context.getString(
                 R.string.ch_ration,
                 String.valueOf(currentMeasurement.getChRationPerMeasurement()),
                 String.valueOf(currentMeasurement.getChRationPerMeasurement() * 10)));
+
+        if (position % 2 == 0) {
+            holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorPrimaryLight));
+        }
     }
 
     // total number of cells
@@ -63,12 +66,14 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myNameView;
         TextView myCarbsView;
+        LinearLayout linearLayout;
 
 
         ViewHolder(View itemView) {
             super(itemView);
             myNameView = itemView.findViewById(R.id.tv_measurement_name);
             myCarbsView = itemView.findViewById(R.id.tv_carbs_unit);
+            linearLayout = itemView.findViewById(R.id.ll_measurement_item);
 
         }
 
