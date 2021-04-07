@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:backgroundTint="@color/colorItemBackground">
+    android:id="@+id/ll_measurement_item">
 
     <TextView
         android:id="@+id/tv_measurement_name"

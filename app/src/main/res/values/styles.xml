@@ -81,6 +81,7 @@
 
     <style name="MeasurementListLarge" parent="MeasurementList">
         <item name="android:textSize">@dimen/text_size_measurement_list_item_large</item>
+        <item name="android:padding">12dp</item>
     </style>
 
     <style name="MeasurementListHeader" parent="MeasurementList">
@@ -108,7 +109,7 @@
     </style>
 
     <style name="DetailsMainTitleLarge" parent="DetailsMainTitle">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
     <style name="DetailsTitles">
