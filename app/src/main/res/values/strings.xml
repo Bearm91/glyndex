@@ -48,8 +48,8 @@
 
     <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación para la Diabetes Novo Nordisk</b></a>]]></string>
     <string name="info_source_gi_links"><![CDATA[Leer más sobre IG <a href=\"https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a> y <a href=\"https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a>.]]></string>
-    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> datos de alimentos en un navegador.]]></string>
-    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> datos de alimentos en PDF.]]></string>
+    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> tabla de alimentos en la web.]]></string>
+    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> tabla de alimentos en PDF.]]></string>
 
     <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
     <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
@@ -64,7 +64,7 @@
     <string name="cat_icon_content_description">Icono de la categoría</string>
     <string name="ig_icon_content_description">Icono índice glucémico del alimento</string>
     <string name="resources">Recursos</string>
-    <string name="close">Cerrar</string>
+    <string name="close_dialog_button">Aceptar</string>
     <string name="search_title">Buscar</string>
     <string name="dash_symbol">-</string>
     <string name="grams">%1$s g</string>
