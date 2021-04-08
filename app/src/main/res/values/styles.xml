@@ -135,7 +135,7 @@
     </style>
 
     <style name="MeasurementTableTitle" parent="DetailsMainTitle">
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_margin">0dp</item>
@@ -174,14 +174,14 @@
         <item name="android:paddingLeft">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingRight">10dp</item>
-        <item name="android:textColor">@color/colorLightBlue</item>
+        <item name="android:textColor">@color/colorLinks</item>
     </style>
 
     <style name="myAboutInfoLinkLarge" parent="myAboutInfoLink">
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="myAboutTitle" parent= "AppTheme">
+    <style name="myAboutTitle" parent= "Theme.MaterialComponents.DayNight.Dialog.Alert">
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/colorTitle</item>
@@ -191,6 +191,11 @@
 
     <style name="myAboutTitleLarge" parent= "myAboutTitle">
         <item name="android:textSize">22sp</item>
+    </style>
+
+
+    <style name="myAbout" parent= "ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="GIInfoTitle" parent="GIInfo">
@@ -212,6 +217,12 @@
     
     <style name="GIInfoLarge" parent="GIInfo">
         <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="GIInfoRescources" parent="GIInfo">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:drawableStart">@drawable/ic_right_arrow</item>
     </style>
 
     <style name="GIInfoLink">

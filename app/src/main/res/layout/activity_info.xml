@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -83,35 +84,35 @@
 
         <TextView
             android:id="@+id/gi_source"
-            style="@style/GIInfo"
+            style="@style/GIInfoRescources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorLink="@color/colorLightBlue"
-            tool:text="Ver en el navegador" />
+            android:textColorLink="@color/colorLinks"
+            tool:text="Ver en el navegador"/>
 
         <TextView
             android:id="@+id/gi_source_gi"
-            style="@style/GIInfo"
+            style="@style/GIInfoRescources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorLink="@color/colorLightBlue"
-            tool:text="Leer más sobre GI aquí y aquí" />
+            android:textColorLink="@color/colorLinks"
+            tool:text="Leer más sobre GI aquí y aquí"/>
 
         <TextView
             android:id="@+id/gi_source_digital_link"
-            style="@style/GIInfo"
+            style="@style/GIInfoRescources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorLink="@color/colorLightBlue"
-            tool:text="Ver datos de alimentos en un navegador" />
+            android:textColorLink="@color/colorLinks"
+            tool:text="Ver datos de alimentos en un navegador"/>
 
         <TextView
             android:id="@+id/gi_source_pdf"
-            style="@style/GIInfo"
+            style="@style/GIInfoRescources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descargar datos en PDF"
-            android:textColorLink="@color/colorLightBlue" />
+            tool:text="Descargar datos en PDF"
+            android:textColorLink="@color/colorLinks" />
 
     </LinearLayout>
 </ScrollView>

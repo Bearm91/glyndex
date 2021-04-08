@@ -98,20 +98,20 @@
                     android:id="@+id/ll_ig_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingStart="2dp"
-                    android:paddingEnd="4dp">
+                    android:paddingEnd="4dp"
+                    tools:ignore="RtlSymmetry">
 
                     <com.txusballesteros.widgets.FitChart
                         android:id="@+id/fc_gi_chart"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
+                        android:layout_width="@dimen/fitchart_size"
+                        android:layout_height="@dimen/fitchart_size"
                         app:backStrokeColor="@color/colorGray"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.421"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:strokeSize="12dp"
+                        app:strokeSize="@dimen/fitchart_stroke_size"
                         app:valueStrokeColor="@color/colorGreen" />
 
                     <TextView

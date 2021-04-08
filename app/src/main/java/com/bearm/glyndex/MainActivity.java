@@ -100,16 +100,13 @@ public class MainActivity extends AppCompatActivity {
     private void showAboutDialog() {
         View view = getLayoutInflater().inflate(R.layout.about_layout, null);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAbout);
         builder.setView(view);
         builder.setTitle(R.string.about_title)
                 .setIcon(R.mipmap.ic_launcher_pyramid_round)
                 .setCancelable(true)
-                .setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Close dialog.
-                    }
+                .setPositiveButton(R.string.close_dialog_button, (dialog, which) -> {
+                    //Close dialog.
                 });
 
         AlertDialog dialog = builder.create();

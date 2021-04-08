@@ -101,14 +101,14 @@
 
                     <com.txusballesteros.widgets.FitChart
                         android:id="@+id/fc_gi_chart"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="@dimen/fitchart_size_large"
+                        android:layout_height="@dimen/fitchart_size_large"
                         app:backStrokeColor="@color/colorGray"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:strokeSize="18dp"
+                        app:strokeSize="@dimen/fitchart_stroke_size_large"
                         app:valueStrokeColor="@color/colorGreen"
                         android:layout_marginStart="80dp"/>
 

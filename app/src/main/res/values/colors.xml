@@ -27,7 +27,7 @@
     <color name="colorGreyArrow2">#CEE8FA</color>
     <color name="colorIGListText">@color/colorWhite</color>
 
-
+    <color name="colorLinks">@color/colorLightBlue</color>
 
 
 
