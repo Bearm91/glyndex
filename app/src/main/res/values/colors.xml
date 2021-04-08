@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#463254</color>
-    <color name="colorPrimaryDark">#301F47</color>
-    <color name="colorPrimaryLight">#f6ecf8</color>
+    <color name="colorPrimaryDark">#1e0c2b</color>
+    <color name="colorPrimaryLight">#eddaf1</color>
     <color name="colorAccent">#00BCD4</color>
     <color name="colorGreen">#2a9d8f</color>
     <color name="colorYellow">#e9c46a</color>
@@ -26,9 +26,8 @@
     <color name="colorGreyArrow">#2D527C</color>
     <color name="colorGreyArrow2">#CEE8FA</color>
     <color name="colorIGListText">@color/colorWhite</color>
-
+    <color name="colorMeasurement">@color/colorPrimaryLight</color>
     <color name="colorLinks">@color/colorLightBlue</color>
-
 
 
 </resources>
