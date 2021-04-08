@@ -1,17 +1,23 @@
 package com.bearm.glyndex.helpers;
 
+import android.content.Context;
+
+import androidx.core.content.ContextCompat;
+
+import com.bearm.glyndex.R;
+
 public class DetailsHelper {
 
-    public static String getIGIconName(Integer currentFoodGI) {
-        String icon = Constants.YELLOW_ARROW;
+    public static int getIGColor(Context context, Integer currentFoodGI) {
+        int colorId = ContextCompat.getColor(context, R.color.colorYellow);
 
         if (currentFoodGI == null) {
-            icon = Constants.BLUE_ARROW;
+            colorId = ContextCompat.getColor(context, R.color.colorGray);
         } else if (currentFoodGI <= 55) {
-            icon = Constants.GREEN_ARROW;
+            colorId = ContextCompat.getColor(context, R.color.colorGreen);
         } else if (currentFoodGI >= 70) {
-            icon = Constants.RED_ARROW;
+            colorId = ContextCompat.getColor(context, R.color.colorRed);
         }
-        return icon;
+        return colorId;
     }
 }

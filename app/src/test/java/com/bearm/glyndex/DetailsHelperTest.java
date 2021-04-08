@@ -15,31 +15,31 @@ public class DetailsHelperTest {
 
     @Test
     public void getIGIconName_Red() {
-        assertEquals(DetailsHelper.getIGIconName(80), RED_ARROW);
+        assertEquals(DetailsHelper.getIGColor(80), RED_ARROW);
     }
 
     @Test
     public void getIGIconName_Yellow() {
-        assertEquals(DetailsHelper.getIGIconName(60), YELLOW_ARROW);
+        assertEquals(DetailsHelper.getIGColor(60), YELLOW_ARROW);
     }
 
     @Test
     public void getIGIconName_Green() {
-        assertEquals(DetailsHelper.getIGIconName(50), GREEN_ARROW);
+        assertEquals(DetailsHelper.getIGColor(50), GREEN_ARROW);
     }
 
     @Test
     public void getIGIconName_Blue() {
-        assertEquals(DetailsHelper.getIGIconName(null), BLUE_ARROW);
+        assertEquals(DetailsHelper.getIGColor(null), BLUE_ARROW);
     }
 
     @Test
     public void getIGIconName_Green_zero() {
-        assertEquals(DetailsHelper.getIGIconName(0), GREEN_ARROW);
+        assertEquals(DetailsHelper.getIGColor(0), GREEN_ARROW);
     }
 
     @Test
     public void getIGIconName_Blue_minus() {
-        assertEquals(DetailsHelper.getIGIconName(-2), BLUE_ARROW);
+        assertEquals(DetailsHelper.getIGColor(-2), BLUE_ARROW);
     }
 }
