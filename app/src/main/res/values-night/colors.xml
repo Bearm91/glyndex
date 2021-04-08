@@ -23,4 +23,7 @@
     <color  name="colorButtonDialog">@color/colorAccent</color>
     <color name="colorGreyArrow">#96a8bd</color>
     <color name="colorGreyArrow2">@color/colorWhite</color>
+    <color name="colorOnBoardingButtonBackground">@color/colorPrimary</color>
+    <color name="colorOnBoardingButtonText">@color/colorWhite</color>
+
 </resources>

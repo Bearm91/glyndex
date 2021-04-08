@@ -199,6 +199,14 @@
         <item name="android:textSize">26sp</item>
     </style>
 
+    <style name="GIInfoTitleOnboarding" parent="GIInfoTitle">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="GIInfoTitleOnboardingLarge" parent="GIInfoTitle">
+        <item name="android:textSize">32sp</item>
+    </style>
+
     <style name="GIInfo" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="android:textSize">18sp</item>
         <item name="android:paddingRight">10dp</item>

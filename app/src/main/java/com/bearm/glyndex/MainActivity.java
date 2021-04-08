@@ -1,7 +1,7 @@
 package com.bearm.glyndex;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     CategoryAdapter adapter;
     List<Category> categoryList;
     RecyclerView rv;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, MODE_PRIVATE);
+
         rv = (RecyclerView) findViewById(R.id.rv);
         loadCategoryList();
 
         FloatingActionButton fabSearch = findViewById(R.id.fab_search);
-        fabSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToFoodScreen(0, true);
-            }
-        });
+        fabSearch.setOnClickListener(v -> goToFoodScreen(0, true));
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        boolean showOnboardingScreen = sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_ONBOARDING_SHOWINFO, true);
+        if (showOnboardingScreen) {
+            goToInfoScreen(Boolean.TRUE);
+        }
     }
 
     //Adds category items to the main list
@@ -54,12 +60,7 @@ public class MainActivity extends AppCompatActivity {
         categoryList = getCategoryList();
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-        adapter = new CategoryAdapter(this, categoryList, new CategoryAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                goToFoodScreen(position, false);
-            }
-        });
+        adapter = new CategoryAdapter(this, categoryList, (view, position) -> goToFoodScreen(position, false));
 
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Info about glycemic index
         if (id == R.id.action_GI) {
-            goToInfoScreen();
+            goToInfoScreen(Boolean.FALSE);
             return true;
         }
 
@@ -105,11 +106,8 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(R.string.about_title)
                 .setIcon(R.mipmap.ic_launcher_pyramid_round)
                 .setCancelable(true)
-                .setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Close dialog.
-                    }
+                .setPositiveButton(R.string.close, (dialog, which) -> {
+                    //Close dialog.
                 });
 
         AlertDialog dialog = builder.create();
@@ -130,10 +128,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Opens info screen with info about the glycemic index */
-    private void goToInfoScreen() {
+    private void goToInfoScreen(boolean isOnBoarding) {
         Intent infoIntent = new Intent(this, InfoActivity.class);
+        infoIntent.putExtra(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, isOnBoarding);
         startActivity(infoIntent);
     }
-
-
 }
