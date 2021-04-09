@@ -25,6 +25,8 @@ public class Measurement {
     @ColumnInfo(name = "foodId")
     private int foodId;
 
+    @ColumnInfo(name = "custom")
+    private boolean isCustom;
 
     // Getter Methods
 
@@ -71,6 +73,15 @@ public class Measurement {
                 ", food=" + foodId +
                 ", id=" + id +
                 ", name='" + name + '\'' +
+                ", isCustom='" + isCustom + '\'' +
                 '}';
+    }
+
+    public boolean isCustom() {
+        return isCustom;
+    }
+
+    public void setCustom(boolean custom) {
+        isCustom = custom;
     }
 }

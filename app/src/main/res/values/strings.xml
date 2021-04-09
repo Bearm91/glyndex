@@ -71,5 +71,10 @@
     <string name="search_button_content_description">Buscador de alimentos</string>
     <string name="info_close_btn">Comenzar</string>
     <string name="info_onboarding_title">Antes de empezar...</string>
+    <string name="btn_add_new_measurement">Añadir nueva medida...</string>
+    <string name="measurementNameField">Nombre</string>
+    <string name="measurementQuantityField">Cantidad de HC</string>
+    <string name="add_measurement_dialog_title">Añadir medida nueva</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>
