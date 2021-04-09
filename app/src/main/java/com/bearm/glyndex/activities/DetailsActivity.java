@@ -1,10 +1,10 @@
 package com.bearm.glyndex.activities;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +12,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bearm.glyndex.helpers.*;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.DetailsAdapter;
-import com.bearm.glyndex.models.*;
-import com.bearm.glyndex.repositories.*;
+import com.bearm.glyndex.helpers.Constants;
+import com.bearm.glyndex.helpers.DetailsHelper;
+import com.bearm.glyndex.models.Category;
+import com.bearm.glyndex.models.Food;
+import com.bearm.glyndex.models.Measurement;
+import com.bearm.glyndex.repositories.CategoryRepository;
+import com.bearm.glyndex.repositories.FoodRepository;
+import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.txusballesteros.widgets.FitChart;
+import com.txusballesteros.widgets.FitChartValue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -92,39 +100,40 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadCHRationG(long gramsPerChRation) {
         TextView tvFoodIg = findViewById(R.id.tv_carbs_g);
-        String grams = gramsPerChRation + getString(R.string.grams);
+        String grams = getString(R.string.grams, String.valueOf(gramsPerChRation));
         tvFoodIg.setText(grams);
     }
 
     private void loadIG(Integer gi) {
         TextView tvFoodIg = findViewById(R.id.tv_ig);
+
+        FitChart fitChart = findViewById(R.id.fc_gi_chart);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setStrokeCap(Paint.Cap.SQUARE);
+        fitChart.setMinValue(0f);
+        fitChart.setMaxValue(100f);
+
         if (gi != null) {
             tvFoodIg.setText(String.valueOf(gi));
+            fitChart.setValues(getFitChartValues(gi));
         } else {
             tvFoodIg.setText(R.string.dash_symbol);
         }
-
-        ImageView ivIGIcon = findViewById(R.id.iv_ig_icon);
-        String iconName = DetailsHelper.getIGIconName(gi);
-
-        int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
-                getPackageName());
-        //use this id to set the image anywhere
-        ivIGIcon.setImageResource(resourceIdImage);
     }
+
+    private List<FitChartValue> getFitChartValues(Integer gi){
+        List<FitChartValue> values = new ArrayList<>();
+        FitChartValue fitChartValue = new FitChartValue((float) gi, DetailsHelper.getIGColor(getApplicationContext(), gi));
+        values.add(fitChartValue);
+        return values;
+    }
+
+
 
     private void loadCategory(Category category) {
         TextView tvCategoryName = findViewById(R.id.tv_category_name);
         tvCategoryName.setText(category.getName());
-
-        ImageView categoryIcon = findViewById(R.id.iv_cat_icon);
-        String iconName = category.getIconName();
-        if (iconName != null) {
-            int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
-                    getPackageName());
-            //use this id to set the image anywhere
-            categoryIcon.setImageResource(resourceIdImage);
-        }
     }
 
     private void loadFoodName(String name) {

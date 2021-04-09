@@ -8,10 +8,10 @@
     <string name="details_measurement_table_title">Medidas comunes</string>
     <string name="details_measurement_table_header_quantity">Cantidad</string>
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
-    <string name="category_title">Categoría:</string>
+    <string name="category_title">Categoría</string>
     <string name="ig_title">IG:</string>
-    <string name="chrations_title">Ración HC:</string>
-    <string name="details_1chrations_example">1R = 200g</string>
+    <string name="chrations_title">Ración (10g) HC</string>
+    <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
     <string name="category_example">Verduras y hortalizas</string>
     <string name="product_name_example">Garbanzos cocidos</string>
@@ -20,7 +20,7 @@
         <item quantity="other">%1d raciones (%2d g)</item>
     </plurals>
 
-    <string name="ch_ration">%1s R (%2s g)</string>
+    <string name="ch_ration">%1$s R (%2$s g)</string>
     <string name="menu_category">Categorías</string>
     <string name="searchView_hint">Busca en todas las categorías</string>
 
@@ -48,8 +48,8 @@
 
     <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación para la Diabetes Novo Nordisk</b></a>]]></string>
     <string name="info_source_gi_links"><![CDATA[Leer más sobre IG <a href=\"https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a> y <a href=\"https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a>.]]></string>
-    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> datos de alimentos en un navegador.]]></string>
-    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> datos de alimentos en PDF.]]></string>
+    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> tabla de alimentos en la web.]]></string>
+    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> tabla de alimentos en PDF.]]></string>
 
     <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
     <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
@@ -64,10 +64,12 @@
     <string name="cat_icon_content_description">Icono de la categoría</string>
     <string name="ig_icon_content_description">Icono índice glucémico del alimento</string>
     <string name="resources">Recursos</string>
-    <string name="close">Cerrar</string>
+    <string name="close_dialog_button">Aceptar</string>
     <string name="search_title">Buscar</string>
     <string name="dash_symbol">-</string>
-    <string name="grams">g</string>
+    <string name="grams">%1$s g</string>
     <string name="search_button_content_description">Buscador de alimentos</string>
+    <string name="info_close_btn">Comenzar</string>
+    <string name="info_onboarding_title">Antes de empezar...</string>
 
 </resources>
