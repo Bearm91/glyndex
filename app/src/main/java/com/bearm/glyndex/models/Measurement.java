@@ -67,6 +67,13 @@ public class Measurement {
     public Measurement() {
     }
 
+    public Measurement(String name, float chQuantity, int foodId) {
+        this.name = name;
+        this.chRationPerMeasurement = chQuantity;
+        this.foodId = foodId;
+        this.isCustom = true;
+    }
+
     public String toString() {
         return "Measurement{" +
                 "chrationPerMeasurement=" + chRationPerMeasurement +

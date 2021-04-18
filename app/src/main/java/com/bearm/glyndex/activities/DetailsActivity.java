@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +25,7 @@ import com.bearm.glyndex.models.Measurement;
 import com.bearm.glyndex.repositories.CategoryRepository;
 import com.bearm.glyndex.repositories.FoodRepository;
 import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.google.android.material.textfield.TextInputEditText;
 import com.txusballesteros.widgets.FitChart;
 import com.txusballesteros.widgets.FitChartValue;
 
@@ -34,6 +38,8 @@ public class DetailsActivity extends AppCompatActivity {
     CardView measurementTable;
     int categoryId;
     String categoryName;
+    MeasurementRepository measurementRepository;
+    int foodId;
 
 
     @Override
@@ -42,18 +48,23 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.content_details);
 
         Bundle bundle = getIntent().getExtras();
-        int foodId = 0;
+        foodId = 0;
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
+        measurementRepository = new MeasurementRepository(getApplication());
 
         loadDetailsInfo(getFoodInfo(foodId));
         loadFoodDetails(foodId);
 
+
+        Button addBtn = findViewById(R.id.btn_add_measurement);
+        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog());
     }
+
 
     private Food getFoodInfo(int foodId) {
         FoodRepository foodRepository = new FoodRepository(getApplication());
@@ -80,7 +91,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private List<Measurement> getMeasurementList(int foodId) {
-        MeasurementRepository measurementRepository = new MeasurementRepository(getApplication());
         return measurementRepository.getMeasurementByFood(foodId);
     }
 
@@ -155,5 +165,64 @@ public class DetailsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    private void showAddMeasurementDialog() {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setCancelable(false);
+
+        View view = getLayoutInflater().inflate(R.layout.add_measurement_dialog, null);
+
+        final TextInputEditText measurementNameInput = view.findViewById(R.id.edit_measurement_name);
+        final TextInputEditText measurementQuantityInput = view.findViewById(R.id.edit_measurement_quantity);
+        final Button cancelButton = view.findViewById(R.id.btn_cancel);
+        final Button saveButton = view.findViewById(R.id.btn_save);
+
+        builder.setView(view);
+
+        final AlertDialog alertDialog = builder.create();
+
+        saveButton.setOnClickListener((View v) -> {
+            if(verifyFields(measurementNameInput, measurementQuantityInput)){
+                alertDialog.cancel();
+            }
+        });
+
+        cancelButton.setOnClickListener((View v) -> alertDialog.cancel());
+
+        alertDialog.show();
+    }
+
+    //Verify that the fields of the form are not empty
+    private boolean verifyFields(TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
+        String name = String.valueOf(measurementNameInput.getText());
+        String quantity = String.valueOf(measurementQuantityInput.getText());
+        Log.i("ADD MEASUREMENT", "Name: " + name + ", Quantity: " + quantity);
+
+        if (name.isEmpty()) {
+            measurementNameInput.setError(getString(R.string.error_empty_name));
+            measurementNameInput.requestFocus();
+        } else {
+            measurementNameInput.setError(null);
+        }
+        if (quantity.isEmpty()) {
+            measurementQuantityInput.setError(getString(R.string.error_empty_name));
+            measurementQuantityInput.requestFocus();
+        } else {
+            measurementQuantityInput.setError(null);
+        }
+
+        if ((!name.isEmpty()) && (!quantity.isEmpty())) {
+            addMeasurement(name, quantity);
+            return true;
+        }
+        return false;
+    }
+
+    private void addMeasurement(String measurementName, String measurementQuantity) {
+        Measurement measurement = new Measurement(measurementName, Float.parseFloat(measurementQuantity), foodId);
+        Log.i("ADD MEASUREMENT METHOD", "new Measurement: " + measurement);
+        measurementRepository.insertMeasurement(measurement);
     }
 }

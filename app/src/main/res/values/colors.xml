@@ -31,6 +31,6 @@
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/colorPrimaryLight</color>
     <color name="colorLinks">@color/colorLightBlue</color>
-
+    <color name="addButtonColor">@color/colorPrimary</color>
 
 </resources>

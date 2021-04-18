@@ -13,6 +13,7 @@
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="transparent">#00000000</color>
 
     <color name="colorToolbarText">@color/colorWhite</color>
     <color name="colorGrayText">#878282</color>
@@ -28,4 +29,6 @@
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/colorPrimaryDark</color>
     <color name="colorLinks">#00cbe6</color>
+    <color name="addButtonColor">@color/colorPrimaryLight</color>
+
 </resources>

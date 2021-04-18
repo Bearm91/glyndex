@@ -76,5 +76,9 @@
     <string name="measurementQuantityField">Cantidad de HC</string>
     <string name="add_measurement_dialog_title">Añadir medida nueva</string>
     <string name="cancel">Cancelar</string>
+    <string name="error_empty_name">Este campo no puede estar vacío.</string>
+    <string name="save">Guardar</string>
+    <string name="add_dialog_message">Indica el nombre y las raciones de hidratos de la nueva medida que quieras añadir.</string>
+    <string name="add_dialog_title">Añadir nueva medida</string>
 
 </resources>

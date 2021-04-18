@@ -1,6 +1,7 @@
 package com.bearm.glyndex.DAO;
 
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.bearm.glyndex.models.Measurement;
@@ -15,4 +16,8 @@ public interface MeasurementDao {
 
     @Query("SELECT * FROM measurements WHERE foodId = :foodId ORDER BY chRationPerMeasurement")
     List<Measurement> findByFoodId(Integer foodId);
+
+    @Insert
+    void insert(Measurement measurement);
+
 }

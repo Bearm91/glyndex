@@ -30,5 +30,10 @@ public class MeasurementRepository {
     public List<Measurement> getMeasurementByFood(Integer foodId) {
         return measurementDao.findByFoodId(foodId);
     }
+
+    public void insertMeasurement(Measurement measurement){
+        measurementDao.insert(measurement);
+    }
+
 }
 
