@@ -3,6 +3,8 @@ package com.bearm.glyndex.repositories;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import com.bearm.glyndex.AppDatabase;
 import com.bearm.glyndex.DAO.MeasurementDao;
 import com.bearm.glyndex.models.Measurement;
@@ -23,7 +25,7 @@ public class MeasurementRepository {
 
     }
 
-    public List<Measurement> getMeasurementList() {
+    public LiveData<List<Measurement>> getMeasurementByFood(Integer foodId) {
         return measurementList;
     }
 

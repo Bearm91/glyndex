@@ -18,11 +18,13 @@
         android:layout_height="match_parent"
         tools:text="@string/measurement_ch_example" />
 
-    <ImageButton
+    <ImageView
+        android:id="@+id/icon_custom_measurement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_edit"
+        android:src="@drawable/ic_person"
         android:backgroundTint="@color/transparent"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"/>
 
 </LinearLayout>

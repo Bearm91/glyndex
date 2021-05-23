@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,7 @@ import com.bearm.glyndex.models.Measurement;
 import com.bearm.glyndex.repositories.CategoryRepository;
 import com.bearm.glyndex.repositories.FoodRepository;
 import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.bearm.glyndex.viewModels.MeasurementViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.txusballesteros.widgets.FitChart;
 import com.txusballesteros.widgets.FitChartValue;
@@ -40,6 +42,8 @@ public class DetailsActivity extends AppCompatActivity {
     String categoryName;
     MeasurementRepository measurementRepository;
     int foodId;
+    MeasurementViewModel measurementViewModel;
+    DetailsAdapter detailsAdapter;
 
 
     @Override
@@ -78,16 +82,19 @@ public class DetailsActivity extends AppCompatActivity {
 
         measurementList = getMeasurementList(foodId);
 
-        if (!measurementList.isEmpty()) {
-            measurementTable.setVisibility(View.VISIBLE);
+        measurementList = new ArrayList<>();
+        detailsAdapter = new DetailsAdapter(getApplicationContext(), measurementList, measurementViewModel);
 
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-            DetailsAdapter detailsAdapter = new DetailsAdapter(getApplicationContext(), measurementList);
-            rv.setLayoutManager(layoutManager);
-            rv.setAdapter(detailsAdapter);
-        } else {
-            measurementTable.setVisibility(View.INVISIBLE);
-        }
+        RecyclerView rv = findViewById(R.id.rv);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        rv.setLayoutManager(layoutManager);
+        rv.setAdapter(detailsAdapter);
+
+        ViewModelProvider.AndroidViewModelFactory myViewModelProviderFactory = new ViewModelProvider.AndroidViewModelFactory(getApplication());
+        measurementViewModel = new ViewModelProvider(this, myViewModelProviderFactory).get(MeasurementViewModel.class);
+        measurementViewModel.getMeasurementByFood(foodId).observe(this, measurements -> detailsAdapter.setEvents(measurements)
+        );
+        );
     }
 
     private List<Measurement> getMeasurementList(int foodId) {
@@ -209,20 +216,34 @@ public class DetailsActivity extends AppCompatActivity {
         if (quantity.isEmpty()) {
             measurementQuantityInput.setError(getString(R.string.error_empty_name));
             measurementQuantityInput.requestFocus();
+        } else if (!isNumber(quantity)) {
+            measurementQuantityInput.setError(getString(R.string.not_valid_field_error));
+            measurementQuantityInput.requestFocus();
         } else {
             measurementQuantityInput.setError(null);
         }
 
-        if ((!name.isEmpty()) && (!quantity.isEmpty())) {
-            addMeasurement(name, quantity);
+        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
+            addMeasurement(name, Float.parseFloat(quantity));
             return true;
         }
         return false;
     }
 
-    private void addMeasurement(String measurementName, String measurementQuantity) {
-        Measurement measurement = new Measurement(measurementName, Float.parseFloat(measurementQuantity), foodId);
-        Log.i("ADD MEASUREMENT METHOD", "new Measurement: " + measurement);
+    private boolean isNumber(String chQuantity) {
+        try {
+            Float.parseFloat(chQuantity);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private void addMeasurement(String measurementName, Float measurementQuantity) {
+        Log.i("ADD MEASUREMENT METHOD", "new Measurement (g): " + measurementName + ", " + measurementQuantity);
+        float chRation = measurementQuantity / 10;
+        Log.i("ADD MEASUREMENT METHOD", "new Measurement (R): " + chRation);
+        Measurement measurement = new Measurement(measurementName, chRation, foodId);
         measurementRepository.insertMeasurement(measurement);
     }
 }

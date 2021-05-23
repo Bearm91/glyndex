@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.models.Measurement;
+import com.bearm.glyndex.viewModels.MeasurementViewModel;
 
 import java.util.List;
 
@@ -20,12 +22,14 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     private List<Measurement> mData;
     private LayoutInflater mInflater;
     private Context context;
+    private MeasurementViewModel measurementViewModel;
 
     // data is passed into the constructor
-    public DetailsAdapter(Context context, List<Measurement> data) {
+    public DetailsAdapter(Context context, List<Measurement> data, MeasurementViewModel measurementViewModel) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
+        this.measurementViewModel = measurementViewModel;
     }
 
     // inflates the cell layout from xml when needed
@@ -53,6 +57,12 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         if (position % 2 == 0) {
             holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorMeasurement));
         }
+
+        if (mData.get(position).isCustom()) {
+            holder.customImageView.setVisibility(View.VISIBLE);
+        } else {
+            holder.customImageView.setVisibility(View.INVISIBLE);
+        }
     }
 
     // total number of cells
@@ -67,6 +77,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         TextView myNameView;
         TextView myCarbsView;
         LinearLayout linearLayout;
+        ImageView customImageView;
 
 
         ViewHolder(View itemView) {
@@ -74,14 +85,19 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
             myNameView = itemView.findViewById(R.id.tv_measurement_name);
             myCarbsView = itemView.findViewById(R.id.tv_carbs_unit);
             linearLayout = itemView.findViewById(R.id.ll_measurement_item);
+            customImageView = itemView.findViewById(R.id.icon_custom_measurement);
 
         }
-
     }
 
     // convenience method for getting data at click position
     Measurement getItem(int id) {
         return mData.get(id);
+    }
+
+    public void setEvents(List<Measurement> measurements) {
+        this.mData = measurements;
+        notifyDataSetChanged();
     }
 
 }
