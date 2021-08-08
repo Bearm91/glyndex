@@ -10,13 +10,15 @@
         android:id="@+id/tv_measurement_name"
         style="@style/MeasurementList"
         android:layout_height="wrap_content"
-        tools:text="@string/measurement_name_example" />
+        tools:text="@string/measurement_name_example"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/tv_carbs_unit"
         style="@style/MeasurementList"
         android:layout_height="match_parent"
-        tools:text="@string/measurement_ch_example" />
+        tools:text="@string/measurement_ch_example"
+        android:layout_marginLeft="10dp"/>
 
     <ImageView
         android:id="@+id/icon_custom_measurement"

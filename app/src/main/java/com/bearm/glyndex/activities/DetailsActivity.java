@@ -66,7 +66,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
         Button addBtn = findViewById(R.id.btn_add_measurement);
-        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog());
+        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog(true, null));
     }
 
 
@@ -174,7 +174,7 @@ public class DetailsActivity extends AppCompatActivity {
         return true;
     }
 
-    private void showAddMeasurementDialog() {
+    private void showAddMeasurementDialog(boolean isNew, Measurement measurement) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setCancelable(false);
@@ -186,12 +186,26 @@ public class DetailsActivity extends AppCompatActivity {
         final Button cancelButton = view.findViewById(R.id.btn_cancel);
         final Button saveButton = view.findViewById(R.id.btn_save);
 
+        if (!isNew) {
+            measurementNameInput.setText(measurement.getName());
+            measurementQuantityInput.setText(String.valueOf(measurement.getChRationPerMeasurement() * Constants.GRAMS_IN_CHRATION));
+        }
+
         builder.setView(view);
 
         final AlertDialog alertDialog = builder.create();
 
         saveButton.setOnClickListener((View v) -> {
             if(verifyFields(measurementNameInput, measurementQuantityInput)){
+                float measurementQuantity = Float.parseFloat(String.valueOf(measurementQuantityInput.getText()));
+                String measurementName = String.valueOf(measurementNameInput.getText());
+                float chRation = measurementQuantity / Constants.GRAMS_IN_CHRATION;
+                if (isNew) {
+                    Measurement newMeasurement = new Measurement(measurementName, chRation, foodId);
+                    addMeasurement(newMeasurement);
+                } else {
+                    updateMeasurement(measurement, measurementName, chRation);
+                }
                 alertDialog.cancel();
             }
         });
@@ -203,6 +217,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     //Verify that the fields of the form are not empty
     private boolean verifyFields(TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
+        boolean valid = false;
         String name = String.valueOf(measurementNameInput.getText());
         String quantity = String.valueOf(measurementQuantityInput.getText());
         Log.i("ADD MEASUREMENT", "Name: " + name + ", Quantity: " + quantity);
@@ -224,10 +239,10 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
-            addMeasurement(name, Float.parseFloat(quantity));
+            valid = true;
             return true;
         }
-        return false;
+        return valid;
     }
 
     private boolean isNumber(String chQuantity) {
@@ -239,11 +254,11 @@ public class DetailsActivity extends AppCompatActivity {
         }
     }
 
-    private void addMeasurement(String measurementName, Float measurementQuantity) {
-        Log.i("ADD MEASUREMENT METHOD", "new Measurement (g): " + measurementName + ", " + measurementQuantity);
+    private void addMeasurement(Measurement measurement) {
+        if (measurement != null) {
         float chRation = measurementQuantity / 10;
         Log.i("ADD MEASUREMENT METHOD", "new Measurement (R): " + chRation);
         Measurement measurement = new Measurement(measurementName, chRation, foodId);
-        measurementRepository.insertMeasurement(measurement);
+            measurementRepository.insertMeasurement(measurement);
+        }
     }
-}
