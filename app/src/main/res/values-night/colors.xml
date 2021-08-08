@@ -29,6 +29,6 @@
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/colorPrimaryDark</color>
     <color name="colorLinks">#00cbe6</color>
-    <color name="addButtonColor">@color/colorPrimaryLight</color>
+    <color name="primaryTextButtonColor">@color/colorPrimaryLight</color>
 
 </resources>

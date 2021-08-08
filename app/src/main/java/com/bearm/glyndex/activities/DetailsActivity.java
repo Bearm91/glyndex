@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -66,7 +69,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
         Button addBtn = findViewById(R.id.btn_add_measurement);
-        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog(true, null));
+        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog());
     }
 
 
@@ -78,10 +81,6 @@ public class DetailsActivity extends AppCompatActivity {
     private void loadFoodDetails(int foodId) {
         measurementTable = findViewById(R.id.cv_measr_table);
 
-        RecyclerView rv = findViewById(R.id.rv);
-
-        measurementList = getMeasurementList(foodId);
-
         measurementList = new ArrayList<>();
         detailsAdapter = new DetailsAdapter(getApplicationContext(), measurementList, measurementViewModel);
 
@@ -92,13 +91,30 @@ public class DetailsActivity extends AppCompatActivity {
 
         ViewModelProvider.AndroidViewModelFactory myViewModelProviderFactory = new ViewModelProvider.AndroidViewModelFactory(getApplication());
         measurementViewModel = new ViewModelProvider(this, myViewModelProviderFactory).get(MeasurementViewModel.class);
-        measurementViewModel.getMeasurementByFood(foodId).observe(this, measurements -> detailsAdapter.setEvents(measurements)
-        );
-        );
-    }
+        measurementViewModel.getMeasurementByFood(foodId).observe(this, measurements -> detailsAdapter.setEvents(measurements));
 
-    private List<Measurement> getMeasurementList(int foodId) {
-        return measurementRepository.getMeasurementByFood(foodId);
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                int position = viewHolder.getAdapterPosition();
+                Measurement measurement = detailsAdapter.getItem(position);
+                measurementRepository.deleteMeasurement(measurement);
+                measurementList = detailsAdapter.getMeasurementList();
+                measurementList.remove(position);
+                detailsAdapter.notifyItemRemoved(position);
+                Toast.makeText(getApplicationContext(), "Medida eliminada ", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(rv);
     }
 
     private void loadDetailsInfo(Food food) {
@@ -174,8 +190,7 @@ public class DetailsActivity extends AppCompatActivity {
         return true;
     }
 
-    private void showAddMeasurementDialog(boolean isNew, Measurement measurement) {
-
+    private void showAddMeasurementDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setCancelable(false);
 
@@ -186,10 +201,9 @@ public class DetailsActivity extends AppCompatActivity {
         final Button cancelButton = view.findViewById(R.id.btn_cancel);
         final Button saveButton = view.findViewById(R.id.btn_save);
 
-        if (!isNew) {
-            measurementNameInput.setText(measurement.getName());
-            measurementQuantityInput.setText(String.valueOf(measurement.getChRationPerMeasurement() * Constants.GRAMS_IN_CHRATION));
-        }
+        Measurement measurement = new Measurement();
+        measurementNameInput.setText(measurement.getName());
+        measurementQuantityInput.setText(String.valueOf(measurement.getChRationPerMeasurement() * Constants.GRAMS_IN_CHRATION));
 
         builder.setView(view);
 
@@ -200,12 +214,9 @@ public class DetailsActivity extends AppCompatActivity {
                 float measurementQuantity = Float.parseFloat(String.valueOf(measurementQuantityInput.getText()));
                 String measurementName = String.valueOf(measurementNameInput.getText());
                 float chRation = measurementQuantity / Constants.GRAMS_IN_CHRATION;
-                if (isNew) {
-                    Measurement newMeasurement = new Measurement(measurementName, chRation, foodId);
-                    addMeasurement(newMeasurement);
-                } else {
-                    updateMeasurement(measurement, measurementName, chRation);
-                }
+                Measurement newMeasurement = new Measurement(measurementName, chRation, foodId);
+                addMeasurement(newMeasurement);
+
                 alertDialog.cancel();
             }
         });
@@ -240,7 +251,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
             valid = true;
-            return true;
         }
         return valid;
     }
@@ -256,9 +266,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void addMeasurement(Measurement measurement) {
         if (measurement != null) {
-        float chRation = measurementQuantity / 10;
-        Log.i("ADD MEASUREMENT METHOD", "new Measurement (R): " + chRation);
-        Measurement measurement = new Measurement(measurementName, chRation, foodId);
             measurementRepository.insertMeasurement(measurement);
         }
     }
+}

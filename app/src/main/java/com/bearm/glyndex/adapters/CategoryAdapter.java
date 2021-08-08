@@ -73,11 +73,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             myTextView = itemView.findViewById(R.id.tv_cat_name);
             myImageView = itemView.findViewById(R.id.iv_cat_icon);
             myCardView = itemView.findViewById(R.id.cv_item);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
-                }
+            itemView.setOnClickListener(v -> {
+                if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
             });
 
         }

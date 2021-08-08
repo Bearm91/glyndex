@@ -56,6 +56,9 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
 
         if (position % 2 == 0) {
             holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorMeasurement));
+        } else {
+            holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorWhite));
+
         }
 
         if (mData.get(position).isCustom()) {
@@ -71,6 +74,13 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         return mData.size();
     }
 
+    public Measurement getItem (int position) {
+       return mData.get(position);
+    }
+
+    public List<Measurement> getMeasurementList() {
+        return this.mData;
+    }
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -88,11 +98,6 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
             customImageView = itemView.findViewById(R.id.icon_custom_measurement);
 
         }
-    }
-
-    // convenience method for getting data at click position
-    Measurement getItem(int id) {
-        return mData.get(id);
     }
 
     public void setEvents(List<Measurement> measurements) {

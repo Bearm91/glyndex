@@ -26,22 +26,19 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
 
-    private static String ASSET_DIR;
-
     public static AppDatabase getInstance(final Context context) {
         if (instance == null) {
             synchronized (AppDatabase.class) {
-                ASSET_DIR = "databases/GI_DATABASE.db";
+                String assetDir = "databases/GI_DATABASE.db";
                 instance = Room.databaseBuilder(context.getApplicationContext(),
                         AppDatabase.class,
                         "GI_DATABASE.db")
                         .fallbackToDestructiveMigration()
-                        .createFromAsset(ASSET_DIR)
+                        .createFromAsset(assetDir)
                         .allowMainThreadQueries()
                         .addMigrations(MIGRATION_1_2)
                         .build();
             }
-
         }
         return instance;
     }

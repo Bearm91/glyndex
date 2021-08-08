@@ -79,12 +79,7 @@ public class FoodActivity extends AppCompatActivity {
 
         foodList = getFoodList(catId, filter);
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, new FoodAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                goToFoodDetailsScreen(position);
-            }
-        });
+        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position));
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
     }
