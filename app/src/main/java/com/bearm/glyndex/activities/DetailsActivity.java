@@ -201,10 +201,6 @@ public class DetailsActivity extends AppCompatActivity {
         final Button cancelButton = view.findViewById(R.id.btn_cancel);
         final Button saveButton = view.findViewById(R.id.btn_save);
 
-        Measurement measurement = new Measurement();
-        measurementNameInput.setText(measurement.getName());
-        measurementQuantityInput.setText(String.valueOf(measurement.getChRationPerMeasurement() * Constants.GRAMS_IN_CHRATION));
-
         builder.setView(view);
 
         final AlertDialog alertDialog = builder.create();

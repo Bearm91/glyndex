@@ -20,15 +20,16 @@
     <color name="colorText">@color/colorWhite</color>
     <color name="colorAppBackground">#121212</color>
     <color name="colorIcon">#333333</color>
+    <color name="colorIconAddDialog">#96a8bd</color>
     <color name="colorTitle">@color/colorPrimaryLight</color>
     <color  name="colorButtonDialog">@color/colorAccent</color>
-    <color name="colorGreyArrow">#96a8bd</color>
-    <color name="colorGreyArrow2">@color/colorWhite</color>
     <color name="colorOnBoardingButtonBackground">@color/colorPrimary</color>
     <color name="colorOnBoardingButtonText">@color/colorWhite</color>
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/colorPrimaryDark</color>
     <color name="colorLinks">#00cbe6</color>
     <color name="primaryTextButtonColor">@color/colorPrimaryLight</color>
+    <color name="colorMeasurementBackground">@color/colorAppBackground</color>
+    <color name="secondaryTextButtonColor">@color/colorPrimaryLight</color>
 
 </resources>

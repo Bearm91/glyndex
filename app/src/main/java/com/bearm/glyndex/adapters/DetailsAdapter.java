@@ -57,8 +57,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         if (position % 2 == 0) {
             holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorMeasurement));
         } else {
-            holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorWhite));
-
+            holder.linearLayout.setBackgroundColor(context.getColor(R.color.colorMeasurementBackground));
         }
 
         if (mData.get(position).isCustom()) {
