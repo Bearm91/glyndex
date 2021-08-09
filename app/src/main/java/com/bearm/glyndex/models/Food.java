@@ -56,8 +56,8 @@ public class Food {
 
     // Setter Methods
 
-    public void setCategory(int category_id) {
-        this.category = category_id;
+    public void setCategory(int categoryId) {
+        this.category = categoryId;
     }
 
     public void setGI(Integer gI) {

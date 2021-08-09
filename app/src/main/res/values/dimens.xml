@@ -24,4 +24,5 @@
     <dimen name="fitchart_size_large">150dp</dimen>
     <dimen name="fitchart_stroke_size_large">18dp</dimen>
     <dimen name="fitchart_stroke_size">12dp</dimen>
+    <dimen name="drawablePadding_form_icons">6dp</dimen>
 </resources>

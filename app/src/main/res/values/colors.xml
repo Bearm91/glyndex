@@ -13,6 +13,7 @@
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
 
     <color name="colorToolbarText">@color/colorWhite</color>
     <color name="colorGrayText">#878282</color>
@@ -22,7 +23,7 @@
     <color name="colorIcon">@color/colorBlack</color>
     <color name="colorTitle">@color/colorPrimary</color>
     <color name="colorTextToolbar">@color/colorWhite</color>
-    <color  name="colorButtonDialog">@color/colorPrimary</color>
+    <color name="colorButtonDialog">@color/colorPrimary</color>
     <color name="colorGreyArrow">#2D527C</color>
     <color name="colorGreyArrow2">#CEE8FA</color>
     <color name="colorOnBoardingButtonBackground">@color/colorPrimary</color>
@@ -30,6 +31,7 @@
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/colorPrimaryLight</color>
     <color name="colorLinks">@color/colorLightBlue</color>
-
+    <color name="primaryTextButtonColor">@color/colorItemBackground</color>
+    <color name="secondaryTextButtonColor">@color/colorPrimary</color>
 
 </resources>

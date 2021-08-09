@@ -13,7 +13,6 @@ public class CategoryRepository {
 
     private CategoryDao categoryDao;
     private List<Category> categoryList;
-    private int categoryId;
 
     public CategoryRepository(Application application) {
 

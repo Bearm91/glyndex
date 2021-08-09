@@ -25,6 +25,8 @@ public class Measurement {
     @ColumnInfo(name = "foodId")
     private int foodId;
 
+    @ColumnInfo(name = "custom")
+    private boolean isCustom;
 
     // Getter Methods
 
@@ -65,12 +67,28 @@ public class Measurement {
     public Measurement() {
     }
 
+    public Measurement(String name, float chQuantity, int foodId) {
+        this.name = name;
+        this.chRationPerMeasurement = chQuantity;
+        this.foodId = foodId;
+        this.isCustom = true;
+    }
+
     public String toString() {
         return "Measurement{" +
                 "chrationPerMeasurement=" + chRationPerMeasurement +
                 ", food=" + foodId +
                 ", id=" + id +
                 ", name='" + name + '\'' +
+                ", isCustom='" + isCustom + '\'' +
                 '}';
+    }
+
+    public boolean isCustom() {
+        return isCustom;
+    }
+
+    public void setCustom(boolean custom) {
+        isCustom = custom;
     }
 }

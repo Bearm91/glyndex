@@ -10,7 +10,7 @@
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
     <string name="category_title">Categoría</string>
     <string name="ig_title">IG:</string>
-    <string name="chrations_title">Ración (10g) HC</string>
+    <string name="chrations_title">Ración (10g HC)</string>
     <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
     <string name="category_example">Verduras y hortalizas</string>
@@ -71,5 +71,15 @@
     <string name="search_button_content_description">Buscador de alimentos</string>
     <string name="info_close_btn">Comenzar</string>
     <string name="info_onboarding_title">Antes de empezar...</string>
+    <string name="btn_add_new_measurement">Añadir nueva medida...</string>
+    <string name="measurementNameField">Nombre</string>
+    <string name="measurementQuantityField">Gramos de carbohidratos</string>
+    <string name="add_measurement_dialog_title">Añadir medida nueva</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error_empty_name">Este campo no puede estar vacío.</string>
+    <string name="save">Guardar</string>
+    <string name="add_dialog_message">Indica los datos de la nueva medida:</string>
+    <string name="add_dialog_title">Añadir nueva medida</string>
+    <string name="not_valid_field_error">El valor introducido no es válido</string>
 
 </resources>
