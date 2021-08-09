@@ -18,7 +18,7 @@ import com.bearm.glyndex.activities.InfoActivity;
 import com.bearm.glyndex.adapters.CategoryAdapter;
 import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Category;
-import com.bearm.glyndex.repositories.CategoryRepository;
+import com.bearm.glyndex.viewModels.CategoryViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, MODE_PRIVATE);
 
-        rv = (RecyclerView) findViewById(R.id.rv);
+        rv = findViewById(R.id.rv);
         loadCategoryList();
 
         FloatingActionButton fabSearch = findViewById(R.id.fab_search);
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Gets all category items from database
     private List<Category> getCategoryList() {
-        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
-        return categoryRepository.getCategoryList();
+        CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
+        return categoryViewModel.getCategoryList();
     }
 
     @Override

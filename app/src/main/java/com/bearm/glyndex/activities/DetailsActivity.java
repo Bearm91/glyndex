@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,9 +27,8 @@ import com.bearm.glyndex.helpers.DetailsHelper;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.models.Measurement;
-import com.bearm.glyndex.repositories.CategoryRepository;
 import com.bearm.glyndex.repositories.FoodRepository;
-import com.bearm.glyndex.repositories.MeasurementRepository;
+import com.bearm.glyndex.viewModels.CategoryViewModel;
 import com.bearm.glyndex.viewModels.MeasurementViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.txusballesteros.widgets.FitChart;
@@ -36,6 +36,7 @@ import com.txusballesteros.widgets.FitChartValue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -43,7 +44,6 @@ public class DetailsActivity extends AppCompatActivity {
     CardView measurementTable;
     int categoryId;
     String categoryName;
-    MeasurementRepository measurementRepository;
     int foodId;
     MeasurementViewModel measurementViewModel;
     DetailsAdapter detailsAdapter;
@@ -59,10 +59,10 @@ public class DetailsActivity extends AppCompatActivity {
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
 
-        measurementRepository = new MeasurementRepository(getApplication());
+        measurementViewModel = new MeasurementViewModel(getApplication());
 
         loadDetailsInfo(getFoodInfo(foodId));
         loadFoodDetails(foodId);
@@ -105,11 +105,11 @@ public class DetailsActivity extends AppCompatActivity {
                 //Remove swiped item from list and notify the RecyclerView
                 int position = viewHolder.getAdapterPosition();
                 Measurement measurement = detailsAdapter.getItem(position);
-                measurementRepository.deleteMeasurement(measurement);
+                measurementViewModel.deleteMeasurement(measurement);
                 measurementList = detailsAdapter.getMeasurementList();
                 measurementList.remove(position);
                 detailsAdapter.notifyItemRemoved(position);
-                Toast.makeText(getApplicationContext(), "Medida eliminada ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.toast_measurement_removed), Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -127,8 +127,8 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private Category getCategoryInfo(int id) {
-        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
-        return categoryRepository.getById(id);
+        CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
+        return categoryViewModel.getById(id);
     }
 
     private void loadCHRationG(long gramsPerChRation) {
@@ -262,7 +262,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void addMeasurement(Measurement measurement) {
         if (measurement != null) {
-            measurementRepository.insertMeasurement(measurement);
+            measurementViewModel.insertMeasurement(measurement);
         }
     }
 }
