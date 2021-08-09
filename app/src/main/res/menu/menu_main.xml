@@ -5,13 +5,19 @@
 
     <item
         android:id="@+id/action_GI"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="@string/indice_gluc_menu_item"
         android:icon="@drawable/ic_help_white"/>
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_about"
         android:title="@string/about_glyndex_menu_item" />
+    <item
+        android:id="@+id/action_reset"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_about"
+        android:title="@string/menu_item_reset_database" />
 </menu>

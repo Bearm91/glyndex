@@ -19,6 +19,7 @@ import com.bearm.glyndex.adapters.CategoryAdapter;
 import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.viewModels.CategoryViewModel;
+import com.bearm.glyndex.viewModels.MeasurementViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -91,6 +92,13 @@ public class MainActivity extends AppCompatActivity {
         //Info about glycemic index
         if (id == R.id.action_GI) {
             goToInfoScreen(Boolean.FALSE);
+            return true;
+        }
+
+        //Reset database to original
+        if (id == R.id.action_reset) {
+            MeasurementViewModel measurementViewModel = new MeasurementViewModel(getApplication());
+            measurementViewModel.deleteAllCustomMeasurements();
             return true;
         }
 

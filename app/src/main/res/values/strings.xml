@@ -81,6 +81,7 @@
     <string name="add_dialog_message">Indica los datos de la nueva medida:</string>
     <string name="add_dialog_title">Añadir nueva medida</string>
     <string name="not_valid_field_error">El valor introducido no es válido</string>
+    <string name="menu_item_reset_database">Eliminar mis medidas</string>
     <string name="toast_measurement_removed">Medida eliminada</string>
 
 </resources>

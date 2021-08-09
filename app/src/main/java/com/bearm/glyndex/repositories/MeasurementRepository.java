@@ -38,5 +38,9 @@ public class MeasurementRepository {
     public void deleteMeasurement(Measurement measurement){
         measurementDao.delete(measurement);
     }
+
+    public void deleteCustomMeasurements(){
+        measurementDao.deleteCustom();
+    }
 }
 
