@@ -8,8 +8,8 @@ android {
         applicationId "com.bearm.glyndex"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.3"
+        versionCode 6
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -59,9 +59,9 @@ dependencies {
     implementation 'com.github.javiersantos:FitChart:1.1.2'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0-rc03'
-    annotationProcessor 'androidx.room:room-compiler:2.2.6'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
 
 }
