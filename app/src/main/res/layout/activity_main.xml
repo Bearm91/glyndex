@@ -24,7 +24,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_category_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_category"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category_title"
         app:spanCount="2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
