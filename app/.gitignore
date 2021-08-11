@@ -1,1 +1,5 @@
 /build
+/obfuscation/
+/release/
+/schemas/
+/libs/
