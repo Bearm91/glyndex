@@ -15,7 +15,7 @@ import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.FoodAdapter;
 import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Food;
-import com.bearm.glyndex.repositories.FoodRepository;
+import com.bearm.glyndex.viewModels.FoodViewModel;
 
 import java.util.List;
 
@@ -28,9 +28,6 @@ public class FoodActivity extends AppCompatActivity {
     boolean search;
     RecyclerView rv;
     RecyclerView.LayoutManager layoutManager;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,26 +76,21 @@ public class FoodActivity extends AppCompatActivity {
 
         foodList = getFoodList(catId, filter);
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, new FoodAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                goToFoodDetailsScreen(position);
-            }
-        });
+        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position));
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
     }
 
     private List<Food> getFoodList(int categoryId, String filter) {
-        FoodRepository foodRepository = new FoodRepository(getApplication());
+        FoodViewModel foodViewModel = new FoodViewModel(getApplication());
         List<Food> newFoodList;
         if ((filter != null) && (!filter.equals(""))) {
-            newFoodList = foodRepository.getFoodByName('%' + filter + '%');
+            newFoodList = foodViewModel.getFoodByName('%' + filter + '%');
         } else {
             if (categoryId > 0) {
-                newFoodList = foodRepository.getFoodByCategory(categoryId);
+                newFoodList = foodViewModel.getFoodByCategory(categoryId);
             } else {
-                newFoodList = foodRepository.getAllFoodList();
+                newFoodList = foodViewModel.getAllFoodList();
             }
         }
         return newFoodList;

@@ -1,24 +1,42 @@
 package com.bearm.glyndex.activities;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bearm.glyndex.helpers.*;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.DetailsAdapter;
-import com.bearm.glyndex.models.*;
-import com.bearm.glyndex.repositories.*;
+import com.bearm.glyndex.helpers.Constants;
+import com.bearm.glyndex.helpers.DetailsHelper;
+import com.bearm.glyndex.models.Category;
+import com.bearm.glyndex.models.Food;
+import com.bearm.glyndex.models.Measurement;
+import com.bearm.glyndex.repositories.FoodRepository;
+import com.bearm.glyndex.viewModels.CategoryViewModel;
+import com.bearm.glyndex.viewModels.MeasurementViewModel;
+import com.google.android.material.textfield.TextInputEditText;
+import com.txusballesteros.widgets.FitChart;
+import com.txusballesteros.widgets.FitChartValue;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -26,6 +44,9 @@ public class DetailsActivity extends AppCompatActivity {
     CardView measurementTable;
     int categoryId;
     String categoryName;
+    int foodId;
+    MeasurementViewModel measurementViewModel;
+    DetailsAdapter detailsAdapter;
 
 
     @Override
@@ -34,18 +55,23 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.content_details);
 
         Bundle bundle = getIntent().getExtras();
-        int foodId = 0;
+        foodId = 0;
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
 
+        measurementViewModel = new MeasurementViewModel(getApplication());
 
         loadDetailsInfo(getFoodInfo(foodId));
         loadFoodDetails(foodId);
 
+
+        Button addBtn = findViewById(R.id.btn_add_measurement);
+        addBtn.setOnClickListener((View v) -> showAddMeasurementDialog());
     }
+
 
     private Food getFoodInfo(int foodId) {
         FoodRepository foodRepository = new FoodRepository(getApplication());
@@ -55,25 +81,40 @@ public class DetailsActivity extends AppCompatActivity {
     private void loadFoodDetails(int foodId) {
         measurementTable = findViewById(R.id.cv_measr_table);
 
+        measurementList = new ArrayList<>();
+        detailsAdapter = new DetailsAdapter(getApplicationContext(), measurementList, measurementViewModel);
+
         RecyclerView rv = findViewById(R.id.rv);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        rv.setLayoutManager(layoutManager);
+        rv.setAdapter(detailsAdapter);
 
-        measurementList = getMeasurementList(foodId);
+        ViewModelProvider.AndroidViewModelFactory myViewModelProviderFactory = new ViewModelProvider.AndroidViewModelFactory(getApplication());
+        measurementViewModel = new ViewModelProvider(this, myViewModelProviderFactory).get(MeasurementViewModel.class);
+        measurementViewModel.getMeasurementByFood(foodId).observe(this, measurements -> detailsAdapter.setEvents(measurements));
 
-        if (!measurementList.isEmpty()) {
-            measurementTable.setVisibility(View.VISIBLE);
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-            DetailsAdapter detailsAdapter = new DetailsAdapter(getApplicationContext(), measurementList);
-            rv.setLayoutManager(layoutManager);
-            rv.setAdapter(detailsAdapter);
-        } else {
-            measurementTable.setVisibility(View.INVISIBLE);
-        }
-    }
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
-    private List<Measurement> getMeasurementList(int foodId) {
-        MeasurementRepository measurementRepository = new MeasurementRepository(getApplication());
-        return measurementRepository.getMeasurementByFood(foodId);
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                int position = viewHolder.getAdapterPosition();
+                Measurement measurement = detailsAdapter.getItem(position);
+                measurementViewModel.deleteMeasurement(measurement);
+                measurementList = detailsAdapter.getMeasurementList();
+                measurementList.remove(position);
+                detailsAdapter.notifyItemRemoved(position);
+                Toast.makeText(getApplicationContext(), getString(R.string.toast_measurement_removed), Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(rv);
     }
 
     private void loadDetailsInfo(Food food) {
@@ -86,45 +127,46 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private Category getCategoryInfo(int id) {
-        CategoryRepository categoryRepository = new CategoryRepository(getApplication());
-        return categoryRepository.getById(id);
+        CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
+        return categoryViewModel.getById(id);
     }
 
     private void loadCHRationG(long gramsPerChRation) {
         TextView tvFoodIg = findViewById(R.id.tv_carbs_g);
-        String grams = gramsPerChRation + getString(R.string.grams);
+        String grams = getString(R.string.grams, String.valueOf(gramsPerChRation));
         tvFoodIg.setText(grams);
     }
 
     private void loadIG(Integer gi) {
         TextView tvFoodIg = findViewById(R.id.tv_ig);
+
+        FitChart fitChart = findViewById(R.id.fc_gi_chart);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setStrokeCap(Paint.Cap.SQUARE);
+        fitChart.setMinValue(0f);
+        fitChart.setMaxValue(100f);
+
         if (gi != null) {
             tvFoodIg.setText(String.valueOf(gi));
+            fitChart.setValues(getFitChartValues(gi));
         } else {
             tvFoodIg.setText(R.string.dash_symbol);
         }
-
-        ImageView ivIGIcon = findViewById(R.id.iv_ig_icon);
-        String iconName = DetailsHelper.getIGIconName(gi);
-
-        int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
-                getPackageName());
-        //use this id to set the image anywhere
-        ivIGIcon.setImageResource(resourceIdImage);
     }
+
+    private List<FitChartValue> getFitChartValues(Integer gi){
+        List<FitChartValue> values = new ArrayList<>();
+        FitChartValue fitChartValue = new FitChartValue((float) gi, DetailsHelper.getIGColor(getApplicationContext(), gi));
+        values.add(fitChartValue);
+        return values;
+    }
+
+
 
     private void loadCategory(Category category) {
         TextView tvCategoryName = findViewById(R.id.tv_category_name);
         tvCategoryName.setText(category.getName());
-
-        ImageView categoryIcon = findViewById(R.id.iv_cat_icon);
-        String iconName = category.getIconName();
-        if (iconName != null) {
-            int resourceIdImage = getResources().getIdentifier(iconName, "drawable",
-                    getPackageName());
-            //use this id to set the image anywhere
-            categoryIcon.setImageResource(resourceIdImage);
-        }
     }
 
     private void loadFoodName(String name) {
@@ -146,5 +188,81 @@ public class DetailsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    private void showAddMeasurementDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setCancelable(false);
+
+        View view = getLayoutInflater().inflate(R.layout.add_measurement_dialog, null);
+
+        final TextInputEditText measurementNameInput = view.findViewById(R.id.edit_measurement_name);
+        final TextInputEditText measurementQuantityInput = view.findViewById(R.id.edit_measurement_quantity);
+        final Button cancelButton = view.findViewById(R.id.btn_cancel);
+        final Button saveButton = view.findViewById(R.id.btn_save);
+
+        builder.setView(view);
+
+        final AlertDialog alertDialog = builder.create();
+
+        saveButton.setOnClickListener((View v) -> {
+            if(verifyFields(measurementNameInput, measurementQuantityInput)){
+                float measurementQuantity = Float.parseFloat(String.valueOf(measurementQuantityInput.getText()));
+                String measurementName = String.valueOf(measurementNameInput.getText());
+                float chRation = measurementQuantity / Constants.GRAMS_IN_CHRATION;
+                Measurement newMeasurement = new Measurement(measurementName, chRation, foodId);
+                addMeasurement(newMeasurement);
+
+                alertDialog.cancel();
+            }
+        });
+
+        cancelButton.setOnClickListener((View v) -> alertDialog.cancel());
+
+        alertDialog.show();
+    }
+
+    //Verify that the fields of the form are not empty
+    private boolean verifyFields(TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
+        boolean valid = false;
+        String name = String.valueOf(measurementNameInput.getText());
+        String quantity = String.valueOf(measurementQuantityInput.getText());
+        Log.i("ADD MEASUREMENT", "Name: " + name + ", Quantity: " + quantity);
+
+        if (name.isEmpty()) {
+            measurementNameInput.setError(getString(R.string.error_empty_name));
+            measurementNameInput.requestFocus();
+        } else {
+            measurementNameInput.setError(null);
+        }
+        if (quantity.isEmpty()) {
+            measurementQuantityInput.setError(getString(R.string.error_empty_name));
+            measurementQuantityInput.requestFocus();
+        } else if (!isNumber(quantity)) {
+            measurementQuantityInput.setError(getString(R.string.not_valid_field_error));
+            measurementQuantityInput.requestFocus();
+        } else {
+            measurementQuantityInput.setError(null);
+        }
+
+        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
+            valid = true;
+        }
+        return valid;
+    }
+
+    private boolean isNumber(String chQuantity) {
+        try {
+            Float.parseFloat(chQuantity);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private void addMeasurement(Measurement measurement) {
+        if (measurement != null) {
+            measurementViewModel.insertMeasurement(measurement);
+        }
     }
 }

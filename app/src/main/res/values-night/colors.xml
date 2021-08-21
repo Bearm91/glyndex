@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4A306D</color>
-    <color name="colorPrimaryDark">#301F47</color>
-    <color name="colorPrimaryLight">#E1BEE7</color>
-    <color name="colorAccent">#00BCD4</color>
-    <color name="colorGreen">#2a9d8f</color>
-    <color name="colorYellow">#e9c46a</color>
-    <color name="colorRed">#e76f51</color>
-    <color name="colorGray">#adb5bd</color>
+    <color name="colorPrimary">#433c49</color>
+    <color name="colorPrimaryDark">#1d191f</color>
+    <color name="colorPrimaryLight">#eddaf1</color>
+    <color name="colorAccent">#358FAB</color>
+    <color name="colorGreen">#20796f</color>
+    <color name="colorYellow">#856514</color>
+    <color name="colorRed">#872a12</color>
+    <color name="colorGray">#616161</color>
     <color name="colorLightBlue">#358FAB</color>
     <color name="colorItemBackground">#131313</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="transparent">#00000000</color>
 
     <color name="colorToolbarText">@color/colorWhite</color>
     <color name="colorGrayText">#878282</color>
     <color name="colorText">@color/colorWhite</color>
-    <color name="colorAppBackground">#0B0B0B</color>
-    <color name="colorIcon">#222222</color>
+    <color name="colorAppBackground">#121212</color>
+    <color name="colorIcon">#333333</color>
+    <color name="colorIconAddDialog">#96a8bd</color>
     <color name="colorTitle">@color/colorPrimaryLight</color>
     <color  name="colorButtonDialog">@color/colorAccent</color>
-    <color name="colorGreyArrow">#96a8bd</color>
-    <color name="colorGreyArrow2">@color/colorWhite</color>
+    <color name="colorOnBoardingButtonBackground">@color/colorPrimary</color>
+    <color name="colorOnBoardingButtonText">@color/colorWhite</color>
+    <color name="colorIGListText">@color/colorWhite</color>
+    <color name="colorMeasurement">@color/colorPrimaryDark</color>
+    <color name="colorLinks">#00cbe6</color>
+    <color name="primaryTextButtonColor">@color/colorPrimaryLight</color>
+    <color name="colorMeasurementBackground">@color/colorAppBackground</color>
+    <color name="secondaryTextButtonColor">@color/colorPrimaryLight</color>
+
 </resources>

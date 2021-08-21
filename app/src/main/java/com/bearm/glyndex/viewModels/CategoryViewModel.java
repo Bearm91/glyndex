@@ -13,11 +13,12 @@ import java.util.List;
 public class CategoryViewModel extends AndroidViewModel {
 
     private List<Category> categoryList;
+    CategoryRepository categoryRepository;
 
     public CategoryViewModel(@NonNull Application application) {
         super(application);
 
-        CategoryRepository categoryRepository = new CategoryRepository(application);
+        categoryRepository = new CategoryRepository(application);
 
         categoryList = categoryRepository.getCategoryList();
     }
@@ -27,4 +28,7 @@ public class CategoryViewModel extends AndroidViewModel {
         return categoryList;
     }
 
+    public Category getById(int id) {
+        return categoryRepository.getById(id);
+    }
 }
