@@ -13,7 +13,7 @@ public interface FoodDao {
     @Query("SELECT * FROM foods")
     List<Food> findAll();
 
-    @Query("SELECT * FROM foods f WHERE categoryId = :catId")
+    @Query("SELECT * FROM foods f WHERE categoryId = :catId ORDER BY f.name ASC")
     List<Food> findFoodByCategory(Integer catId);
 
     @Query("SELECT * FROM foods WHERE id = :foodId")

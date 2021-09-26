@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Glyndex</string>
+    <string name="app_name_2">Glyndex - Índice Glucémico</string>
+    <string name="title_activity_details">Detalles</string>
+
+    <string name="measurement_name_example">Puñado,con la mano cerrada (20g)</string>
+    <string name="measurement_ch_example">2.0 R (20g)</string>
+    <string name="details_measurement_table_title">Medidas comunes</string>
+    <string name="details_measurement_table_header_quantity">Cantidad</string>
+    <string name="details_measurement_table_header_ch">Carbohidratos</string>
+    <string name="category_title">Categoría</string>
+    <string name="ig_title">IG:</string>
+    <string name="chrations_title">Ración (10g HC)</string>
+    <string name="details_1chrations_example">200g</string>
+    <string name="ig_example">20</string>
+    <string name="category_example">Verduras y hortalizas</string>
+    <string name="product_name_example">Garbanzos cocidos</string>
+    <plurals name="ch_ration_quantity">
+        <item quantity="one">%1d ración (%2d g CH)</item>
+        <item quantity="other">%1d raciones (%2d g)</item>
+    </plurals>
+
+    <string name="ch_ration">%1$s R (%2$s g)</string>
+    <string name="menu_category">Categorías</string>
+    <string name="searchView_hint">Busca en todas las categorías</string>
+
+    <!-- About screen-->
+    <string name="about_title">Acerca de Glyndex</string>
+    <string name="about_current_version">Versión: 2.1</string>
+    <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
+
+    <string name="about_info_icons">Iconos:</string>
+    <string name="about_info_icons_1">Baianat - www.flaticon.com</string>
+    <string name="about_info_icons_2">Freepik - www.flaticon.com</string>
+
+    <string name="about_glyndex_menu_item">Acerca de Glyndex</string>
+    <string name="about_info_support">Contacto:</string>
+
+
+    <!-- Info screen-->
+    <string name="info_screen_title">Índice Glucémico</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="info_ig_1">A nivel nutricional, el índice glucémico (IG) es una característica más que posee cada uno de los alimentos que incluimos en nuestra dieta. Se trata de una medida sencilla para entender con qué rapidez se transforman los hidratos de carbono que ingerimos (azúcares) en glucosa en sangre. Es un concepto importante, tan como señala la Fundación para la Diabetes (FD), porque este índice puede hacer que unos alimentos sean recomendables en determinadas circunstancias y en cambio resulten desaconsejables en otras.</string>
+    <string name="info_ig_2">Hay que recordar que uno de los macronutrientes que contienen los alimentos son los hidratos de carbono (azúcares), que pueden ser de absorción rápida (carbohidratos simples) o algo más lenta (carbohidratos compuestos). Esa cantidad de azúcares y la rapidez con la que nuestro organismo la absorbe es el índice glucémico. En una tabla imaginaria, el IG máximo tendría un valor de 100 y correspondería a la propia glucosa, es decir, al azúcar. Luego tenemos tres segmentos en los que se pueden incluir los distintos alimentos según su composición:</string>
+    <string name="info_ig_3">IG alto: 70 o más</string>
+    <string name="info_ig_4">IG medio o moderado: 55 - 69</string>
+    <string name="info_ig_5">IG bajo: 54 o menos</string>
+
+    <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación para la Diabetes Novo Nordisk</b></a>]]></string>
+    <string name="info_source_gi_links"><![CDATA[Leer más sobre IG <a href=\"https://www.fundaciondiabetes.org/general/articulo/47/el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a> y <a href=\"https://www.fundaciondiabetes.org/general/noticia/14444/que-es-el-indice-glucemico-de-los-alimentos\"><b>aquí</b></a>.]]></string>
+    <string name="info_source_digital"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/sabercomer/tabla_de_raciones_de_hidratos_de_carbono\"><b>Ver</b></a> tabla de alimentos en la web.]]></string>
+    <string name="info_source_pdf"><![CDATA[<a href=\"https://www.fundaciondiabetes.org/upload/hidratos_carbono_textos/1/tablas_hidratos2.pdf\"><b>Descargar</b></a> tabla de alimentos en PDF.]]></string>
+
+    <string name="info_gi_subtitle_1">¿Qué es el índice glucémico?</string>
+    <string name="info_gi_subtitle_2">¿Cuál es el índice glucémico de los alimentos que tomamos?</string>
+    <string name="info_gi_references_title">Referencias:</string>
+    <string name="info_source_main_about">Fuente de datos:</string>
+    <string name="info_ig_6">IG desconocido: -</string>
+    <string name="indice_gluc_menu_item">Indice Glucémico</string>
+
+    <string name="info_about_support_contact">bearm.codes@gmail.com</string>
+    <string name="development">Desarrollo</string>
+    <string name="support">Soporte</string>
+    <string name="cat_icon_content_description">Icono de la categoría</string>
+    <string name="ig_icon_content_description">Icono índice glucémico del alimento</string>
+    <string name="resources">Recursos</string>
+    <string name="close_dialog_button">Aceptar</string>
+    <string name="search_title">Buscar</string>
+    <string name="dash_symbol">-</string>
+    <string name="grams">%1$s g</string>
+    <string name="search_button_content_description">Buscador de alimentos</string>
+    <string name="info_close_btn">Comenzar</string>
+    <string name="info_onboarding_title">Antes de empezar...</string>
+    <string name="btn_add_new_measurement">Añadir nueva medida...</string>
+    <string name="measurementNameField">Nombre</string>
+    <string name="measurementQuantityField">Gramos de carbohidratos</string>
+    <string name="add_measurement_dialog_title">Añadir medida nueva</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error_empty_name">Este campo no puede estar vacío.</string>
+    <string name="save">Guardar</string>
+    <string name="add_dialog_message">Indica los datos de la nueva medida:</string>
+    <string name="add_dialog_title">Añadir nueva medida</string>
+    <string name="not_valid_field_error">El valor introducido no es válido</string>
+    <string name="toast_measurement_removed">Medida eliminada</string>
+
+</resources>
