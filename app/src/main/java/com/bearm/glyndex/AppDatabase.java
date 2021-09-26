@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
+import androidx.room.util.StringUtil;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.bearm.glyndex.DAO.CategoryDao;
@@ -14,6 +15,8 @@ import com.bearm.glyndex.DAO.MeasurementDao;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.models.Measurement;
+
+import java.util.Locale;
 
 @Database(entities = {Category.class, Food.class, Measurement.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
@@ -26,13 +29,19 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
 
+    private final static String databaseDir = "databases/";
+    private final static String databaseName = "GI_DATABASE.db";
+    private final static String databaseEs = "es/" + databaseName;
+    private final static String databaseEn = "en/" + databaseName;
+
     public static AppDatabase getInstance(final Context context) {
         if (instance == null) {
             synchronized (AppDatabase.class) {
-                String assetDir = "databases/GI_DATABASE.db";
+                String assetDir = getLanguageLocale().equals("es") ? databaseDir + databaseEs : databaseDir + databaseEn;
+
                 instance = Room.databaseBuilder(context.getApplicationContext(),
                         AppDatabase.class,
-                        "GI_DATABASE.db")
+                        databaseName)
                         .fallbackToDestructiveMigration()
                         .createFromAsset(assetDir)
                         .allowMainThreadQueries()
@@ -56,5 +65,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
         }
     };
+
+    private static String getLanguageLocale(){
+        //System.out.println("MYLOCALE" + Locale.getDefault().getLanguage());
+        return Locale.getDefault().getLanguage();
+    }
 }
 
