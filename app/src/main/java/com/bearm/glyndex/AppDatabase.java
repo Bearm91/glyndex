@@ -6,7 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
-import androidx.room.util.StringUtil;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.bearm.glyndex.DAO.CategoryDao;
@@ -18,7 +17,7 @@ import com.bearm.glyndex.models.Measurement;
 
 import java.util.Locale;
 
-@Database(entities = {Category.class, Food.class, Measurement.class}, version = 2)
+@Database(entities = {Category.class, Food.class, Measurement.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract CategoryDao categoryDao();
@@ -46,6 +45,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         .createFromAsset(assetDir)
                         .allowMainThreadQueries()
                         .addMigrations(MIGRATION_1_2)
+                        .addMigrations(MIGRATION_2_3)
                         .build();
             }
         }
@@ -63,6 +63,13 @@ public abstract class AppDatabase extends RoomDatabase {
             database.execSQL("CREATE INDEX index_Measurements_foodId ON Measurements(foodId)");
             database.execSQL("CREATE UNIQUE INDEX index_Measurements_id ON Measurements(id)");
 
+        }
+    };
+
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE Foods ADD COLUMN custom INTEGER NOT NULL DEFAULT 0");
         }
     };
 

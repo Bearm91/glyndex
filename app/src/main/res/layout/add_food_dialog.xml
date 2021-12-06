@@ -9,58 +9,92 @@
 
     <TextView
         android:id="@+id/dialog_title_add"
-        style="@style/DetailsMainTitleLarge"
+        style="@style/DetailsMainTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="0dp"
-        android:text="@string/add_measurement_dialog_title"
+        android:text="@string/add_food_dialog_title"
         android:textAllCaps="false"
-        tools:text="@string/add_measurement_dialog_title" />
+        tools:text="@string/add_food_dialog_title" />
 
     <TextView
         android:id="@+id/dialog_message_add"
-        style="@style/GIInfoLarge"
+        style="@style/GIInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="@string/add_measurement_dialog_message"
-        tools:text="@string/add_measurement_dialog_message" />
+        android:text="@string/add_food_dialog_message"
+        tools:text="@string/add_food_dialog_message" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_name"
-        style="@style/myFormEditTextLarge"
+        style="@style/myFormEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/measurementNameField"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_measurement_name"
+            android:id="@+id/edit_food_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_notes"
             android:drawablePadding="@dimen/drawablePadding_form_icons"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_quantity"
-        style="@style/myFormEditTextLarge"
+        style="@style/myFormEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/measurement_quantity_field"
+        android:hint="@string/food_chgrams_field"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_measurement_quantity"
+            android:id="@+id/edit_food_chgrams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_calculate"
             android:drawablePadding="@dimen/drawablePadding_form_icons"
             android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_event_gi"
+            style="@style/myFormEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:hint="@string/food_gi_field"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_food_gi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_gi"
+                android:drawablePadding="@dimen/drawablePadding_form_icons"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_unknown_gi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/unknown"
+            android:checked="true"
+            android:checkMark="@style/TextAppearance.AppCompat.Large"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,17 +107,14 @@
             android:layout_weight="1"
             android:text="@string/cancel"
             tools:text="@string/cancel"
-            android:layout_margin="2dp"
-            style="@style/mySecondaryButtonLarge"/>
+            style="@style/mySecondaryButton"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/save"
             tools:text="@string/save"
-            android:layout_margin="2dp"
-            style="@style/myPrimaryButtonLarge"/>
+            style="@style/myPrimaryButton"/>
     </LinearLayout>
 </LinearLayout>

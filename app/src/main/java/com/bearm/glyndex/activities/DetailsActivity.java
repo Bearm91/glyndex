@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.bearm.glyndex.helpers.DetailsHelper.verifyFields;
+
 public class DetailsActivity extends AppCompatActivity {
 
     List<Measurement> measurementList;
@@ -206,7 +208,7 @@ public class DetailsActivity extends AppCompatActivity {
         final AlertDialog alertDialog = builder.create();
 
         saveButton.setOnClickListener((View v) -> {
-            if(verifyFields(measurementNameInput, measurementQuantityInput)){
+            if(verifyFields(getApplicationContext(), measurementNameInput, measurementQuantityInput)){
                 float measurementQuantity = Float.parseFloat(String.valueOf(measurementQuantityInput.getText()));
                 String measurementName = String.valueOf(measurementNameInput.getText());
                 float chRation = measurementQuantity / Constants.GRAMS_IN_CHRATION;
@@ -220,44 +222,6 @@ public class DetailsActivity extends AppCompatActivity {
         cancelButton.setOnClickListener((View v) -> alertDialog.cancel());
 
         alertDialog.show();
-    }
-
-    //Verify that the fields of the form are not empty
-    private boolean verifyFields(TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
-        boolean valid = false;
-        String name = String.valueOf(measurementNameInput.getText());
-        String quantity = String.valueOf(measurementQuantityInput.getText());
-        Log.i("ADD MEASUREMENT", "Name: " + name + ", Quantity: " + quantity);
-
-        if (name.isEmpty()) {
-            measurementNameInput.setError(getString(R.string.error_empty_name));
-            measurementNameInput.requestFocus();
-        } else {
-            measurementNameInput.setError(null);
-        }
-        if (quantity.isEmpty()) {
-            measurementQuantityInput.setError(getString(R.string.error_empty_name));
-            measurementQuantityInput.requestFocus();
-        } else if (!isNumber(quantity)) {
-            measurementQuantityInput.setError(getString(R.string.not_valid_field_error));
-            measurementQuantityInput.requestFocus();
-        } else {
-            measurementQuantityInput.setError(null);
-        }
-
-        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
-            valid = true;
-        }
-        return valid;
-    }
-
-    private boolean isNumber(String chQuantity) {
-        try {
-            Float.parseFloat(chQuantity);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     private void addMeasurement(Measurement measurement) {

@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="0dp"
-        android:text="@string/add_dialog_title"
+        android:text="@string/add_measurement_dialog_title"
         android:textAllCaps="false"
-        tools:text="@string/add_dialog_title" />
+        tools:text="@string/add_measurement_dialog_title" />
 
     <TextView
         android:id="@+id/dialog_message_add"
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="@string/add_dialog_message"
-        tools:text="@string/add_dialog_message" />
+        android:text="@string/add_measurement_dialog_message"
+        tools:text="@string/add_measurement_dialog_message" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_name"
@@ -49,7 +49,7 @@
         style="@style/myFormEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/measurementQuantityField"
+        android:hint="@string/measurement_quantity_field"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText

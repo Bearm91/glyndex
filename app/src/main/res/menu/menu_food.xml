@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bearm.glyndex.MainActivity">
+
+    <item
+        android:id="@+id/action_add_menu"
+        app:showAsAction="always"
+        android:title="@string/add_menu_item"
+        android:icon="@drawable/ic_add_round"/>
+</menu>

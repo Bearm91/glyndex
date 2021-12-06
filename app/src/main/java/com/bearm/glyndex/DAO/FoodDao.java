@@ -1,6 +1,8 @@
 package com.bearm.glyndex.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.bearm.glyndex.models.Food;
@@ -14,11 +16,17 @@ public interface FoodDao {
     List<Food> findAll();
 
     @Query("SELECT * FROM foods f WHERE categoryId = :catId ORDER BY f.name ASC")
-    List<Food> findFoodByCategory(Integer catId);
+    LiveData<List<Food>> findFoodByCategory(Integer catId);
+
+    @Query("SELECT * FROM foods f WHERE categoryId = :catId ORDER BY f.name ASC")
+    List<Food> findFoodListByCategory(Integer catId);
 
     @Query("SELECT * FROM foods WHERE id = :foodId")
     Food findById(Integer foodId);
 
     @Query("SELECT * FROM foods WHERE name like :filter")
     List<Food> findByName(String filter);
+
+    @Insert
+    void insert(Food food);
 }

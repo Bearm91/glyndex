@@ -73,13 +73,24 @@
     <string name="info_onboarding_title">Before getting started…</string>
     <string name="btn_add_new_measurement">Add new measurement…</string>
     <string name="measurementNameField">Name</string>
-    <string name="measurementQuantityField">Grams of Carbohydrates</string>
+    <string name="measurement_quantity_field">Grams of Carbohydrates</string>
     <string name="add_measurement_dialog_title">Add new measurement</string>
     <string name="cancel">Cancel</string>
     <string name="error_empty_name">This field cannot be empty.</string>
     <string name="save">Save</string>
-    <string name="add_dialog_message">Enter the data of the new measurement:</string>
-    <string name="add_dialog_title">Add new measurement</string>
+    <string name="add_measurement_dialog_message">Enter the data of the new measurement:</string>
     <string name="not_valid_field_error">Invalid value</string>
     <string name="toast_measurement_removed">Measurement deleted</string>
+    <string name="add_food_dialog_title">Add new food item</string>
+    <string name="add_food_dialog_message">Enter the data of the new food item:</string>
+    <string name="food_chgrams_field">Grams in 1 CH ration</string>
+    <string name="food_gi_field">Glycemic Index</string>
+    <string name="unknown">Unknown</string>
+    <string name="add_menu_item">add_menu_food</string>
+
+    <string-array name="category_array_example">
+        <item>Fruit</item>
+        <item>Drinks</item>
+        <item>Others</item>
+    </string-array>
 </resources>

@@ -47,6 +47,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         //Food name
         holder.myNameView.setText(currentFood.getName());
 
+        if (!currentFood.isCustom()) {
+            holder.myNameView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+        }
+
         //Glycemic index
         Integer currentFoodGI = currentFood.getGI();
         if (currentFoodGI == null) {
@@ -93,5 +97,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+
+    public void setEvents(List<Food> foods) {
+        this.mData = foods;
+        notifyDataSetChanged();
     }
 }

@@ -73,14 +73,24 @@
     <string name="info_onboarding_title">Antes de empezar...</string>
     <string name="btn_add_new_measurement">Añadir nueva medida...</string>
     <string name="measurementNameField">Nombre</string>
-    <string name="measurementQuantityField">Gramos de carbohidratos</string>
-    <string name="add_measurement_dialog_title">Añadir medida nueva</string>
+    <string name="measurement_quantity_field">Gramos de carbohidratos</string>
     <string name="cancel">Cancelar</string>
     <string name="error_empty_name">Este campo no puede estar vacío.</string>
     <string name="save">Guardar</string>
-    <string name="add_dialog_message">Indica los datos de la nueva medida:</string>
-    <string name="add_dialog_title">Añadir nueva medida</string>
+    <string name="add_measurement_dialog_message">Indica los datos de la nueva medida:</string>
+    <string name="add_measurement_dialog_title">Añadir nueva medida</string>
     <string name="not_valid_field_error">El valor introducido no es válido</string>
     <string name="toast_measurement_removed">Medida eliminada</string>
+    <string name="add_food_dialog_title">Añadir nueva comida</string>
+    <string name="add_food_dialog_message">Indica los datos del elemento nuevo:</string>
+    <string name="food_chgrams_field">Gramos en 1 ración de CH</string>
 
+    <string name="food_gi_field">Índice Glucémico</string>
+    <string name="unknown">Unknown</string>
+    <string name="add_menu_item">add_menu_food</string>
+    <string-array name="category_array_example">
+        <item>Fruta</item>
+        <item>Legumbres</item>
+        <item>Cereales y Harinas</item>
+    </string-array>
 </resources>
