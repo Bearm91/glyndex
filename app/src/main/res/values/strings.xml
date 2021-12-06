@@ -27,7 +27,7 @@
 
     <!-- About screen-->
     <string name="about_title">About Glyndex</string>
-    <string name="about_current_version">Version: 2.1</string>
+    <string name="about_current_version">Version: 2.2</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Icons:</string>
