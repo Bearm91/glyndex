@@ -2,6 +2,7 @@ package com.bearm.glyndex.DAO;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -29,4 +30,7 @@ public interface FoodDao {
 
     @Insert
     void insert(Food food);
+
+    @Query("DELETE FROM foods WHERE id = :foodId")
+    void delete(int foodId);
 }

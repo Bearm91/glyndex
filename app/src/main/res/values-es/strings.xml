@@ -88,9 +88,8 @@
     <string name="food_gi_field">Índice Glucémico</string>
     <string name="unknown">Unknown</string>
     <string name="add_menu_item">add_menu_food</string>
-    <string-array name="category_array_example">
-        <item>Fruta</item>
+    <string name="edit_menu_item">Editar</string>
+    <string name="delete_menu_item">Eliminar</string>
         <item>Legumbres</item>
-        <item>Cereales y Harinas</item>
-    </string-array>
+
 </resources>

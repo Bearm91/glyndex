@@ -41,4 +41,8 @@ public class FoodViewModel extends AndroidViewModel {
     public void insertFood(Food food) {
         foodRepository.insertFood(food);
     }
+
+    public void deleteFood(int foodId){
+        foodRepository.deleteFood(foodId);
+    }
 }

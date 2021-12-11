@@ -87,6 +87,8 @@
     <string name="food_gi_field">Glycemic Index</string>
     <string name="unknown">Unknown</string>
     <string name="add_menu_item">add_menu_food</string>
+    <string name="edit_menu_item">Edit</string>
+    <string name="delete_menu_item">Delete</string>
 
     <string-array name="category_array_example">
         <item>Fruit</item>
