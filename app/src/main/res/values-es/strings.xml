@@ -90,6 +90,6 @@
     <string name="add_menu_item">add_menu_food</string>
     <string name="edit_menu_item">Editar</string>
     <string name="delete_menu_item">Eliminar</string>
-        <item>Legumbres</item>
+    <string name="new_functionality_23">Novedades en V2.3</string>
 
 </resources>

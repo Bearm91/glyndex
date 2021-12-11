@@ -12,6 +12,7 @@ public class Constants {
 
     public static final String SHARED_PREFERENCES_ONBOARDING_KEY = "onBoarding";
     public static final String SHARED_PREFERENCES_ONBOARDING_SHOWINFO = "showInfo";
+    public static final String SHARED_PREFERENCES_V23_SHOWINFO = "showInfoV23";
 
     public static final Integer GRAMS_IN_CHRATION = 10;
 }

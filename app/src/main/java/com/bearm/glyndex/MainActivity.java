@@ -50,8 +50,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         boolean showOnboardingScreen = sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_ONBOARDING_SHOWINFO, true);
+        boolean showVersion23Info = sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_V23_SHOWINFO, true);
         if (showOnboardingScreen) {
             goToInfoScreen(Boolean.TRUE);
+        } else if (showVersion23Info){
+            showVersionInfoDialog();
         }
     }
 
@@ -132,5 +135,23 @@ public class MainActivity extends AppCompatActivity {
         Intent infoIntent = new Intent(this, InfoActivity.class);
         infoIntent.putExtra(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, isOnBoarding);
         startActivity(infoIntent);
+    }
+
+    public void markInfoAsRead() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(Constants.SHARED_PREFERENCES_V23_SHOWINFO, false);
+        editor.apply();
+    }
+
+    public void showVersionInfoDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAbout);
+        builder.setTitle(getString(R.string.new_functionality_23))
+                .setMessage("¡Ahora puedes añadir tus propias comidas! Encontrarás el botón de añadir (+) dentro de cada categoría.")
+                .setCancelable(true)
+                .setPositiveButton(R.string.close_dialog_button, (dialog, which) -> markInfoAsRead());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
