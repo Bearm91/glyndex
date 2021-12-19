@@ -91,5 +91,7 @@
     <string name="edit_menu_item">Editar</string>
     <string name="delete_menu_item">Eliminar</string>
     <string name="new_functionality_23">Novedades en V2.3</string>
+    <string name="whats_new_message_23">¡Ahora puedes añadir tus propios alimentos! Encontrarás el botón de añadir (+) dentro de cada categoría.</string>
+    <string name="title_food_form_title">My foods</string>
 
 </resources>

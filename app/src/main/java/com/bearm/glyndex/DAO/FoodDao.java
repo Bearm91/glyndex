@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.bearm.glyndex.models.Food;
 
@@ -33,4 +34,7 @@ public interface FoodDao {
 
     @Query("DELETE FROM foods WHERE id = :foodId")
     void delete(int foodId);
+
+    @Update
+    void update(Food food);
 }

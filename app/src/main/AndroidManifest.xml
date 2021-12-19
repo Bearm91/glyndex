@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.FoodFormActivity"
+            android:label="@string/title_food_form_title"
+            android:parentActivityName=".activities.FoodActivity"
+
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".activities.DetailsActivity"
             android:label="@string/title_activity_details"
             android:parentActivityName=".activities.FoodActivity"

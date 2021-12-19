@@ -64,6 +64,8 @@ public class DetailsActivity extends AppCompatActivity {
         foodId = 0;
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
+            categoryId = bundle.getInt(Constants.CATEGORY_ID_FIELD);
+            categoryName = bundle.getString(Constants.CATEGORY_NAME_FIELD);
         }
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
@@ -245,6 +247,7 @@ public class DetailsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_edit_menu) {
+            goToEditFoodForm();
             return true;
         }
 
@@ -259,5 +262,15 @@ public class DetailsActivity extends AppCompatActivity {
         foodViewModel = new FoodViewModel(getApplication());
         foodViewModel.deleteFood(foodId);
         onBackPressed();
+    }
+
+
+    private void goToEditFoodForm() {
+        Intent foodFormIntent = new Intent(this, FoodFormActivity.class);
+        foodFormIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        foodFormIntent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
+        foodFormIntent.putExtra(Constants.FOOD_ID_FIELD, foodId);
+        foodFormIntent.putExtra(Constants.FOOD_FORM_MODE, Constants.FOOD_FORM_EDIT_MODE);
+        startActivityForResult(foodFormIntent, 1);
     }
 }

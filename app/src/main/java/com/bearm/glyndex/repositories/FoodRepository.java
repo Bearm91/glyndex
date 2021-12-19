@@ -53,5 +53,9 @@ public class FoodRepository {
     public void deleteFood(int foodId) {
         foodDao.delete(foodId);
     }
+
+    public void updateFood(Food food) {
+        foodDao.update(food);
+    }
 }
 

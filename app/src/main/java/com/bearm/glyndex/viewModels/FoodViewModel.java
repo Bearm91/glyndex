@@ -45,4 +45,10 @@ public class FoodViewModel extends AndroidViewModel {
     public void deleteFood(int foodId){
         foodRepository.deleteFood(foodId);
     }
+
+    public Food getFoodById(int foodId) {
+        return foodRepository.getFoodById(foodId);
+    }
+
+    public void updateFood(Food food){ foodRepository.updateFood(food);}
 }

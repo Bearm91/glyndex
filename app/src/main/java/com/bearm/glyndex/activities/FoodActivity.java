@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.adapters.FoodAdapter;
 import com.bearm.glyndex.helpers.Constants;
+import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.viewModels.FoodViewModel;
 import com.google.android.material.textfield.TextInputEditText;
@@ -86,7 +87,9 @@ public class FoodActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_food, menu);
+        if (!search) {
+            getMenuInflater().inflate(R.menu.menu_food, menu);
+        }
         return true;
     }
 
@@ -95,60 +98,21 @@ public class FoodActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_add_menu) {
-            showAddFoodDialog();
+            openFoodForm();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void showAddFoodDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setCancelable(false);
+    private void openFoodForm() {
+        Intent foodFormIntent = new Intent(this, FoodFormActivity.class);
+        foodFormIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        foodFormIntent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
+        foodFormIntent.putExtra(Constants.FOOD_FORM_MODE, Constants.FOOD_FORM_CREATE_MODE);
+        startActivityForResult(foodFormIntent, 1);
 
-        View view = getLayoutInflater().inflate(R.layout.add_food_dialog, null);
-
-        final TextInputEditText foodNameInput = view.findViewById(R.id.edit_food_name);
-        final TextInputEditText foodchgramsInput = view.findViewById(R.id.edit_food_chgrams);
-        final TextInputEditText foodGiInput = view.findViewById(R.id.edit_food_gi);
-        final CheckBox checkBox = view.findViewById(R.id.checkbox_unknown_gi);
-
-        final Button cancelButton = view.findViewById(R.id.btn_cancel);
-        final Button saveButton = view.findViewById(R.id.btn_save);
-
-        builder.setView(view);
-
-        final AlertDialog alertDialog = builder.create();
-
-        saveButton.setOnClickListener((View v) -> {
-            if(verifyFields(getApplicationContext(), foodNameInput, foodchgramsInput)){
-                Integer foodGi = null;
-                long foodChgrams = Long.parseLong(String.valueOf(foodchgramsInput.getText()));
-                String foodName = String.valueOf(foodNameInput.getText());
-                if (!checkBox.isChecked() && isNumber(String.valueOf(foodGiInput.getText()))) {
-                    foodGi = Integer.parseInt(String.valueOf(foodGiInput.getText()));
-                }
-                Food newFood = new Food();
-                newFood.setCategory(categoryId);
-                newFood.setName(foodName);
-                newFood.setGramsPerChRation(foodChgrams);
-                newFood.setGI(foodGi);
-                newFood.setCustom(Boolean.TRUE);
-                addFood(newFood);
-
-                alertDialog.cancel();
-            }
-        });
-
-        cancelButton.setOnClickListener((View v) -> alertDialog.cancel());
-
-        alertDialog.show();
     }
 
-    private void addFood(Food food) {
-        if (food != null) {
-            foodViewModel.insertFood(food);
-        }
-    }
 
     private void loadFoodList(int catId) {
         rv = findViewById(R.id.rv);
@@ -157,7 +121,7 @@ public class FoodActivity extends AppCompatActivity {
 
         foodList = new ArrayList<>();
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position));
+        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position, null));
 
         foodViewModel.getFoodByCategory(categoryId).observe(this, adapter::setEvents);
 
@@ -174,7 +138,7 @@ public class FoodActivity extends AppCompatActivity {
             foodList = getFoodList(catId, filter);
         }
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position));
+        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position, filter));
 
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
@@ -194,8 +158,8 @@ public class FoodActivity extends AppCompatActivity {
         return newFoodList;
     }
 
-    private void goToFoodDetailsScreen(int position) {
-        Food food = getFoodList(categoryId, null).get(position);
+    private void goToFoodDetailsScreen(int position, String filter) {
+        Food food = getFoodList(categoryId, filter).get(position);
         Log.e("Food", String.valueOf(food));
         Intent foodDetailsIntent = new Intent(this, DetailsActivity.class);
         foodDetailsIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);

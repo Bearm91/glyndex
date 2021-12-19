@@ -138,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void markInfoAsRead() {
-        SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(Constants.SHARED_PREFERENCES_V23_SHOWINFO, false);
         editor.apply();
@@ -147,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     public void showVersionInfoDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAbout);
         builder.setTitle(getString(R.string.new_functionality_23))
-                .setMessage("¡Ahora puedes añadir tus propias comidas! Encontrarás el botón de añadir (+) dentro de cada categoría.")
+                .setMessage(R.string.whats_new_message_23)
                 .setCancelable(true)
                 .setPositiveButton(R.string.close_dialog_button, (dialog, which) -> markInfoAsRead());
 
