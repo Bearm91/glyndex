@@ -8,7 +8,7 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/dialog_title_add"
+        android:id="@+id/food_form_title_add"
         style="@style/DetailsMainTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="@string/add_food_dialog_message"
-        tools:text="@string/add_food_dialog_message" />
+        tools:text="@string/add_food_dialog_message"
+        android:visibility="gone"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_name"

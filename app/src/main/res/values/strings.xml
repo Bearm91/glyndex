@@ -98,5 +98,5 @@
     <string name="food_form_save_error">This food item already exists in this category.</string>
     <string name="food_deleted_success_message">The food item was deleted successfully</string>
     <string name="food_form_save_success_message">The food item was saved successfully.</string>
-
+    <string name="edit_food_dialog_title">Edit food item</string>
 </resources>

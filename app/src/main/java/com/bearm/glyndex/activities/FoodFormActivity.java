@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class FoodFormActivity extends AppCompatActivity {
     TextInputEditText foodNameInput;
     TextInputEditText foodchgramsInput;
     TextInputEditText foodGiInput;
+    TextView foodFormTitle;
     CheckBox checkBox;
     Button cancelButton;
     Button saveButton;
@@ -58,6 +60,7 @@ public class FoodFormActivity extends AppCompatActivity {
     }
 
     private void loadFormItems(){
+        foodFormTitle = findViewById(R.id.food_form_title_add);
         foodNameInput = findViewById(R.id.edit_food_name);
         foodchgramsInput = findViewById(R.id.edit_food_chgrams);
         foodGiInput = findViewById(R.id.edit_food_gi);
@@ -94,6 +97,11 @@ public class FoodFormActivity extends AppCompatActivity {
 
 
     private void setFoodInfo() {
+        if(formMode.equals(Constants.FOOD_FORM_EDIT_MODE)) {
+            foodFormTitle.setText(getString(R.string.edit_food_dialog_title));
+        } else {
+            foodFormTitle.setText(getString(R.string.add_food_dialog_title));
+        }
         food = foodViewModel.getFoodById(foodId);
         foodNameInput.setText(food.getName());
         foodchgramsInput.setText(String.valueOf(food.getGramsPerChRation()));
