@@ -6,13 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,14 +17,11 @@ import com.bearm.glyndex.adapters.FoodAdapter;
 import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
+import com.bearm.glyndex.viewModels.CategoryViewModel;
 import com.bearm.glyndex.viewModels.FoodViewModel;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.bearm.glyndex.helpers.DetailsHelper.isNumber;
-import static com.bearm.glyndex.helpers.DetailsHelper.verifyFields;
 
 public class FoodActivity extends AppCompatActivity {
 
@@ -37,8 +29,6 @@ public class FoodActivity extends AppCompatActivity {
 
     String categoryName;
     int categoryId;
-    boolean search;
-    RecyclerView rv;
     RecyclerView.LayoutManager layoutManager;
     FoodViewModel foodViewModel;
 
@@ -53,43 +43,17 @@ public class FoodActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             categoryId = bundle.getInt(Constants.CATEGORY_ID_FIELD);
-            categoryName = bundle.getString(Constants.CATEGORY_NAME_FIELD);
-            search = bundle.getBoolean(Constants.SEARCH_BOOLEAN);
+            categoryName = getCategoryById(categoryId).getName();
         }
+        getSupportActionBar().setTitle(categoryName);
 
         layoutManager = new LinearLayoutManager(this);
-
-        SearchView searchView = findViewById(R.id.sv_food);
-        if (search) {
-            getSupportActionBar().setTitle(R.string.search_title);
-            searchView.setVisibility(View.VISIBLE);
-            searchView.setQueryHint(getString(R.string.searchView_hint));
-            categoryId = 0;
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    loadSearchFoodList(categoryId, newText);
-                    return false;
-                }
-            });
-        } else {
-            getSupportActionBar().setTitle(categoryName);
-            searchView.setVisibility(View.GONE);
-        }
-
-        loadFoodList(categoryId);
+        loadFoodList();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!search) {
-            getMenuInflater().inflate(R.menu.menu_food, menu);
-        }
+        getMenuInflater().inflate(R.menu.menu_food, menu);
         return true;
     }
 
@@ -107,21 +71,20 @@ public class FoodActivity extends AppCompatActivity {
     private void openFoodForm() {
         Intent foodFormIntent = new Intent(this, FoodFormActivity.class);
         foodFormIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
-        foodFormIntent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
         foodFormIntent.putExtra(Constants.FOOD_FORM_MODE, Constants.FOOD_FORM_CREATE_MODE);
         startActivityForResult(foodFormIntent, 1);
 
     }
 
 
-    private void loadFoodList(int catId) {
-        rv = findViewById(R.id.rv);
+    private void loadFoodList() {
+        RecyclerView rv = findViewById(R.id.rv);
         ViewModelProvider.AndroidViewModelFactory myViewModelProviderFactory = new ViewModelProvider.AndroidViewModelFactory(getApplication());
         foodViewModel = new ViewModelProvider(this, myViewModelProviderFactory).get(FoodViewModel.class);
 
         foodList = new ArrayList<>();
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position, null));
+        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position));
 
         foodViewModel.getFoodByCategory(categoryId).observe(this, adapter::setEvents);
 
@@ -129,45 +92,22 @@ public class FoodActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
     }
 
-    private void loadSearchFoodList(int catId, String filter) {
-        rv = findViewById(R.id.rv);
 
-        foodViewModel = new FoodViewModel(getApplication());
 
-        if (filter != null){
-            foodList = getFoodList(catId, filter);
-        }
-        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        FoodAdapter adapter = new FoodAdapter(this, foodList, (view, position) -> goToFoodDetailsScreen(position, filter));
-
-        rv.setLayoutManager(linearLayoutManager);
-        rv.setAdapter(adapter);
+    private List<Food> getFoodList(int categoryId) {
+        return foodViewModel.getFoodListByCategory(categoryId);
     }
 
-    private List<Food> getFoodList(int categoryId, String filter) {
-        List<Food> newFoodList;
-        if ((filter != null) && (!filter.equals(""))) {
-            newFoodList = foodViewModel.getFoodByName('%' + filter + '%');
-        } else {
-            if (categoryId > 0) {
-                newFoodList = foodViewModel.getFoodListByCategory(categoryId);
-            } else {
-                newFoodList = foodViewModel.getAllFoodList();
-            }
-        }
-        return newFoodList;
-    }
-
-    private void goToFoodDetailsScreen(int position, String filter) {
-        Food food = getFoodList(categoryId, filter).get(position);
+    private void goToFoodDetailsScreen(int position) {
+        Food food = getFoodList(categoryId).get(position);
         Log.e("Food", String.valueOf(food));
         Intent foodDetailsIntent = new Intent(this, DetailsActivity.class);
         foodDetailsIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
-        foodDetailsIntent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
         foodDetailsIntent.putExtra(Constants.FOOD_ID_FIELD, food.getId());
         startActivityForResult(foodDetailsIntent, 1);
     }
 
+    @Deprecated
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -175,5 +115,10 @@ public class FoodActivity extends AppCompatActivity {
             categoryId = data.getIntExtra(Constants.CATEGORY_ID_FIELD, 0);
             categoryName = data.getStringExtra(Constants.CATEGORY_NAME_FIELD);
         }
+    }
+
+    private Category getCategoryById(Integer categoryId){
+        CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
+        return categoryViewModel.getById(categoryId);
     }
 }

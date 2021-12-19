@@ -92,6 +92,10 @@
     <string name="delete_menu_item">Eliminar</string>
     <string name="new_functionality_23">Novedades en V2.3</string>
     <string name="whats_new_message_23">¡Ahora puedes añadir tus propios alimentos! Encontrarás el botón de añadir (+) dentro de cada categoría.</string>
-    <string name="title_food_form_title">My foods</string>
+    <string name="title_food_form_title">Mis alimentos</string>
+    <string name="title_food_search_title">Buscar alimento</string>
+    <string name="food_form_save_error">Este alimento ya existe en esta categoría.</string>
+    <string name="food_deleted_success_message">El alimento se ha borrado correctamente.</string>
+    <string name="food_form_save_success_message">El alimento se ha guardado correctamente.</string>
 
 </resources>

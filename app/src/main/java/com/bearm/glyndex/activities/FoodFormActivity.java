@@ -4,17 +4,18 @@ import static com.bearm.glyndex.helpers.DetailsHelper.isNumber;
 import static com.bearm.glyndex.helpers.DetailsHelper.verifyFields;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bearm.glyndex.R;
 import com.bearm.glyndex.helpers.Constants;
-import com.bearm.glyndex.models.Category;
 import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.viewModels.FoodViewModel;
 import com.google.android.material.textfield.TextInputEditText;
@@ -69,11 +70,16 @@ public class FoodFormActivity extends AppCompatActivity {
         }
 
         saveButton.setOnClickListener(view -> {
-            Food newFood = getNewFood();
-            if (newFood != null) {
-                saveFood(newFood);
+            try {
+                Food newFood = getNewFood();
+                if (newFood != null) {
+                    saveFood(newFood);
+                }
+                goToFoodScreen();
+            } catch (SQLiteConstraintException e) {
+                Log.e("saveFood ERROR", e.getMessage());
+                Toast.makeText(getApplicationContext(), getString(R.string.food_form_save_error), Toast.LENGTH_LONG).show();
             }
-            goToFoodScreen();
         });
 
         cancelButton.setOnClickListener(view -> onBackPressed());
@@ -83,7 +89,6 @@ public class FoodFormActivity extends AppCompatActivity {
         Intent foodIntent = new Intent(this, FoodActivity.class);
         foodIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
         foodIntent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
-        foodIntent.putExtra(Constants.SEARCH_BOOLEAN, false);
         startActivity(foodIntent);
     }
 
@@ -118,12 +123,14 @@ public class FoodFormActivity extends AppCompatActivity {
     }
 
 
-    private void saveFood(Food food) {
+    private void saveFood(Food food) throws SQLiteConstraintException{
         if (formMode.equals(Constants.FOOD_FORM_CREATE_MODE)) {
             foodViewModel.insertFood(food);
         } else if (formMode.equals(Constants.FOOD_FORM_EDIT_MODE)) {
             foodViewModel.updateFood(food);
         }
+        Toast.makeText(getApplicationContext(), getString(R.string.food_form_save_success_message), Toast.LENGTH_LONG).show();
+
     }
 
     @Override
