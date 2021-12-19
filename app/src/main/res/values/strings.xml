@@ -92,7 +92,11 @@
     <string name="new_functionality_23">What\'s New in V2.3</string>
 
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <string name="whats_new_message_23">¡Ahora puedes añadir tus propios alimentos! Encontrarás el botón de añadir (+) dentro de cada categoría.</string>
-    <string name="title_food_form_title">My foods</string>
+    <string name="whats_new_message_23">Now you can also add new food items! You will find a new add button (+) for each category.</string>
+    <string name="title_food_form_title">My food items</string>
+    <string name="title_food_search_title">Food search</string>
+    <string name="food_form_save_error">This food item already exists in this category.</string>
+    <string name="food_deleted_success_message">The food item was deleted successfully</string>
+    <string name="food_form_save_success_message">The food item was saved successfully.</string>
 
 </resources>

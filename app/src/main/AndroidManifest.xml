@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.SearchFoodActivity"
+            android:label="@string/title_food_search_title"
+            android:parentActivityName=".MainActivity"
+
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".activities.FoodFormActivity"
             android:label="@string/title_food_form_title"
             android:parentActivityName=".activities.FoodActivity"
