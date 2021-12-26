@@ -22,8 +22,12 @@ public class FoodViewModel extends AndroidViewModel {
         foodRepository = new FoodRepository(application);
     }
 
-    public List<Food> getFoodByCategory(Integer categoryId) {
+    public LiveData<List<Food>> getFoodByCategory(Integer categoryId) {
         return foodRepository.getFoodByCategory(categoryId);
+    }
+
+    public List<Food> getFoodListByCategory(Integer categoryId) {
+        return foodRepository.getFoodListByCategory(categoryId);
     }
 
     public List<Food> getAllFoodList() {
@@ -33,4 +37,18 @@ public class FoodViewModel extends AndroidViewModel {
     public List<Food> getFoodByName(String foodName) {
         return foodRepository.getFoodByName(foodName);
     }
+
+    public void insertFood(Food food) {
+        foodRepository.insertFood(food);
+    }
+
+    public void deleteFood(int foodId){
+        foodRepository.deleteFood(foodId);
+    }
+
+    public Food getFoodById(int foodId) {
+        return foodRepository.getFoodById(foodId);
+    }
+
+    public void updateFood(Food food){ foodRepository.updateFood(food);}
 }

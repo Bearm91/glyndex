@@ -26,7 +26,7 @@
 
     <!-- About screen-->
     <string name="about_title">Acerca de Glyndex</string>
-    <string name="about_current_version">Versión: 2.2</string>
+    <string name="about_current_version">Versión: 2.3</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Iconos:</string>
@@ -43,7 +43,7 @@
     <string name="info_ig_1">A nivel nutricional, el índice glucémico (IG) es una característica más que posee cada uno de los alimentos que incluimos en nuestra dieta. Se trata de una medida sencilla para entender con qué rapidez se transforman los hidratos de carbono que ingerimos (azúcares) en glucosa en sangre. Es un concepto importante, tan como señala la Fundación para la Diabetes (FD), porque este índice puede hacer que unos alimentos sean recomendables en determinadas circunstancias y en cambio resulten desaconsejables en otras.</string>
     <string name="info_ig_2">Hay que recordar que uno de los macronutrientes que contienen los alimentos son los hidratos de carbono (azúcares), que pueden ser de absorción rápida (carbohidratos simples) o algo más lenta (carbohidratos compuestos). Esa cantidad de azúcares y la rapidez con la que nuestro organismo la absorbe es el índice glucémico. En una tabla imaginaria, el IG máximo tendría un valor de 100 y correspondería a la propia glucosa, es decir, al azúcar. Luego tenemos tres segmentos en los que se pueden incluir los distintos alimentos según su composición:</string>
     <string name="info_ig_3">IG alto: 70 o más</string>
-    <string name="info_ig_4">IG medio o moderado: 55 - 69</string>
+    <string name="info_ig_4">IG medio o moderado: 55 – 69</string>
     <string name="info_ig_5">IG bajo: 54 o menos</string>
 
     <string name="info_source_main"><![CDATA[Fuente: <a href=\"https://www.fundaciondiabetes.org\"><b>Fundación para la Diabetes Novo Nordisk</b></a>]]></string>
@@ -56,7 +56,7 @@
     <string name="info_gi_references_title">Referencias:</string>
     <string name="info_source_main_about">Fuente de datos:</string>
     <string name="info_ig_6">IG desconocido: -</string>
-    <string name="indice_gluc_menu_item">Indice Glucémico</string>
+    <string name="indice_gluc_menu_item">Índice Glucémico</string>
 
     <string name="info_about_support_contact">bearm.codes@gmail.com</string>
     <string name="development">Desarrollo</string>
@@ -70,17 +70,34 @@
     <string name="grams">%1$s g</string>
     <string name="search_button_content_description">Buscador de alimentos</string>
     <string name="info_close_btn">Comenzar</string>
-    <string name="info_onboarding_title">Antes de empezar...</string>
-    <string name="btn_add_new_measurement">Añadir nueva medida...</string>
+    <string name="info_onboarding_title">Antes de empezar…</string>
+    <string name="btn_add_new_measurement">Añadir nueva medida…</string>
     <string name="measurementNameField">Nombre</string>
-    <string name="measurementQuantityField">Gramos de carbohidratos</string>
-    <string name="add_measurement_dialog_title">Añadir medida nueva</string>
+    <string name="measurement_quantity_field">Gramos de carbohidratos</string>
     <string name="cancel">Cancelar</string>
     <string name="error_empty_name">Este campo no puede estar vacío.</string>
     <string name="save">Guardar</string>
-    <string name="add_dialog_message">Indica los datos de la nueva medida:</string>
-    <string name="add_dialog_title">Añadir nueva medida</string>
+    <string name="add_measurement_dialog_message">Indica los datos de la nueva medida:</string>
+    <string name="add_measurement_dialog_title">Añadir nueva medida</string>
     <string name="not_valid_field_error">El valor introducido no es válido</string>
     <string name="toast_measurement_removed">Medida eliminada</string>
+    <string name="add_food_dialog_title">Añadir nuevo alimento</string>
+    <string name="add_food_dialog_message">Indica los datos del alimento:</string>
+    <string name="food_chgrams_field">Gramos de HC en 1 ración</string>
 
+    <string name="food_gi_field">Índice Glucémico</string>
+    <string name="unknown">Desconocido</string>
+    <string name="add_menu_item">Añadir alimento</string>
+    <string name="edit_menu_item">Editar</string>
+    <string name="delete_menu_item">Eliminar</string>
+    <string name="new_functionality_23">Novedades</string>
+    <string name="whats_new_message_23">¡Ahora puedes añadir tus propios alimentos! Encontrarás el botón de añadir (+) dentro de cada categoría.</string>
+    <string name="title_food_form_title">Mis alimentos</string>
+    <string name="title_food_search_title">Buscar alimento</string>
+    <string name="food_form_save_error">Este alimento ya existe en esta categoría.</string>
+    <string name="food_deleted_success_message">El alimento se ha borrado correctamente.</string>
+    <string name="food_form_save_success_message">El alimento se ha guardado correctamente.</string>
+    <string name="edit_food_dialog_title">Editar alimento</string>
+    <string name="delete_message_dialog">¿Estás seguro de que quieres eliminar este alimento?</string>
+    <string name="delete_title_dialog">Confirmar borrado</string>
 </resources>

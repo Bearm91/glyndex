@@ -27,6 +27,8 @@ public class Food {
     private Integer gI;
     @ColumnInfo(name = "gramsPerChRation")
     private long gramsPerChRation;
+    @ColumnInfo(name = "custom")
+    private boolean isCustom;
 
 
     public Food() {
@@ -84,6 +86,15 @@ public class Food {
                 ", gramsPerChRation='" + gramsPerChRation + '\'' +
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", custom='" + isCustom + '\'' +
                 '}';
+    }
+
+    public boolean isCustom() {
+        return isCustom;
+    }
+
+    public void setCustom(boolean custom) {
+        isCustom = custom;
     }
 }

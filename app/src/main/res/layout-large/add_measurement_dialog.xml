@@ -7,83 +7,95 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
-        android:id="@+id/dialog_title_add"
-        style="@style/DetailsMainTitleLarge"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:text="@string/add_dialog_title"
-        android:textAllCaps="false"
-        tools:text="@string/add_dialog_title" />
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
-    <TextView
-        android:id="@+id/dialog_message_add"
-        style="@style/GIInfoLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/add_dialog_message"
-        tools:text="@string/add_dialog_message" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_event_name"
-        style="@style/myFormEditTextLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/measurementNameField"
-        app:errorEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_measurement_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_notes"
-            android:drawablePadding="@dimen/drawablePadding_form_icons"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/dialog_title_add"
+                style="@style/DetailsMainTitleLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="@string/add_measurement_dialog_title"
+                android:textAllCaps="false"
+                tools:text="@string/add_measurement_dialog_title" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_event_quantity"
-        style="@style/myFormEditTextLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/measurementQuantityField"
-        app:errorEnabled="true">
+            <TextView
+                android:id="@+id/dialog_message_add"
+                style="@style/GIInfoLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/add_measurement_dialog_message"
+                tools:text="@string/add_measurement_dialog_message" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_measurement_quantity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_calculate"
-            android:drawablePadding="@dimen/drawablePadding_form_icons"
-            android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_event_name"
+                style="@style/myFormEditTextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/measurementNameField"
+                app:errorEnabled="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_measurement_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_notes"
+                    android:drawablePadding="@dimen/drawablePadding_form_icons"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/cancel"
-            tools:text="@string/cancel"
-            android:layout_margin="2dp"
-            style="@style/mySecondaryButtonLarge"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/save"
-            tools:text="@string/save"
-            android:layout_margin="2dp"
-            style="@style/myPrimaryButtonLarge"/>
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_event_quantity"
+                style="@style/myFormEditTextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/measurement_quantity_field"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_measurement_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_calculate"
+                    android:drawablePadding="@dimen/drawablePadding_form_icons"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cancel"
+                    style="@style/mySecondaryButtonLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    tools:text="@string/cancel" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    style="@style/myPrimaryButtonLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:text="@string/save"
+                    tools:text="@string/save" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

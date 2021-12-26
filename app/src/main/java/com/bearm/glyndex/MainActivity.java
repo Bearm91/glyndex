@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bearm.glyndex.activities.FoodActivity;
 import com.bearm.glyndex.activities.InfoActivity;
+import com.bearm.glyndex.activities.SearchFoodActivity;
 import com.bearm.glyndex.adapters.CategoryAdapter;
 import com.bearm.glyndex.helpers.Constants;
 import com.bearm.glyndex.models.Category;
@@ -43,15 +44,18 @@ public class MainActivity extends AppCompatActivity {
         loadCategoryList();
 
         FloatingActionButton fabSearch = findViewById(R.id.fab_search);
-        fabSearch.setOnClickListener(v -> goToFoodScreen(0, true));
+        fabSearch.setOnClickListener(v -> goToSearchScreen());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         boolean showOnboardingScreen = sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_ONBOARDING_SHOWINFO, true);
+        boolean showVersion23Info = sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_V23_SHOWINFO, true);
         if (showOnboardingScreen) {
             goToInfoScreen(Boolean.TRUE);
+        } else if (showVersion23Info){
+            showVersionInfoDialog();
         }
     }
 
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         categoryList = getCategoryList();
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-        adapter = new CategoryAdapter(this, categoryList, (view, position) -> goToFoodScreen(position, false));
+        adapter = new CategoryAdapter(this, categoryList, (view, position) -> goToFoodScreen(position));
 
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
@@ -118,13 +122,16 @@ public class MainActivity extends AppCompatActivity {
      * Opens food screen with list of food in selected category.
      * Sends categoryId, category name and boolean indicating whether screen was opened from search button
      */
-    private void goToFoodScreen(int position, boolean search) {
+    private void goToFoodScreen(int position) {
         Category cat = categoryList.get(position);
         Intent foodIntent = new Intent(this, FoodActivity.class);
         foodIntent.putExtra(Constants.CATEGORY_ID_FIELD, cat.getId());
-        foodIntent.putExtra(Constants.CATEGORY_NAME_FIELD, cat.getName());
-        foodIntent.putExtra(Constants.SEARCH_BOOLEAN, search);
         startActivity(foodIntent);
+    }
+
+    private void goToSearchScreen() {
+        Intent searchIntent = new Intent(this, SearchFoodActivity.class);
+        startActivity(searchIntent);
     }
 
     /** Opens info screen with info about the glycemic index */
@@ -132,5 +139,23 @@ public class MainActivity extends AppCompatActivity {
         Intent infoIntent = new Intent(this, InfoActivity.class);
         infoIntent.putExtra(Constants.SHARED_PREFERENCES_ONBOARDING_KEY, isOnBoarding);
         startActivity(infoIntent);
+    }
+
+    private void markInfoAsRead() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(Constants.SHARED_PREFERENCES_V23_SHOWINFO, false);
+        editor.apply();
+    }
+
+    /** Opens info screen with info about release 2.3 */
+    public void showVersionInfoDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAbout);
+        builder.setTitle(getString(R.string.new_functionality_23))
+                .setMessage(R.string.whats_new_message_23)
+                .setCancelable(true)
+                .setPositiveButton(R.string.close_dialog_button, (dialog, which) -> markInfoAsRead());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

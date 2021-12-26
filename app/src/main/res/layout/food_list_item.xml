@@ -23,11 +23,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 tool:text="Garbanzos"
-                android:layout_weight="0.5"/>
+                android:layout_weight="0.5"
+                android:drawableEnd="@drawable/ic_person"/>
 
             <TextView
                 android:id="@+id/tv_food_ig"
                 android:layout_height="match_parent"
+                android:layout_weight="0.18"
                 tool:text="60"
                 style="@style/FoodListIG"/>
 
