@@ -17,4 +17,7 @@ public interface CategoryDao {
 
     @Query("SELECT * FROM categories WHERE id in (SELECT categoryId FROM foods where id = :foodId)")
     Category findByFoodId(int foodId);
+
+    @Query("SELECT * FROM categories WHERE id = :id")
+    Category findById(int id);
 }

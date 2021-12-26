@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +47,6 @@ public class DetailsActivity extends AppCompatActivity {
     List<Measurement> measurementList;
     CardView measurementTable;
     int categoryId;
-    String categoryName;
     int foodId;
     MeasurementViewModel measurementViewModel;
     DetailsAdapter detailsAdapter;
@@ -64,6 +62,7 @@ public class DetailsActivity extends AppCompatActivity {
         foodId = 0;
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
+            categoryId = bundle.getInt(Constants.CATEGORY_ID_FIELD);
         }
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
@@ -134,7 +133,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private Category getCategoryInfo(int id) {
         CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
-        return categoryViewModel.getById(id);
+        return categoryViewModel.getByFoodId(id);
     }
 
     private void loadCHRationG(long gramsPerChRation) {
@@ -185,7 +184,6 @@ public class DetailsActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent();
         intent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
-        intent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
         setResult(Constants.RESULT_CODE_OK, intent);
         finish();
     }
@@ -245,6 +243,7 @@ public class DetailsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_edit_menu) {
+            goToEditFoodForm();
             return true;
         }
 
@@ -259,5 +258,18 @@ public class DetailsActivity extends AppCompatActivity {
         foodViewModel = new FoodViewModel(getApplication());
         foodViewModel.deleteFood(foodId);
         onBackPressed();
+        Toast.makeText(getApplicationContext(), getString(R.string.food_deleted_success_message), Toast.LENGTH_LONG).show();
+
     }
+
+
+
+    private void goToEditFoodForm() {
+        Intent foodFormIntent = new Intent(this, FoodFormActivity.class);
+        foodFormIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        foodFormIntent.putExtra(Constants.FOOD_ID_FIELD, foodId);
+        foodFormIntent.putExtra(Constants.FOOD_FORM_MODE, Constants.FOOD_FORM_EDIT_MODE);
+        startActivityForResult(foodFormIntent, 1);
+    }
+
 }

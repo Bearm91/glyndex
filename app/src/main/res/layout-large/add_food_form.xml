@@ -8,8 +8,8 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/dialog_title_add"
-        style="@style/DetailsMainTitle"
+        android:id="@+id/food_form_title_add"
+        style="@style/DetailsMainTitleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="0dp"
@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/dialog_message_add"
-        style="@style/GIInfo"
+        style="@style/GIInfoLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -28,7 +28,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_name"
-        style="@style/myFormEditText"
+        style="@style/myFormEditTextLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/measurementNameField"
@@ -40,13 +40,13 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_notes"
             android:drawablePadding="@dimen/drawablePadding_form_icons"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_event_quantity"
-        style="@style/myFormEditText"
+        style="@style/myFormEditTextLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/food_chgrams_field"
@@ -59,7 +59,7 @@
             android:drawableStart="@drawable/ic_calculate"
             android:drawablePadding="@dimen/drawablePadding_form_icons"
             android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -69,7 +69,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ti_event_gi"
-            style="@style/myFormEditText"
+            style="@style/myFormEditTextLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="8"
@@ -83,7 +83,7 @@
                 android:drawableStart="@drawable/ic_gi"
                 android:drawablePadding="@dimen/drawablePadding_form_icons"
                 android:inputType="number"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.checkbox.MaterialCheckBox
@@ -107,7 +107,7 @@
             android:layout_weight="1"
             android:text="@string/cancel"
             tools:text="@string/cancel"
-            style="@style/mySecondaryButton"/>
+            style="@style/mySecondaryButtonLarge"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_save"
@@ -115,6 +115,6 @@
             android:layout_weight="1"
             android:text="@string/save"
             tools:text="@string/save"
-            style="@style/myPrimaryButton"/>
+            style="@style/myPrimaryButtonLarge"/>
     </LinearLayout>
 </LinearLayout>
