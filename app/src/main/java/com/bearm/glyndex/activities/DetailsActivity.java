@@ -1,6 +1,5 @@
 package com.bearm.glyndex.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
