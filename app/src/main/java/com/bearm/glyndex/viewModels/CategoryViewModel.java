@@ -28,6 +28,10 @@ public class CategoryViewModel extends AndroidViewModel {
         return categoryList;
     }
 
+    public Category getByFoodId(int id) {
+        return categoryRepository.getByFoodId(id);
+    }
+
     public Category getById(int id) {
         return categoryRepository.getById(id);
     }

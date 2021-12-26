@@ -27,12 +27,12 @@ public class CategoryRepository {
         return categoryList;
     }
 
-    public String getIconNameByCategoryName(String categoryName){
-        return categoryDao.findIconNameByCatName(categoryName);
+    public Category getByFoodId(int id) {
+        return categoryDao.findByFoodId(id);
     }
 
     public Category getById(int id) {
-        return categoryDao.findByFoodId(id);
+        return categoryDao.findById(id);
     }
 }
 

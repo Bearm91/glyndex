@@ -3,6 +3,8 @@ package com.bearm.glyndex.repositories;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import com.bearm.glyndex.AppDatabase;
 import com.bearm.glyndex.DAO.FoodDao;
 import com.bearm.glyndex.models.Food;
@@ -28,8 +30,12 @@ public class FoodRepository {
         return foodList;
     }
 
-    public List<Food> getFoodByCategory(Integer categoryId) {
+    public LiveData<List<Food>> getFoodByCategory(Integer categoryId) {
         return foodDao.findFoodByCategory(categoryId);
+    }
+
+    public List<Food> getFoodListByCategory(Integer categoryId) {
+        return foodDao.findFoodListByCategory(categoryId);
     }
 
     public Food getFoodById(Integer foodId) {
@@ -38,6 +44,18 @@ public class FoodRepository {
 
     public List<Food> getFoodByName(String filter) {
         return foodDao.findByName(filter);
+    }
+
+    public void insertFood(Food food){
+        foodDao.insert(food);
+    }
+
+    public void deleteFood(int foodId) {
+        foodDao.delete(foodId);
+    }
+
+    public void updateFood(Food food) {
+        foodDao.update(food);
     }
 }
 

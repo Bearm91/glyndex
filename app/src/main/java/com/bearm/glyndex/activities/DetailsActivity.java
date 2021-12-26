@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ import com.bearm.glyndex.models.Food;
 import com.bearm.glyndex.models.Measurement;
 import com.bearm.glyndex.repositories.FoodRepository;
 import com.bearm.glyndex.viewModels.CategoryViewModel;
+import com.bearm.glyndex.viewModels.FoodViewModel;
 import com.bearm.glyndex.viewModels.MeasurementViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.txusballesteros.widgets.FitChart;
@@ -38,15 +40,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.bearm.glyndex.helpers.DetailsHelper.verifyFields;
+
 public class DetailsActivity extends AppCompatActivity {
 
     List<Measurement> measurementList;
     CardView measurementTable;
     int categoryId;
-    String categoryName;
     int foodId;
     MeasurementViewModel measurementViewModel;
     DetailsAdapter detailsAdapter;
+    FoodViewModel foodViewModel;
 
 
     @Override
@@ -58,6 +62,7 @@ public class DetailsActivity extends AppCompatActivity {
         foodId = 0;
         if (bundle != null) {
             foodId = bundle.getInt(Constants.FOOD_ID_FIELD);
+            categoryId = bundle.getInt(Constants.CATEGORY_ID_FIELD);
         }
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
@@ -128,7 +133,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private Category getCategoryInfo(int id) {
         CategoryViewModel categoryViewModel = new CategoryViewModel(getApplication());
-        return categoryViewModel.getById(id);
+        return categoryViewModel.getByFoodId(id);
     }
 
     private void loadCHRationG(long gramsPerChRation) {
@@ -179,7 +184,6 @@ public class DetailsActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent();
         intent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
-        intent.putExtra(Constants.CATEGORY_NAME_FIELD, categoryName);
         setResult(Constants.RESULT_CODE_OK, intent);
         finish();
     }
@@ -206,7 +210,7 @@ public class DetailsActivity extends AppCompatActivity {
         final AlertDialog alertDialog = builder.create();
 
         saveButton.setOnClickListener((View v) -> {
-            if(verifyFields(measurementNameInput, measurementQuantityInput)){
+            if(verifyFields(getApplicationContext(), measurementNameInput, measurementQuantityInput)){
                 float measurementQuantity = Float.parseFloat(String.valueOf(measurementQuantityInput.getText()));
                 String measurementName = String.valueOf(measurementNameInput.getText());
                 float chRation = measurementQuantity / Constants.GRAMS_IN_CHRATION;
@@ -222,47 +226,50 @@ public class DetailsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    //Verify that the fields of the form are not empty
-    private boolean verifyFields(TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
-        boolean valid = false;
-        String name = String.valueOf(measurementNameInput.getText());
-        String quantity = String.valueOf(measurementQuantityInput.getText());
-        Log.i("ADD MEASUREMENT", "Name: " + name + ", Quantity: " + quantity);
-
-        if (name.isEmpty()) {
-            measurementNameInput.setError(getString(R.string.error_empty_name));
-            measurementNameInput.requestFocus();
-        } else {
-            measurementNameInput.setError(null);
-        }
-        if (quantity.isEmpty()) {
-            measurementQuantityInput.setError(getString(R.string.error_empty_name));
-            measurementQuantityInput.requestFocus();
-        } else if (!isNumber(quantity)) {
-            measurementQuantityInput.setError(getString(R.string.not_valid_field_error));
-            measurementQuantityInput.requestFocus();
-        } else {
-            measurementQuantityInput.setError(null);
-        }
-
-        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
-            valid = true;
-        }
-        return valid;
-    }
-
-    private boolean isNumber(String chQuantity) {
-        try {
-            Float.parseFloat(chQuantity);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     private void addMeasurement(Measurement measurement) {
         if (measurement != null) {
             measurementViewModel.insertMeasurement(measurement);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_edit_menu) {
+            goToEditFoodForm();
+            return true;
+        }
+
+        if (id == R.id.action_delete_menu) {
+            deleteFood(foodId);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deleteFood(int foodId) {
+        foodViewModel = new FoodViewModel(getApplication());
+        foodViewModel.deleteFood(foodId);
+        onBackPressed();
+        Toast.makeText(getApplicationContext(), getString(R.string.food_deleted_success_message), Toast.LENGTH_LONG).show();
+
+    }
+
+
+
+    private void goToEditFoodForm() {
+        Intent foodFormIntent = new Intent(this, FoodFormActivity.class);
+        foodFormIntent.putExtra(Constants.CATEGORY_ID_FIELD, categoryId);
+        foodFormIntent.putExtra(Constants.FOOD_ID_FIELD, foodId);
+        foodFormIntent.putExtra(Constants.FOOD_FORM_MODE, Constants.FOOD_FORM_EDIT_MODE);
+        startActivityForResult(foodFormIntent, 1);
+    }
+
 }
