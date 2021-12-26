@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,6 +50,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
         if (!currentFood.isCustom()) {
             holder.myNameView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+        } else {
+            holder.myNameView.setCompoundDrawablesWithIntrinsicBounds(null,null,context.getDrawable(R.drawable.ic_person),null);
         }
 
         //Glycemic index
