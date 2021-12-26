@@ -77,8 +77,8 @@ public class FoodFormActivity extends AppCompatActivity {
                 Food newFood = getNewFood();
                 if (newFood != null) {
                     saveFood(newFood);
+                    goToFoodScreen();
                 }
-                goToFoodScreen();
             } catch (SQLiteConstraintException e) {
                 Log.e("saveFood ERROR", e.getMessage());
                 Toast.makeText(getApplicationContext(), getString(R.string.food_form_save_error), Toast.LENGTH_LONG).show();
@@ -126,8 +126,9 @@ public class FoodFormActivity extends AppCompatActivity {
             food.setGramsPerChRation(foodChgrams);
             food.setGI(foodGi);
             food.setCustom(Boolean.TRUE);
+            return food;
         }
-        return food;
+        return null;
     }
 
 
