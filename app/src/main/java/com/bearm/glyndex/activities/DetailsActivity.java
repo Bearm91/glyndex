@@ -1,5 +1,6 @@
 package com.bearm.glyndex.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
@@ -248,10 +249,23 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_delete_menu) {
-            deleteFood(foodId);
+            showDeleteFoodDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void showDeleteFoodDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.delete_title_dialog))
+                .setMessage(getString(R.string.delete_message_dialog))
+                .setCancelable(false)
+                .setNegativeButton(R.string.cancel, (dialogInterface, i) -> {
+        })
+                .setPositiveButton("OK", (dialogInterface, i) -> deleteFood(foodId));
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private void deleteFood(int foodId) {

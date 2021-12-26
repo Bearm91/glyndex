@@ -27,7 +27,7 @@
 
     <!-- About screen-->
     <string name="about_title">About Glyndex</string>
-    <string name="about_current_version">Version: 2.2</string>
+    <string name="about_current_version">Version: 2.3</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Icons:</string>
@@ -89,7 +89,7 @@
     <string name="add_menu_item">add_menu_food</string>
     <string name="edit_menu_item">Edit</string>
     <string name="delete_menu_item">Delete</string>
-    <string name="new_functionality_23">What\'s New in V2.3</string>
+    <string name="new_functionality_23">What\'s New</string>
 
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="whats_new_message_23">Now you can also add new food items! You will find a new add button (+) for each category.</string>
@@ -99,4 +99,6 @@
     <string name="food_deleted_success_message">The food item was deleted successfully</string>
     <string name="food_form_save_success_message">The food item was saved successfully.</string>
     <string name="edit_food_dialog_title">Edit food item</string>
+    <string name="delete_message_dialog">Are you sure you want to delete this food item?</string>
+    <string name="delete_title_dialog">Confirm delete</string>
 </resources>
