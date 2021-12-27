@@ -10,7 +10,7 @@
     <string name="details_measurement_table_header_ch">Carbohidratos</string>
     <string name="category_title">Categoría</string>
     <string name="ig_title">IG:</string>
-    <string name="chrations_title">Ración (10g HC)</string>
+    <string name="chrations_title">Ración HC (10g)</string>
     <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
     <string name="category_example">Verduras y hortalizas</string>
@@ -83,7 +83,7 @@
     <string name="toast_measurement_removed">Medida eliminada</string>
     <string name="add_food_dialog_title">Añadir nuevo alimento</string>
     <string name="add_food_dialog_message">Indica los datos del alimento:</string>
-    <string name="food_chgrams_field">Gramos de HC en 1 ración</string>
+    <string name="food_chgrams_field">Gramos de HC en 100g</string>
 
     <string name="food_gi_field">Índice Glucémico</string>
     <string name="unknown">Desconocido</string>

@@ -104,7 +104,11 @@ public class FoodFormActivity extends AppCompatActivity {
         }
         food = foodViewModel.getFoodById(foodId);
         foodNameInput.setText(food.getName());
-        foodchgramsInput.setText(String.valueOf(food.getGramsPerChRation()));
+        long grams = 0;
+        if (food.getGramsPerChRation() > 0) {
+            grams = 1000/food.getGramsPerChRation();
+        }
+        foodchgramsInput.setText(String.valueOf(grams));
         foodGiInput.setText(food.getGI() != null ? String.valueOf(food.getGI()) : "-");
         checkBox.setChecked(food.getGI() == null);
     }
@@ -112,7 +116,11 @@ public class FoodFormActivity extends AppCompatActivity {
     private Food getNewFood() {
         if(verifyFields(getApplicationContext(), foodNameInput, foodchgramsInput)) {
             Integer foodGi = null;
-            long foodChgrams = Long.parseLong(String.valueOf(foodchgramsInput.getText()));
+            long foodChg = Long.parseLong(String.valueOf(foodchgramsInput.getText()));
+            long foodChgrams = 0;
+            if (foodChg > 0) {
+                foodChgrams = 1000/foodChg;
+            }
             String foodName = String.valueOf(foodNameInput.getText());
             if (!checkBox.isChecked() && isNumber(String.valueOf(foodGiInput.getText()))) {
                 foodGi = Integer.parseInt(String.valueOf(foodGiInput.getText()));

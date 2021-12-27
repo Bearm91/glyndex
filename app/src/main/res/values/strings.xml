@@ -11,7 +11,7 @@
     <string name="details_measurement_table_header_ch">Carbohydrates</string>
     <string name="category_title">Category</string>
     <string name="ig_title">GI:</string>
-    <string name="chrations_title">Ration (10g CH)</string>
+    <string name="chrations_title">HC Ration (10g)</string>
     <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
     <string name="category_example">Vegetables and greens</string>
@@ -83,7 +83,7 @@
     <string name="toast_measurement_removed">Measurement deleted</string>
     <string name="add_food_dialog_title">Add new food item</string>
     <string name="add_food_dialog_message">Enter the data of the new food item:</string>
-    <string name="food_chgrams_field">Grams in 1 CH ration</string>
+    <string name="food_chgrams_field">Grams of CH in 100g</string>
     <string name="food_gi_field">Glycemic Index</string>
     <string name="unknown">Unknown</string>
     <string name="add_menu_item">add_menu_food</string>
