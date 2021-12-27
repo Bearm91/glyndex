@@ -42,11 +42,14 @@ public class DetailsHelper {
         } else if (!isNumber(quantity)) {
             measurementQuantityInput.setError(context.getString(R.string.not_valid_field_error));
             measurementQuantityInput.requestFocus();
+        } else if (Integer.parseInt(quantity) <= 0) {
+            measurementQuantityInput.setError(context.getString(R.string.not_valid_field_zero_error));
+            measurementQuantityInput.requestFocus();
         } else {
             measurementQuantityInput.setError(null);
         }
 
-        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity)) {
+        if ((!name.isEmpty()) && (!quantity.isEmpty()) && isNumber(quantity) && (Integer.parseInt(quantity) > 0) ) {
             valid = true;
         }
         return valid;

@@ -101,4 +101,5 @@
     <string name="edit_food_dialog_title">Edit food item</string>
     <string name="delete_message_dialog">Are you sure you want to delete this food item?</string>
     <string name="delete_title_dialog">Confirm delete</string>
+    <string name="not_valid_field_zero_error">The value needs to be higher than 0</string>
 </resources>

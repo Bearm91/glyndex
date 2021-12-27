@@ -100,4 +100,5 @@
     <string name="edit_food_dialog_title">Editar alimento</string>
     <string name="delete_message_dialog">¿Estás seguro de que quieres eliminar este alimento?</string>
     <string name="delete_title_dialog">Confirmar borrado</string>
+    <string name="not_valid_field_zero_error">El valor debe ser mayor a 0</string>
 </resources>
