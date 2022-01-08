@@ -83,7 +83,7 @@
     <string name="toast_measurement_removed">Measurement deleted</string>
     <string name="add_food_dialog_title">Add new food item</string>
     <string name="add_food_dialog_message">Enter the data of the new food item:</string>
-    <string name="food_chgrams_field">Grams of CH in 100g</string>
+    <string name="food_chgrams_field">Quantity (g) with 10g of HC</string>
     <string name="food_gi_field">Glycemic Index</string>
     <string name="unknown">Unknown</string>
     <string name="add_menu_item">add_menu_food</string>
@@ -102,4 +102,5 @@
     <string name="delete_message_dialog">Are you sure you want to delete this food item?</string>
     <string name="delete_title_dialog">Confirm delete</string>
     <string name="not_valid_field_zero_error">The value needs to be higher than 0</string>
+    <string name="food_form_save_unknown_error">Something went wrong. Please, try again.</string>
 </resources>

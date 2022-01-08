@@ -78,6 +78,8 @@ public class FoodFormActivity extends AppCompatActivity {
                 if (newFood != null) {
                     saveFood(newFood);
                     goToFoodScreen();
+                } else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.food_form_save_unknown_error), Toast.LENGTH_LONG).show();
                 }
             } catch (SQLiteConstraintException e) {
                 Log.e("saveFood ERROR", e.getMessage());
@@ -104,11 +106,8 @@ public class FoodFormActivity extends AppCompatActivity {
         }
         food = foodViewModel.getFoodById(foodId);
         foodNameInput.setText(food.getName());
-        long grams = 0;
-        if (food.getGramsPerChRation() > 0) {
-            grams = 1000/food.getGramsPerChRation();
-        }
-        foodchgramsInput.setText(String.valueOf(grams));
+
+        foodchgramsInput.setText(String.valueOf(food.getGramsPerChRation()));
         foodGiInput.setText(food.getGI() != null ? String.valueOf(food.getGI()) : "-");
         checkBox.setChecked(food.getGI() == null);
     }
@@ -117,10 +116,6 @@ public class FoodFormActivity extends AppCompatActivity {
         if(verifyFields(getApplicationContext(), foodNameInput, foodchgramsInput)) {
             Integer foodGi = null;
             long foodChg = Long.parseLong(String.valueOf(foodchgramsInput.getText()));
-            long foodChgrams = 0;
-            if (foodChg > 0) {
-                foodChgrams = 1000/foodChg;
-            }
             String foodName = String.valueOf(foodNameInput.getText());
             if (!checkBox.isChecked() && isNumber(String.valueOf(foodGiInput.getText()))) {
                 foodGi = Integer.parseInt(String.valueOf(foodGiInput.getText()));
@@ -131,7 +126,7 @@ public class FoodFormActivity extends AppCompatActivity {
             }
             food.setCategory(categoryId);
             food.setName(foodName);
-            food.setGramsPerChRation(foodChgrams);
+            food.setGramsPerChRation(foodChg);
             food.setGI(foodGi);
             food.setCustom(Boolean.TRUE);
             return food;

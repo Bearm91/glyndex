@@ -83,7 +83,7 @@
     <string name="toast_measurement_removed">Medida eliminada</string>
     <string name="add_food_dialog_title">Añadir nuevo alimento</string>
     <string name="add_food_dialog_message">Indica los datos del alimento:</string>
-    <string name="food_chgrams_field">Gramos de HC en 100g</string>
+    <string name="food_chgrams_field">Cantidad (g) con 10g de HC</string>
 
     <string name="food_gi_field">Índice Glucémico</string>
     <string name="unknown">Desconocido</string>
@@ -101,4 +101,5 @@
     <string name="delete_message_dialog">¿Estás seguro de que quieres eliminar este alimento?</string>
     <string name="delete_title_dialog">Confirmar borrado</string>
     <string name="not_valid_field_zero_error">El valor debe ser mayor a 0</string>
+    <string name="food_form_save_unknown_error">Algo salió mal. Por favor, vuelve a intentarlo.</string>
 </resources>
