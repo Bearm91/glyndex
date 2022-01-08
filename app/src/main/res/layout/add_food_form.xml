@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_calculate"
                     android:drawablePadding="@dimen/drawablePadding_form_icons"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </com.google.android.material.textfield.TextInputLayout>
 
