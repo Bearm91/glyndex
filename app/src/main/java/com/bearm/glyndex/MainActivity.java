@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         if (showOnboardingScreen) {
             goToInfoScreen(Boolean.TRUE);
         } else if (showVersion23Info){
-            showVersionInfoDialog();
+            //showVersionInfoDialog();
         }
     }
 
