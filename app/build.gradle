@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
     namespace = "com.bearm.glyndex"
-    compileSdk 35
-    buildToolsVersion '35.0.0'
+    compileSdk 34
+    buildToolsVersion '34.0.0'
 
     defaultConfig {
         applicationId "com.bearm.glyndex"
         minSdkVersion 30
         targetSdkVersion 35
-        versionCode 13
-        versionName "2.4"
+        versionCode 18
+        versionName "2.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -41,8 +41,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = 17
+        targetCompatibility = 17
     }
     testOptions {
         unitTests {
@@ -53,6 +53,7 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+    compileSdkVersion 35
 }
 
 dependencies {
@@ -63,6 +64,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.github.javiersantos:FitChart:1.1.2'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
