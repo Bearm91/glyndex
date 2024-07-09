@@ -1,6 +1,7 @@
 package com.bearm.glyndex.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,7 @@ public class SearchFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food);
 
         getSupportActionBar().setTitle(R.string.search_title);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.primary)));
         SearchView searchView = findViewById(R.id.sv_food);
 
         searchView.setVisibility(View.VISIBLE);

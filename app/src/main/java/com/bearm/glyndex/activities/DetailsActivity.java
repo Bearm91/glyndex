@@ -65,7 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
             categoryId = bundle.getInt(Constants.CATEGORY_ID_FIELD);
         }
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.primary)));
 
         measurementViewModel = new MeasurementViewModel(getApplication());
 
@@ -256,7 +256,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
     private void showDeleteFoodDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAbout)
                 .setTitle(getString(R.string.delete_title_dialog))
                 .setMessage(getString(R.string.delete_message_dialog))
                 .setCancelable(false)

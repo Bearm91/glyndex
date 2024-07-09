@@ -28,7 +28,7 @@ public class InfoActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.primary)));
 
         closeButton = findViewById(R.id.btn_close);
         onBoardingTitle = findViewById(R.id.gi_title_onboarding);
