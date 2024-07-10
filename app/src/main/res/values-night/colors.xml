@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#7D3CB5</color>
-    <color name="primaryDark">#2C1E4A</color>
+    <color name="primary">#48396A</color>
+    <color name="primaryDark">#504768</color>
     <color name="primaryLight">#3D2F60</color>
     <color name="accent">#6A5595</color>
-    <color name="surface">#221739</color>
-    <color name="onPrimary">#E8E2F2</color>
+    <color name="onPrimary">#E0E0E0</color>
 
-    <color name="colorAppBackground">#1B1132</color>
-    <color name="colorItemBackground">@color/colorAppBackground</color>
-    <color name="onSurface">#221739</color>
-    <color name="surfaceDark">#221739</color>
+    <color name="colorAppBackground">#1E2128</color>
+    <color name="surface">#272B33</color>
+    <color name="onSurface">#DEDCE5</color>
+    <color name="surfaceDark">#2D2443</color>
     <color name="onSurfaceDark">#D1CBE5</color>
 
-    <color name="colorGreen">#88C787</color>
-    <color name="colorYellow">#E8D58F</color>
-    <color name="colorRed">#D97C6B</color>
+    <color name="colorGreen">#5C9B5B</color>
+    <color name="colorYellow">#B89F4C</color>
+    <color name="colorRed">#753A30</color>
+    <color name="colorGray">#606060</color>
 
-    <color name="colorGray">#7B708A</color>
     <color name="colorLightBlue">#358FAB</color>
 
     <color name="colorWhite">#FFFFFF</color>

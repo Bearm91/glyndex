@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
-                android:backgroundTint="@color/colorItemBackground">
+                android:backgroundTint="@color/surface">
 
                 <TextView
                     android:id="@+id/tv_food_name"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:backgroundTint="@color/colorItemBackground">
+                android:backgroundTint="@color/surface">
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -3,9 +3,9 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
-    android:tint="#070707"
+    android:tint="@color/onSurface"
     android:alpha="0.8">
   <path
-      android:fillColor="@color/colorIconAddDialog"
+      android:fillColor="@color/onSurface"
       android:pathData="M10,20h4L14,4h-4v16zM4,20h4v-8L4,12v8zM16,9v11h4L20,9h-4z"/>
 </vector>

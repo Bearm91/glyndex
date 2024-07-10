@@ -4,20 +4,20 @@
     <color name="primaryDark">#1B1132</color>
     <color name="primaryLight">#48396A</color>
     <color name="accent">#584B73</color>
-    <color name="surface">#1B1132</color>
+    <color name="onPrimary">#FFFFFF</color>
+
+    <color name="surface">#F8F7FA</color>
     <color name="surfaceDark">#E8E2F2</color>
     <color name="onSurface">#1B1132</color>
-    <color name="onPrimary">#FFFFFF</color>
-    <color name="colorItemBackground">@color/colorWhite</color>
-    <color name="colorAppBackground">#E8E2F2</color>
-    <color name="onSurfaceDark">@color/primaryDark</color>
+    <color name="onSurfaceDark">#212121</color>
+
+    <color name="colorAppBackground">#F0EDF5</color>
 
     <color name="colorGreen">#66AD65</color>
     <color name="colorYellow">#D4B85F</color>
     <color name="colorRed">#B35242</color>
-
-
     <color name="colorGray">#7B708A</color>
+
     <color name="colorLightGray">#f1f2f4</color>
     <color name="colorLightBlue">@color/accent</color>
 
@@ -39,7 +39,7 @@
     <color name="colorIGListText">@color/colorWhite</color>
     <color name="colorMeasurement">@color/surface</color>
     <color name="colorLinks">@color/colorLightBlue</color>
-    <color name="primaryTextButtonColor">@color/colorItemBackground</color>
+    <color name="primaryTextButtonColor">@color/surface</color>
     <color name="secondaryTextButtonColor">@color/primary</color>
     <color name="colorMeasurementBackground">@color/colorAppBackground</color>
 

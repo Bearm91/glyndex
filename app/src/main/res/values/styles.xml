@@ -195,15 +195,15 @@
 
 
     <style name="myAbout" parent= "ThemeOverlay.MaterialComponents.Dialog.Alert">
-        <item name="android:colorAccent">@color/accent</item>
-        <item name="android:background">@color/colorAppBackground</item>
+        <item name="android:background">@color/surface</item>
+        <item name="android:colorAccent">@color/onSurface</item>
     </style>
 
     <style name="GIInfoTitle" parent="GIInfo">
         <item name="android:textSize">22sp</item>
         <item name="android:padding">6dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:textColor">@color/onSurface</item>
     </style>
 
     <style name="GIInfoTitleLarge" parent="GIInfoTitle">
@@ -251,7 +251,7 @@
 
     <style name="myPrimaryButton" parent="myButton">
         <item name="android:backgroundTint">@color/primary</item>
-        <item name="android:textColor">@color/onSurface</item>
+        <item name="android:textColor">@color/onPrimary</item>
         <item name="android:layout_height">50dp</item>
     </style>
 
@@ -259,8 +259,8 @@
         <item name="android:textStyle">italic</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:backgroundTint">@color/surface</item>
-        <item name="android:textColor">@color/onSurfaceDark</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/onPrimary</item>
     </style>
 
     <style name="myAddButtonLarge" parent="myAddButton">
@@ -279,7 +279,7 @@
     <style name="myFormEditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextColor">@color/colorGray</item>
         <item name="boxStrokeColor">@color/accent</item>
-        <item name="android:backgroundTint">@color/colorAppBackground</item>
+        <item name="android:backgroundTint">@color/surface</item>
     </style>
 
     <style name="myFormEditTextLarge" parent="myFormEditText">
