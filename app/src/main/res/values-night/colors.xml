@@ -6,38 +6,20 @@
     <color name="accent">#6A5595</color>
     <color name="onPrimary">#E0E0E0</color>
 
-    <color name="colorAppBackground">#1E2128</color>
     <color name="surface">#272B33</color>
     <color name="onSurface">#DEDCE5</color>
     <color name="surfaceDark">#2D2443</color>
     <color name="onSurfaceDark">#D1CBE5</color>
+
+    <color name="colorAppBackground">#1E2128</color>
 
     <color name="colorGreen">#5C9B5B</color>
     <color name="colorYellow">#B89F4C</color>
     <color name="colorRed">#753A30</color>
     <color name="colorGray">#606060</color>
 
-    <color name="colorLightBlue">#358FAB</color>
-
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBlack">#000000</color>
     <color name="transparent">#00000000</color>
-
-    <color name="colorToolbarText">@color/colorWhite</color>
-    <color name="colorGrayText">#878282</color>
-    <color name="colorText">@color/onSurfaceDark</color>
-
-    <color name="colorIcon">#333333</color>
+    <color name="colorText">@color/onSurface</color>
+    <color name="colorIcon">@color/colorAppBackground</color>
     <color name="colorIconAddDialog">@color/onSurfaceDark</color>
-    <color name="colorTitle">@color/surfaceDark</color>
-    <color  name="colorButtonDialog">@color/accent</color>
-    <color name="colorOnBoardingButtonBackground">@color/primary</color>
-    <color name="colorOnBoardingButtonText">@color/colorWhite</color>
-    <color name="colorIGListText">@color/colorWhite</color>
-    <color name="colorMeasurement">@color/accent</color>
-    <color name="colorLinks">@color/accent</color>
-    <color name="primaryTextButtonColor">@color/accent</color>
-    <color name="colorMeasurementBackground">@color/colorAppBackground</color>
-    <color name="secondaryTextButtonColor">@color/surfaceDark</color>
-
 </resources>

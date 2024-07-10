@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_collapseMode="pin"
             app:popupTheme="@style/AppTheme.AppBarOverlay"
-            app:titleTextColor="@color/colorToolbarText"/>
+            app:titleTextColor="@color/onPrimary"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

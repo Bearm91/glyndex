@@ -18,29 +18,12 @@
     <color name="colorRed">#B35242</color>
     <color name="colorGray">#7B708A</color>
 
-    <color name="colorLightGray">#f1f2f4</color>
-    <color name="colorLightBlue">@color/accent</color>
-
-    <color name="colorBlack">#000000</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack"></color>
     <color name="transparent">#00000000</color>
 
-    <color name="colorToolbarText">@color/colorWhite</color>
-    <color name="colorGrayText">#878282</color>
-    <color name="colorText">#1B1132</color>
-
-    <color name="colorIcon">@color/colorBlack</color>
+    <color name="colorText">@color/onSurface</color>
+    <color name="colorIcon">#000000</color>
     <color name="colorIconAddDialog">@color/onSurface</color>
-    <color name="colorTitle">@color/primaryDark</color>
-    <color name="colorTextToolbar">@color/colorWhite</color>
-    <color name="colorButtonDialog">@color/primary</color>
-    <color name="colorOnBoardingButtonBackground">@color/primary</color>
-    <color name="colorOnBoardingButtonText">@color/colorWhite</color>
-    <color name="colorIGListText">@color/colorWhite</color>
-    <color name="colorMeasurement">@color/surface</color>
-    <color name="colorLinks">@color/colorLightBlue</color>
-    <color name="primaryTextButtonColor">@color/surface</color>
-    <color name="secondaryTextButtonColor">@color/primary</color>
-    <color name="colorMeasurementBackground">@color/colorAppBackground</color>
+
 
 </resources>

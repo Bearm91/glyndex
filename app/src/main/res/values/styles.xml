@@ -10,12 +10,12 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:actionMenuTextColor">@color/colorTextToolbar</item>
+        <item name="android:actionMenuTextColor">@color/onPrimary</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="AppTheme">
         <item name="android:textSize">12sp</item>
-        <item name="android:actionMenuTextColor">@color/colorTextToolbar</item>
+        <item name="android:actionMenuTextColor">@color/onPrimary</item>
     </style>
 
     <style name="AppTheme.AppBarOverlayLarge" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
@@ -76,7 +76,7 @@
         <item name="android:padding">4dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/colorText</item>
-        <item name="android:backgroundTint">@color/colorMeasurementBackground</item>
+        <item name="android:backgroundTint">@color/colorAppBackground</item>
     </style>
 
     <style name="MeasurementListLarge" parent="MeasurementList">
@@ -174,7 +174,7 @@
         <item name="android:paddingLeft">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingRight">10dp</item>
-        <item name="android:textColor">@color/colorLinks</item>
+        <item name="android:textColor">@color/accent</item>
     </style>
 
     <style name="myAboutInfoLinkLarge" parent="myAboutInfoLink">
@@ -239,7 +239,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingLeft">10dp</item>
-        <item name="android:textColor">@color/colorLightBlue</item>
+        <item name="android:textColor">@color/accent</item>
     </style>
 
     <style name="mySecondaryButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
