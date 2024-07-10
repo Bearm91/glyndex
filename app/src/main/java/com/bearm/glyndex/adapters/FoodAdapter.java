@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,14 +55,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
         //Glycemic index
         Integer currentFoodGI = currentFood.getGI();
+        String ig = context.getString(R.string.ig_title);
+
         if (currentFoodGI == null) {
-            holder.myIGView.setText("-");
+            holder.myIGView.setText(ig.concat(" -"));
         } else {
-            holder.myIGView.setText(String.valueOf(currentFoodGI));
+            holder.myIGView.setText(ig.concat(String.valueOf(currentFoodGI)));
         }
 
         //Glycemic index color
-        holder.myIGView.setBackgroundColor(DetailsHelper.getIGColor(context, currentFoodGI));
+        holder.myIGColorView.setBackgroundColor(DetailsHelper.getIGColor(context, currentFoodGI));
     }
 
     // total number of cells
@@ -76,14 +77,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myNameView;
+        TextView myIGColorView;
         TextView myIGView;
         CardView myCardView;
 
         ViewHolder(View itemView) {
             super(itemView);
             myNameView = itemView.findViewById(R.id.tv_food_name);
-            myIGView = itemView.findViewById(R.id.tv_food_ig);
+            myIGColorView = itemView.findViewById(R.id.tv_food_ig_color);
             myCardView = itemView.findViewById(R.id.cv_food_item);
+            myIGView = itemView.findViewById(R.id.tv_food_ig_value);
             itemView.setOnClickListener(v -> {
                 if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
             });

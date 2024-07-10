@@ -45,7 +45,8 @@
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">@dimen/text_size_food_list_item_name</item>
         <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+
     </style>
 
     <style name="FoodListNameLarge" parent="FoodListName">

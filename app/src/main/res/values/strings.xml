@@ -103,4 +103,5 @@
     <string name="delete_title_dialog">Confirm delete</string>
     <string name="not_valid_field_zero_error">The value needs to be higher than 0</string>
     <string name="food_form_save_unknown_error">Something went wrong. Please, try again.</string>
+    <string name="food_custom_icon">Icon that indicates that que food item is custom and was created or edited by the user.</string>
 </resources>

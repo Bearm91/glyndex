@@ -102,4 +102,5 @@
     <string name="delete_title_dialog">Confirmar borrado</string>
     <string name="not_valid_field_zero_error">El valor debe ser mayor a 0</string>
     <string name="food_form_save_unknown_error">Algo salió mal. Por favor, vuelve a intentarlo.</string>
+    <string name="food_custom_icon">Icono que indica que este alimento fue creado o editado por el usuario.</string>
 </resources>
