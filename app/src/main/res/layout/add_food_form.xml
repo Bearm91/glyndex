@@ -83,7 +83,7 @@
                     android:id="@+id/ti_event_gi"
                     style="@style/myFormEditText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="8"
                     android:hint="@string/food_gi_field"
                     app:errorEnabled="true">
@@ -95,17 +95,18 @@
                         android:drawableStart="@drawable/ic_gi"
                         android:drawablePadding="@dimen/drawablePadding_form_icons"
                         android:inputType="number"
+                        android:layout_gravity="center_vertical"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/checkbox_unknown_gi"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
                     android:checkMark="@style/TextAppearance.AppCompat.Large"
                     android:checked="true"
-                    android:text="@string/unknown" />
+                    android:text="@string/unknown"
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout

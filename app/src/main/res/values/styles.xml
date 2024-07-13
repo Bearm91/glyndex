@@ -101,7 +101,7 @@
 
     <style name="DetailsMainTitle">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/onSurfaceDark</item>
+        <item name="android:textColor">@color/onSurface</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">22sp</item>
         <item name="android:layout_margin">16dp</item>
@@ -125,7 +125,7 @@
     <style name="DetailsInfo">
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColor">@color/onSurface</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -196,7 +196,16 @@
 
     <style name="myAbout" parent= "ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="android:background">@color/surface</item>
-        <item name="android:colorAccent">@color/onSurface</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/accent</item>
     </style>
 
     <style name="GIInfoTitle" parent="GIInfo">

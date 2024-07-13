@@ -3,7 +3,7 @@
     <color name="primary">#48396A</color>
     <color name="primaryDark">#504768</color>
     <color name="primaryLight">#3D2F60</color>
-    <color name="accent">#6A5595</color>
+    <color name="accent">#66AD65</color>
     <color name="onPrimary">#E0E0E0</color>
 
     <color name="surface">#272B33</color>
@@ -13,10 +13,10 @@
 
     <color name="colorAppBackground">#1E2128</color>
 
-    <color name="colorGreen">#5C9B5B</color>
-    <color name="colorYellow">#B89F4C</color>
-    <color name="colorRed">#753A30</color>
-    <color name="colorGray">#606060</color>
+    <color name="colorGreen">#66AD65</color>
+    <color name="colorYellow">#D4B85F</color>
+    <color name="colorRed">#B35242</color>
+    <color name="colorGray">#E8E2F2</color>
 
     <color name="transparent">#00000000</color>
     <color name="colorText">@color/onSurface</color>
