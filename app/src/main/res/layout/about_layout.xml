@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/development"
+            android:text="@string/the_app_about_title"
             style="@style/myAboutTitle"/>
 
         <LinearLayout
@@ -23,18 +23,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_app_version"
-                style="@style/myAboutInfo"
+                style="@style/GIInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_current_version" />
+                android:text="@string/about_this_app" />
+
+
+            <TextView
+                android:id="@+id/tv_app_version"
+                style="@style/GIInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="@string/about_current_version"/> />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/support"
+            android:text="@string/about_info_support"
             style="@style/myAboutTitle"/>
 
         <LinearLayout
@@ -44,13 +52,7 @@
             android:paddingBottom="6dp">
 
             <TextView
-                style="@style/myAboutInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about_info_support" />
-
-            <TextView
-                style="@style/myAboutInfoLink"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_about_support_contact"/>
@@ -71,7 +73,7 @@
 
             <TextView
                 android:id="@+id/gi_source"
-                style="@style/myAboutInfo"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/info_source_main_about"
@@ -92,7 +94,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/myAboutInfo"
+                style="@style/GIInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_icons" />
@@ -102,12 +104,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_info_icons_1" />
-
-            <TextView
-                style="@style/myAboutInfoLink"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about_info_icons_2" />
 
         </LinearLayout>
 

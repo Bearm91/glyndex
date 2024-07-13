@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,7 +37,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.food_list_item, parent, false);
+        View view = mInflater.inflate(R.layout.food_list_item_2, parent, false);
         return new ViewHolder(view);
     }
 
@@ -48,9 +50,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         holder.myNameView.setText(currentFood.getName());
 
         if (!currentFood.isCustom()) {
-            holder.myNameView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+            holder.myCustomView.setVisibility(View.INVISIBLE);
         } else {
-            holder.myNameView.setCompoundDrawablesWithIntrinsicBounds(null,null,context.getDrawable(R.drawable.ic_person),null);
+            holder.myCustomView.setVisibility(View.VISIBLE);
         }
 
         //Glycemic index
@@ -65,6 +67,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
         //Glycemic index color
         holder.myIGColorView.setBackgroundColor(DetailsHelper.getIGColor(context, currentFoodGI));
+        holder.myLinearLayout.setBackgroundColor(DetailsHelper.getIGBackgroundColor(context, currentFoodGI));
     }
 
     // total number of cells
@@ -80,6 +83,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         TextView myIGColorView;
         TextView myIGView;
         CardView myCardView;
+        LinearLayout myLinearLayout;
+        ImageView myCustomView;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -87,6 +92,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             myIGColorView = itemView.findViewById(R.id.tv_food_ig_color);
             myCardView = itemView.findViewById(R.id.cv_food_item);
             myIGView = itemView.findViewById(R.id.tv_food_ig_value);
+            myLinearLayout = itemView.findViewById(R.id.ll_food_item);
+            myCustomView = itemView.findViewById(R.id.iv_custom);
             itemView.setOnClickListener(v -> {
                 if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
             });

@@ -18,6 +18,11 @@
     <color name="colorRed">#B35242</color>
     <color name="colorGray">#BDBDBD</color>
 
+    <color name="colorGreenBackground">#1566AD65</color>
+    <color name="colorYellowBackground">#15D4B85F</color>
+    <color name="colorRedBackground">#15B35242</color>
+    <color name="colorGrayBackground">#15BDBDBD</color>
+
     <color name="transparent">#00000000</color>
 
     <color name="colorText">#1B1132</color>

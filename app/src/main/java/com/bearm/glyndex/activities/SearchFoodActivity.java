@@ -34,7 +34,6 @@ public class SearchFoodActivity extends AppCompatActivity {
         SearchView searchView = findViewById(R.id.sv_food);
 
         searchView.setVisibility(View.VISIBLE);
-        searchView.setQueryHint(getString(R.string.searchView_hint));
         loadSearchFoodList(null);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

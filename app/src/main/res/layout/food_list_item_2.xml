@@ -40,17 +40,17 @@
                     android:id="@+id/tv_food_ig_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tool:text="35"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:padding="2dp"/>
+                    tool:text="IG: 35"
+                    style="@style/FoodListIGText"/>
 
             </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_food_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/colorGreenBackground">
 
             <ImageView
                 android:id="@+id/iv_custom"
@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:contentDescription="@string/food_custom_icon"
-                android:visibility="invisible"
+                android:visibility="visible"
                 app:srcCompat="@drawable/ic_person"
                 android:padding="10dp"/>
         </LinearLayout>

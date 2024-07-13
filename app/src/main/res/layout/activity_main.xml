@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_action_search_white"
         android:contentDescription="@string/search_button_content_description"
-        app:tint="@color/onPrimary"
+        app:tint="@color/colorIcon"
         app:backgroundTint="@color/accent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

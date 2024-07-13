@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/tv_food_ig_color"
-            style="@style/FoodListIG"
+            style="@style/FoodListIGLarge"
             android:layout_width="20dp"
             android:layout_height="match_parent" />
 
@@ -30,9 +30,9 @@
 
                 <TextView
                     android:id="@+id/tv_food_name"
-                    style="@style/FoodListName"
+                    style="@style/FoodListNameLarge"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     tool:text="Garbanzos"
                     android:layout_weight="0.1"/>
 
@@ -40,17 +40,16 @@
                     android:id="@+id/tv_food_ig_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tool:text="35"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:padding="2dp"/>
+                    tool:text="35"/>
 
             </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_food_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/colorGreenBackground">
 
             <ImageView
                 android:id="@+id/iv_custom"
@@ -58,7 +57,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:contentDescription="@string/food_custom_icon"
-                android:visibility="invisible"
+                android:visibility="visible"
                 app:srcCompat="@drawable/ic_person"
                 android:padding="10dp"/>
         </LinearLayout>

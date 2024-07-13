@@ -23,6 +23,19 @@ public class DetailsHelper {
         return colorId;
     }
 
+    public static int getIGBackgroundColor(Context context, Integer currentFoodGI) {
+        int colorId = ContextCompat.getColor(context, R.color.colorYellowBackground);
+
+        if (currentFoodGI == null) {
+            colorId = ContextCompat.getColor(context, R.color.colorGrayBackground);
+        } else if (currentFoodGI <= 55) {
+            colorId = ContextCompat.getColor(context, R.color.colorGreenBackground);
+        } else if (currentFoodGI >= 70) {
+            colorId = ContextCompat.getColor(context, R.color.colorRedBackground);
+        }
+        return colorId;
+    }
+
     //Verify that the fields of the form are not empty
     public static boolean verifyFields(Context context, TextInputEditText measurementNameInput, TextInputEditText measurementQuantityInput) {
         boolean valid = false;

@@ -10,7 +10,9 @@ android {
         minSdkVersion 30
         targetSdkVersion 35
         versionCode 18
-        versionName "2.9"
+        println "Version Name from properties: ${project.properties["version.name"]}"
+        resValue "string", "app_version", project.properties["version.name"]
+        versionName project.properties["version.name"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {

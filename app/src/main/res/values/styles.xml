@@ -54,15 +54,21 @@
     </style>
 
     <style name="FoodListIG">
-        <item name="android:layout_weight">0.14</item>
-        <item name="android:textSize">@dimen/text_size_food_list_item_ig</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_width">0dp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/onSurface</item>
         <item name="android:gravity">center_horizontal|center_vertical</item>
         <item name="android:background">@color/colorGreen</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+    <style name="FoodListIGText">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:textColor">@color/onSurface</item>
+
     </style>
 
     <style name="FoodListIGLarge"  parent="FoodListIG">
@@ -160,14 +166,6 @@
     <style name="category_list_title_large" parent="category_list_title">
         <item name="android:textSize">30sp</item>
         <item name="android:padding">30dp</item>
-    </style>
-
-    <style name="myAboutInfo" parent= "GIInfo">
-        <item name="android:drawableStart">@drawable/ic_right_arrow</item>
-    </style>
-
-    <style name="myAboutInfoLarge" parent= "GIInfoLarge">
-        <item name="android:drawableStart">@drawable/ic_right_arrow</item>
     </style>
 
     <style name="myAboutInfoLink">

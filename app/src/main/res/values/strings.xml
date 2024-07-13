@@ -10,7 +10,7 @@
     <string name="details_measurement_table_header_quantity">Amount</string>
     <string name="details_measurement_table_header_ch">Carbohydrates</string>
     <string name="category_title">Category</string>
-    <string name="ig_title">GI:</string>
+    <string name="ig_title">GI: </string>
     <string name="chrations_title">HC Ration (10g)</string>
     <string name="details_1chrations_example">200g</string>
     <string name="ig_example">20</string>
@@ -27,7 +27,8 @@
 
     <!-- About screen-->
     <string name="about_title">About Glyndex</string>
-    <string name="about_current_version">Version: 2.9</string>
+    <string name="current_version">@string/app_version</string>
+    <string name="about_current_version">@string/app_version</string>
     <string name="info_source_link"><u>www.fundaciondiabetes.org</u></string>
 
     <string name="about_info_icons">Icons:</string>
@@ -35,7 +36,7 @@
     <string name="about_info_icons_2">Freepik - www.flaticon.com</string>
 
     <string name="about_glyndex_menu_item">About Glyndex</string>
-    <string name="about_info_support">Contact:</string>
+    <string name="about_info_support">Contact</string>
 
 
     <!-- Info screen-->
@@ -104,4 +105,6 @@
     <string name="not_valid_field_zero_error">The value needs to be higher than 0</string>
     <string name="food_form_save_unknown_error">Something went wrong. Please, try again.</string>
     <string name="food_custom_icon">Icon that indicates that que food item is custom and was created or edited by the user.</string>
+    <string name="about_this_app">Glyndex was created to help you quickly find information about different foods, like their glycemic index.</string>
+    <string name="the_app_about_title">The app</string>
 </resources>
