@@ -22,4 +22,6 @@
     <color name="colorText">@color/onSurface</color>
     <color name="colorIcon">@color/colorAppBackground</color>
     <color name="colorIconAddDialog">@color/onSurfaceDark</color>
+    <color name="colorDialogButton">@color/accent</color>
+
 </resources>

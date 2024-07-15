@@ -28,6 +28,5 @@
     <color name="colorText">#1B1132</color>
     <color name="colorIcon">#000000</color>
     <color name="colorIconAddDialog">@color/onSurface</color>
-
-
+    <color name="colorDialogButton">@color/primary</color>
 </resources>
